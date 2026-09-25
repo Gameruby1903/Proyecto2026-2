@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Mst_Pruebas/Mst_Pruebas.csproj" Id="aa31d0ca-0d8e-4cc6-802b-667ca92913fc" />
+  <Project Path="Principal/Principal.csproj" Id="894ffff1-8f51-4f0d-9baf-66fbab1e8051" />
+  <Project Path="Principal_Restaurante/lib_aplicaciones.csproj" />
+</Solution>
