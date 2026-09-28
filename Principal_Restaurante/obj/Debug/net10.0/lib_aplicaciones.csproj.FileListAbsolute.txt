@@ -1,0 +1,14 @@
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\bin\Debug\net10.0\lib_aplicaciones.deps.json
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\bin\Debug\net10.0\lib_aplicaciones.dll
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\bin\Debug\net10.0\lib_aplicaciones.pdb
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.csproj.AssemblyReference.cache
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.AssemblyInfoInputs.cache
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.AssemblyInfo.cs
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.csproj.CoreCompileInputs.cache
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.sourcelink.json
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.dll
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\refint\lib_aplicaciones.dll
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.pdb
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\ref\lib_aplicaciones.dll
+C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_apli.7723F211.Up2Date

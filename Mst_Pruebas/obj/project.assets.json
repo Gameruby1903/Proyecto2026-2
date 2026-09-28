@@ -4011,23 +4011,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\luisl\\.nuget\\packages\\": {},
+    "C:\\Users\\USER\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\luisl\\Proyecto2026-2\\Mst_Pruebas\\Mst_Pruebas.csproj",
       "projectName": "Mst_Pruebas",
       "projectPath": "C:\\Users\\luisl\\Proyecto2026-2\\Mst_Pruebas\\Mst_Pruebas.csproj",
       "packagesPath": "C:\\Users\\luisl\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\luisl\\Proyecto2026-2\\Mst_Pruebas\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\USER\\Proyecto2026-2\\Mst_Pruebas\\Mst_Pruebas.csproj",
+      "projectName": "Mst_Pruebas",
+      "projectPath": "C:\\Users\\USER\\Proyecto2026-2\\Mst_Pruebas\\Mst_Pruebas.csproj",
+      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\USER\\Proyecto2026-2\\Mst_Pruebas\\obj\\",
+>>>>>>> 92d7cd4a843f1af85792a70470db0953f2ae4ee8
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\luisl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4043,8 +4051,13 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {
               "projectPath": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj"
+=======
+            "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {
+              "projectPath": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj"
+>>>>>>> 92d7cd4a843f1af85792a70470db0953f2ae4ee8
             }
           }
         }

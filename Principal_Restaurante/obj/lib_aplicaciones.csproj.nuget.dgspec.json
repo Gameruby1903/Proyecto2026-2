@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {}
   },
   "projects": {
@@ -12,12 +13,25 @@
         "projectPath": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj",
         "packagesPath": "C:\\Users\\luisl\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\obj\\",
+=======
+    "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj",
+        "projectName": "lib_aplicaciones",
+        "projectPath": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\obj\\",
+>>>>>>> 92d7cd4a843f1af85792a70470db0953f2ae4ee8
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\luisl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
