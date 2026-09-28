@@ -14,7 +14,7 @@ namespace Mst_Pruebas {
         public CategoriasPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=(localdb)\\MSSQLLocalDB;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -53,8 +53,9 @@ namespace Mst_Pruebas {
         {
             this.entidad!.Disponible = false;
 
-            var entry = this.conexion!.Entry<Categorias>(this.entidad);
-            entry.State = EntityState.Modified;
+            
+
+            this.conexion!.Categorias!.Update(this.entidad);
             this.conexion!.SaveChanges();
         }
 

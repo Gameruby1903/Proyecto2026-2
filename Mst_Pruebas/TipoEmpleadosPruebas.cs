@@ -13,7 +13,7 @@ namespace Mst_Pruebas {
         public TipoEmpleadosPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=(localdb)\\MSSQLLocalDB;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 

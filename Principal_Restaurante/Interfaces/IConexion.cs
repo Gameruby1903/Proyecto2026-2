@@ -31,7 +31,7 @@ namespace lib_aplicaciones.Interfaces
         DbSet<Turnos>? Turnos { get; set; }
         DbSet<Resenas>? Resenas { get; set; }
 
-        void SaveChanges();
+        int SaveChanges();
 
 
     }
