@@ -4011,23 +4011,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\luisl\\.nuget\\packages\\": {},
+    "C:\\Users\\Deiby Santiago Serna\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luisl\\Proyecto2026-2\\Mst_Pruebas\\Mst_Pruebas.csproj",
+      "projectUniqueName": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Mst_Pruebas\\Mst_Pruebas.csproj",
       "projectName": "Mst_Pruebas",
-      "projectPath": "C:\\Users\\luisl\\Proyecto2026-2\\Mst_Pruebas\\Mst_Pruebas.csproj",
-      "packagesPath": "C:\\Users\\luisl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\luisl\\Proyecto2026-2\\Mst_Pruebas\\obj\\",
+      "projectPath": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Mst_Pruebas\\Mst_Pruebas.csproj",
+      "packagesPath": "C:\\Users\\Deiby Santiago Serna\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Mst_Pruebas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\luisl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Deiby Santiago Serna\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4043,8 +4043,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {
-              "projectPath": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj"
+            "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {
+              "projectPath": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj"
             }
           }
         }
@@ -4364,13 +4364,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\luisl\\Proyecto2026-2\\Mst_Pruebas\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
-    }
-  ]
+  }
 }
