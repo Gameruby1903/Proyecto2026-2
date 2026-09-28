@@ -1,4 +1,4 @@
-CREATE DATABASE  Restaurante3
+CREATE DATABASE  Restaurante
 GO
 USE Restaurante
 GO
