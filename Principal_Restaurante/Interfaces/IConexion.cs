@@ -30,6 +30,10 @@ namespace lib_aplicaciones.Interfaces
         DbSet<DetalleCompras>? DetalleCompras { get; set; }
         DbSet<Turnos>? Turnos { get; set; }
         DbSet<Resenas>? Resenas { get; set; }
+
+        void SaveChanges();
+
+
     }
 }
 

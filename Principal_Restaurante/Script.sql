@@ -1,4 +1,4 @@
-CREATE DATABASE  Restaurante
+/*CREATE DATABASE  Restaurante
 GO
 USE Restaurante
 GO
@@ -166,7 +166,7 @@ CREATE TABLE [Resenas] (
     [Comentario] NVARCHAR(500) NULL,
     [Fecha] SMALLDATETIME NOT NULL
 );
-
+*/
 
 
  

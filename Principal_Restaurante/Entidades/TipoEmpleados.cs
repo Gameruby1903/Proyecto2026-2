@@ -7,7 +7,7 @@ namespace lib_aplicaciones.Entidades
     public class TipoEmpleados
     {
         public int Id { get; set; }
-        public string? nombre { get; set; }
+        public string? Nombre { get; set; }
         public decimal SalarioBase { get; set; }
 
      

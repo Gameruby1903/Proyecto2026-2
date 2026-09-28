@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal\\Principal.csproj": {}
+    "C:\\Users\\luisl\\Proyecto2026-2\\Principal\\Principal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal\\Principal.csproj": {
+    "C:\\Users\\luisl\\Proyecto2026-2\\Principal\\Principal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal\\Principal.csproj",
+        "projectUniqueName": "C:\\Users\\luisl\\Proyecto2026-2\\Principal\\Principal.csproj",
         "projectName": "Principal",
-        "projectPath": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal\\Principal.csproj",
-        "packagesPath": "C:\\Users\\Deiby Santiago Serna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal\\obj\\",
+        "projectPath": "C:\\Users\\luisl\\Proyecto2026-2\\Principal\\Principal.csproj",
+        "packagesPath": "C:\\Users\\luisl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luisl\\Proyecto2026-2\\Principal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Deiby Santiago Serna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luisl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,8 +33,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {
-                "projectPath": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj"
+              "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {
+                "projectPath": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj"
               }
             }
           }
@@ -349,20 +349,20 @@
         }
       }
     },
-    "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {
+    "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj",
+        "projectUniqueName": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj",
         "projectName": "lib_aplicaciones",
-        "projectPath": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj",
-        "packagesPath": "C:\\Users\\Deiby Santiago Serna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal_Restaurante\\obj\\",
+        "projectPath": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj",
+        "packagesPath": "C:\\Users\\luisl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Deiby Santiago Serna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luisl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
