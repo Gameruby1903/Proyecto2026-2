@@ -17,6 +17,6 @@ namespace lib_aplicaciones.Entidades
 
         public decimal Cantidad { get; set; }
         public decimal PrecioUni { get; set; }
-        public decimal Subtotal { get; set; }
+       
     }
 }

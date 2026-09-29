@@ -1,6 +1,6 @@
-CREATE DATABASE  Restaurante
+CREATE DATABASE  Restaurante3
 GO
-USE Restaurante
+USE Restaurante3
 GO
 
 CREATE TABLE [TipoEmpleados] (
@@ -167,6 +167,83 @@ CREATE TABLE [Resenas] (
     [Fecha] SMALLDATETIME NOT NULL
 );
 
+-- 1. Tablas independientes (sin claves foráneas)
+INSERT INTO [TipoEmpleados] ([Nombre], [SalarioBase]) VALUES
+('Administrador', 2500000.00),
+('Cajero', 1300000.00),
+('Mesero', 1300000.00);
 
+INSERT INTO [Sucursales] ([Nombre], [Direccion], [Telefono], [Ciudad]) VALUES
+('Sucursal Central', 'Calle 50 # 45-10', '6044445566', 'Medellín'),
+('Sucursal Poblado', 'Carrera 43A # 10-20', '6043332211', 'Medellín');
+
+INSERT INTO [Clientes] ([Nombre], [Cedula], [Telefono], [Email]) VALUES
+('Carlos Mendoza', '1017123456', '3001234567', 'carlos.mendoza@email.com'),
+('Ana María Gómez', '1020987654', '3109876543', 'ana.gomez@email.com');
+
+INSERT INTO [Categorias] ([Nombre], [Descripcion], [Disponible], [OrdenMenu]) VALUES
+('Bebidas', 'Refrescos, jugos y bebidas calientes', 1, 1),
+('Platos Fuertes', 'Especialidades de la casa y carnes', 1, 2);
+
+INSERT INTO [Mesas] ([Numero], [Capacidad], [Estado], [Ubicacion]) VALUES
+(1, 4, 1, 'Terraza'),
+(2, 2, 1, 'Salón Principal');
+
+INSERT INTO [MetodoPagos] ([Tipo], [Descripcion]) VALUES
+('Efectivo', 'Pago en billetes/monedas'),
+('Tarjeta', 'Tarjeta de crédito o débito');
+
+INSERT INTO [Proveedores] ([Nombre], [Telefono], [Email], [Direccion]) VALUES
+('Distribuidora Avícola S.A.', '3120001122', 'ventas@avicola.com', 'Carrera 65 # 30-12'),
+('Lácteos del Campo', '3159998877', 'contacto@lacteos.com', 'Calle 10 # 20-30');
+
+-- 2. Tablas dependientes de nivel 1
+INSERT INTO [Empleados] ([Nombre], [Cedula], [Telefono], [FechaContratacion], [TipoEmpleado], [Sucursal]) VALUES
+('Santiago Serna', '35456', '232131', '2026-01-15 08:00', 1, 1),
+('Laura Restrepo', '1035444333', '3015554433', '2026-02-01 08:00', 3, 1);
+
+INSERT INTO [Productos] ([Nombre], [Descripcion], [Precio], [Disponible], [Categoria]) VALUES
+('Hamburguesa Artesanal', 'Carne 200g, queso cheddar y tocineta', 28000.00, 1, 2),
+('Jugo Natural de Lulo', 'En agua o leche 500ml', 8000.00, 1, 1);
+
+INSERT INTO [Ingredientes] ([Nombre], [UniMedida], [CostoUni], [Proveedor]) VALUES
+('Carne Molida Premium', 'Kg', 18000.00, 1),
+('Queso Cheddar', 'Kg', 22000.00, 2);
+
+INSERT INTO [Compras] ([Proveedor], [Fecha], [Total], [Estado]) VALUES
+(1, '2026-03-01 09:00', 180000.00, 'Completado');
+
+-- 3. Tablas dependientes de nivel 2
+INSERT INTO [Pedidos] ([Fecha], [Cliente], [Mesa], [Empleado], [Estado]) VALUES
+('2026-03-29 12:30', 1, 1, 2, 'Atendido');
+
+INSERT INTO [Reservas] ([Cliente], [Mesa], [FechaHora], [NPersonas], [Estado]) VALUES
+(2, 2, '2026-03-30 19:00', 2, 'Confirmada');
+
+INSERT INTO [RecetaIngredientes] ([Producto], [Ingrediente], [CantiReque], [Notas]) VALUES
+(1, 1, 0.20, 'Porción de carne por hamburguesa'),
+(1, 2, 0.05, 'Una tajada de queso cheddar');
+
+INSERT INTO [Inventarios] ([Ingrediente], [CantDisponible], [CantMinima], [UltimaActu]) VALUES
+(1, 15.50, 5.00, '2026-03-29 08:00'),
+(2, 8.00, 2.00, '2026-03-29 08:00');
+
+INSERT INTO [DetalleCompras] ([Ingrediente], [Compra], [Cantidad], [PrecioUni]) VALUES
+(1, 1, 10.00, 18000.00);
+
+INSERT INTO [Turnos] ([Empleado], [FechaInicio], [FechaFin], [Nombre]) VALUES
+(1, '2026-03-29 08:00', '2026-03-29 16:00', 'Turno Mañana'),
+(2, '2026-03-29 12:00', '2026-03-29 20:00', 'Turno Tarde');
+
+-- 4. Tablas dependientes de nivel 3
+INSERT INTO [DetallePedidos] ([Pedido], [Producto], [Cantidad], [PrecioUni]) VALUES
+(1, 1, 2, 28000.00),
+(1, 2, 2, 8000.00);
+
+INSERT INTO [Facturas] ([Pedido], [FechaEmi], [Subtotal], [Impuesto], [Total], [MetodoPago]) VALUES
+(1, '2026-03-29 13:15', 62000.00, 11160.00, 73160.00, 2);
+
+INSERT INTO [Resenas] ([Cliente], [Producto], [Calificacion], [Comentario], [Fecha]) VALUES
+(1, 1, 5, 'Excelente sabor y cocción de la carne.', '2026-03-29 14:00');
 
  

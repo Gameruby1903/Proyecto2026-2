@@ -10,7 +10,7 @@ namespace lib_aplicaciones.Entidades
         public int Id { get; set; }
 
         public int Pedido { get; set; }
-        public Pedidos? _Pedido { get; set; }
+        [ForeignKey("Pedido")] public Pedidos? _Pedido { get; set; }
 
         public DateTime FechaEmi { get; set; }
         public decimal Subtotal { get; set; }

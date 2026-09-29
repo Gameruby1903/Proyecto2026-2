@@ -12,3 +12,17 @@ C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\refint\lib
 C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.pdb
 C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\ref\lib_aplicaciones.dll
 C:\Users\luisl\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_apli.7723F211.Up2Date
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\bin\Debug\net10.0\lib_aplicaciones.deps.json
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\bin\Debug\net10.0\lib_aplicaciones.dll
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\bin\Debug\net10.0\lib_aplicaciones.pdb
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.csproj.AssemblyReference.cache
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.AssemblyInfoInputs.cache
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.AssemblyInfo.cs
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.csproj.CoreCompileInputs.cache
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.sourcelink.json
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.dll
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\refint\lib_aplicaciones.dll
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_aplicaciones.pdb
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\ref\lib_aplicaciones.dll
+C:\Users\Deiby Santiago Serna\Proyecto2026-2\Principal_Restaurante\obj\Debug\net10.0\lib_apli.7723F211.Up2Date

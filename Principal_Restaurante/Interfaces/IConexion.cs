@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using lib_aplicaciones.Entidades;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using lib_aplicaciones.Entidades;
 
 namespace lib_aplicaciones.Interfaces
 {
@@ -30,6 +31,8 @@ namespace lib_aplicaciones.Interfaces
         DbSet<DetalleCompras>? DetalleCompras { get; set; }
         DbSet<Turnos>? Turnos { get; set; }
         DbSet<Resenas>? Resenas { get; set; }
+        EntityEntry<T> Entry<T>(T entity) where T : class;
+        int SaveChanges();
     }
 }
 
