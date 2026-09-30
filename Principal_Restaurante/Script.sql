@@ -1,4 +1,6 @@
+
 CREATE DATABASE  Restaurante3
+
 GO
 USE Restaurante3
 GO
@@ -167,11 +169,13 @@ CREATE TABLE [Resenas] (
     [Fecha] SMALLDATETIME NOT NULL
 );
 
+
 -- 1. Tablas independientes (sin claves foráneas)
 INSERT INTO [TipoEmpleados] ([Nombre], [SalarioBase]) VALUES
 ('Administrador', 2500000.00),
 ('Cajero', 1300000.00),
 ('Mesero', 1300000.00);
+
 
 INSERT INTO [Sucursales] ([Nombre], [Direccion], [Telefono], [Ciudad]) VALUES
 ('Sucursal Central', 'Calle 50 # 45-10', '6044445566', 'Medellín'),

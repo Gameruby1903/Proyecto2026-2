@@ -5,16 +5,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Mst_Pruebas { 
     [TestClass]
-    public class SucursalesPruebas3
+    public class SucursalesPruebas
     {
         private IConexion conexion;
         private Sucursales? entidad;
 
-        public SucursalesPruebas3()
+        public SucursalesPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=(localdb)\\MSSQLLocalDB;database=Restaurante3;Integrated Security=True" +
+
+            conexion.StringConexion = "server=(localdb)\\MSSQLLocalDB;database=Restaurante3;Integrated Security=True;"  +
                 ";TrustServerCertificate=true;";
+
         }
 
         [TestMethod]
@@ -53,8 +55,9 @@ namespace Mst_Pruebas {
         {
             this.entidad!.Ciudad = " cali";
 
-            var entry = this.conexion!.Entry<Sucursales>(this.entidad);
-            entry.State = EntityState.Modified;
+            
+
+            this.conexion!.Sucursales!.Update(this.entidad);
             this.conexion!.SaveChanges();
         }
 

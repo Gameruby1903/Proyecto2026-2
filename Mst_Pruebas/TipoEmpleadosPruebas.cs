@@ -15,6 +15,7 @@ namespace Mst_Pruebas {
             this.conexion = new Conexion();
             conexion.StringConexion = "server=(localdb)\\MSSQLLocalDB;database=Restaurante3;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
+
         }
 
         [TestMethod]
@@ -30,7 +31,7 @@ namespace Mst_Pruebas {
         {
             entidad = new TipoEmpleados()
             {
-                nombre = "mesero",
+                Nombre = "mesero",
                 SalarioBase = 111
                 
             };
@@ -48,10 +49,9 @@ namespace Mst_Pruebas {
 
         private void Actualizar()
         {
-            this.entidad!.nombre = "mesero";
+            this.entidad!.Nombre = "mesero";
 
-            var entry = this.conexion!.Entry<TipoEmpleados>(this.entidad);
-            entry.State = EntityState.Modified;
+            this.conexion!.TipoEmpleados!.Update(this.entidad);
             this.conexion!.SaveChanges();
         }
 

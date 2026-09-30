@@ -5,18 +5,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Mst_Pruebas { 
     [TestClass]
-    public class EmpleadosPruebas3
+    public class EmpleadosPruebas
     {
         private IConexion conexion;
         private Empleados? entidad;
 
-        public EmpleadosPruebas3()
+        public EmpleadosPruebas()
         {
             this.conexion = new Conexion();
+
             conexion.StringConexion = "server=(localdb)\\MSSQLLocalDB;database=Restaurante3;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
-        }
 
+        }
         [TestMethod]
         public void Ejecutar()
         {
@@ -35,7 +36,7 @@ namespace Mst_Pruebas {
                 Telefono = "232131",
                 FechaContratacion = DateTime.Now,
                 TipoEmpleado = 1,
-                Sucursal = 2
+                Sucursal = 1
 
                
             };
@@ -55,8 +56,7 @@ namespace Mst_Pruebas {
         {
             this.entidad!.Nombre = "samuel";
 
-            var entry = this.conexion!.Entry<Empleados>(this.entidad);
-            entry.State = EntityState.Modified;
+            this.conexion!.Empleados!.Update(this.entidad);
             this.conexion!.SaveChanges();
         }
 
