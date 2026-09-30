@@ -168,7 +168,8 @@ CREATE TABLE [Resenas] (
     [Comentario] NVARCHAR(500) NULL,
     [Fecha] SMALLDATETIME NOT NULL
 );
-
+use Restaurante;
+GO
 
 -- 1. Tablas independientes (sin claves foráneas)
 INSERT INTO [TipoEmpleados] ([Nombre], [SalarioBase]) VALUES
@@ -203,12 +204,12 @@ INSERT INTO [Proveedores] ([Nombre], [Telefono], [Email], [Direccion]) VALUES
 
 -- 2. Tablas dependientes de nivel 1
 INSERT INTO [Empleados] ([Nombre], [Cedula], [Telefono], [FechaContratacion], [TipoEmpleado], [Sucursal]) VALUES
-('Santiago Serna', '35456', '232131', '2026-01-15 08:00', 1, 1),
-('Laura Restrepo', '1035444333', '3015554433', '2026-02-01 08:00', 3, 1);
+('Santiago Serna', '35456', '232131', '2026-01-15 08:00', 15, 15),
+('Laura Restrepo', '1035444333', '3015554433', '2026-02-01 08:00', 14, 14);
 
 INSERT INTO [Productos] ([Nombre], [Descripcion], [Precio], [Disponible], [Categoria]) VALUES
-('Hamburguesa Artesanal', 'Carne 200g, queso cheddar y tocineta', 28000.00, 1, 2),
-('Jugo Natural de Lulo', 'En agua o leche 500ml', 8000.00, 1, 1);
+('Hamburguesa Artesanal', 'Carne 200g, queso cheddar y tocineta', 28000.00, 1, 19),
+('Jugo Natural de Lulo', 'En agua o leche 500ml', 8000.00, 1, 13);
 
 INSERT INTO [Ingredientes] ([Nombre], [UniMedida], [CostoUni], [Proveedor]) VALUES
 ('Carne Molida Premium', 'Kg', 18000.00, 1),
@@ -218,8 +219,8 @@ INSERT INTO [Compras] ([Proveedor], [Fecha], [Total], [Estado]) VALUES
 (1, '2026-03-01 09:00', 180000.00, 'Completado');
 
 -- 3. Tablas dependientes de nivel 2
-INSERT INTO [Pedidos] ([Fecha], [Cliente], [Mesa], [Empleado], [Estado]) VALUES
-('2026-03-29 12:30', 1, 1, 2, 'Atendido');
+INSERT INTO [Pedidos] ([Fecha], [Cliente], [Mesa], [Empleado], [Estado])
+VALUES ('2026-03-29 12:30', 7, 7, 23, 'Atendido');
 
 INSERT INTO [Reservas] ([Cliente], [Mesa], [FechaHora], [NPersonas], [Estado]) VALUES
 (2, 2, '2026-03-30 19:00', 2, 'Confirmada');
@@ -250,4 +251,63 @@ INSERT INTO [Facturas] ([Pedido], [FechaEmi], [Subtotal], [Impuesto], [Total], [
 INSERT INTO [Resenas] ([Cliente], [Producto], [Calificacion], [Comentario], [Fecha]) VALUES
 (1, 1, 5, 'Excelente sabor y cocción de la carne.', '2026-03-29 14:00');
 
- 
+
+SELECT * FROM TipoEmpleados;
+GO
+
+SELECT * FROM Sucursales;
+GO
+
+SELECT * FROM Empleados;
+GO
+
+SELECT * FROM Clientes;
+GO
+
+SELECT * FROM Categorias;
+GO
+
+SELECT * FROM Productos;
+GO
+
+SELECT * FROM Mesas;
+GO
+
+SELECT * FROM Pedidos;
+GO
+
+SELECT * FROM DetallePedidos;
+GO
+
+SELECT * FROM MetodoPagos;
+GO
+
+SELECT * FROM Facturas;
+GO
+
+SELECT * FROM Reservas;
+GO
+
+SELECT * FROM Proveedores;
+GO
+
+SELECT * FROM Ingredientes;
+GO
+
+SELECT * FROM RecetaIngredientes;
+GO
+
+SELECT * FROM Inventarios;
+GO
+
+SELECT * FROM Compras;
+GO
+
+SELECT * FROM DetalleCompras;
+GO
+
+SELECT * FROM Turnos;
+GO
+
+SELECT * FROM Resenas;
+GO
