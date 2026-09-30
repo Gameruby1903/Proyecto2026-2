@@ -1,8 +1,8 @@
 
-CREATE DATABASE  Restaurante3
+CREATE DATABASE  Restaurante
 
 GO
-USE Restaurante3
+USE Restaurante
 GO
 
 CREATE TABLE [TipoEmpleados] (
