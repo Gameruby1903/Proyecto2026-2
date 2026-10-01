@@ -14,7 +14,7 @@ namespace Mst_Pruebas {
         {
             this.conexion = new Conexion();
 
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
 
         }
@@ -35,8 +35,8 @@ namespace Mst_Pruebas {
                 Cedula = "35456",
                 Telefono = "232131",
                 FechaContratacion = DateTime.Now,
-                TipoEmpleado = 16,
-                Sucursal = 19
+                TipoEmpleado = 1,
+                Sucursal = 1
 
                
             };

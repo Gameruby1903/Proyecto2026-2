@@ -17,7 +17,7 @@ namespace Mst_Pruebas
         public DetallePedidosPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -35,8 +35,8 @@ namespace Mst_Pruebas
             entidad = new DetallePedidos()
             {
 
-                Pedido = 12,
-                Producto = 10,
+                Pedido = 1,
+                Producto = 1,
                 Cantidad = 1,
                 PrecioUni = 45454
             };

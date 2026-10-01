@@ -16,7 +16,7 @@ namespace Mst_Pruebas
         public FacturasPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -34,12 +34,12 @@ namespace Mst_Pruebas
             entidad = new Facturas()
             {
 
-                Pedido = 12,
+                Pedido = 1,
                 FechaEmi = DateTime.Now,
                 Subtotal = 564,
                 Impuesto = 5574454,
                 Total = 4455,
-                MetodoPago = 9
+                MetodoPago = 1
             };
 
             this.conexion.Facturas!.Add(this.entidad!);

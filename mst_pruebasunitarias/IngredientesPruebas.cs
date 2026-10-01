@@ -15,7 +15,7 @@ namespace Mst_Pruebas
         public IngredientesPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -36,7 +36,7 @@ namespace Mst_Pruebas
                 Nombre = "arroz",
                 UniMedida = "1onz",
                 CostoUni = 6554,
-                Proveedor = 10
+                Proveedor = 1
             };
 
             this.conexion.Ingredientes!.Add(this.entidad!);

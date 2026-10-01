@@ -17,7 +17,7 @@ namespace Mst_Pruebas
         public PedidosPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -35,9 +35,9 @@ namespace Mst_Pruebas
             entidad = new Pedidos()
             {
                 Fecha = DateTime.Now,
-                Cliente = 8,
-                Mesa = 11,
-                Empleado = 23,
+                Cliente = 1,
+                Mesa = 3,
+                Empleado = 1,
                 Estado = "entregado"
             };
 

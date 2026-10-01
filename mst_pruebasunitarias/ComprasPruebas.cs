@@ -15,7 +15,7 @@ namespace Mst_Pruebas
         public ComprasPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -34,7 +34,7 @@ namespace Mst_Pruebas
             entidad = new Compras()
             {
 
-                Proveedor = 5,
+                Proveedor = 1,
                 Fecha = DateTime.Now,
                 Total = 5454545,
                 Estado = "pendiente"

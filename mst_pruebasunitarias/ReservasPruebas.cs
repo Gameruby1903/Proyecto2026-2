@@ -15,7 +15,7 @@ namespace Mst_Pruebas
         public ReservasPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -33,8 +33,8 @@ namespace Mst_Pruebas
             entidad = new Reservas()
             {
 
-                Cliente = 12,
-                Mesa = 12,
+                Cliente = 1,
+                Mesa = 1,
                 FechaHora = DateTime.Now,
                 NPersonas = 4,
                 Estado = "disponible"

@@ -15,7 +15,7 @@ namespace Mst_Pruebas
         public TurnosPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -33,7 +33,7 @@ namespace Mst_Pruebas
             entidad = new Turnos()
             {
 
-                Empleado = 23,
+                Empleado = 1,
                 FechaInicio = DateTime.Now,
                 FechaFin = DateTime.Now,
                 Nombre = "sebas"

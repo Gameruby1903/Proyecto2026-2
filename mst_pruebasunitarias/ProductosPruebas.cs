@@ -15,7 +15,7 @@ namespace Mst_Pruebas
         public ProductosPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -37,7 +37,7 @@ namespace Mst_Pruebas
                 Descripcion = "malo",
                 Precio = 5645,
                 Disponible = true,
-                Categoria = 18
+                Categoria = 1
             };
 
             this.conexion.Productos!.Add(this.entidad!);

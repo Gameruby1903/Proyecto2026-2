@@ -15,7 +15,7 @@ namespace Mst_Pruebas
         public RecetaIngredientesPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -33,8 +33,8 @@ namespace Mst_Pruebas
             entidad = new RecetaIngredientes()
             {
 
-                Producto = 11,
-                Ingrediente = 6,
+                Producto = 1,
+                Ingrediente = 1,
                 CantiReque = 45,
                 Notas = "mucho"
             };

@@ -15,7 +15,7 @@ namespace Mst_Pruebas
         public InventariosPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -33,7 +33,7 @@ namespace Mst_Pruebas
             entidad = new Inventarios()
             {
 
-                Ingrediente = 7,
+                Ingrediente = 1,
                 CantDisponible = 12,
                 CantMinima = 10,
                 UltimaActu = DateTime.Now          

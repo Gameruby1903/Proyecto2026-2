@@ -15,7 +15,7 @@ namespace Mst_Pruebas
         public ResenasPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -33,8 +33,8 @@ namespace Mst_Pruebas
             entidad = new Resenas()
             {
 
-                Cliente = 11,
-                Producto = 10,
+                Cliente = 1,
+                Producto = 1,
                 Calificacion = 4,
                 Comentario = "buenas",
                 Fecha = DateTime.Now

@@ -16,7 +16,7 @@ namespace Mst_Pruebas
         public MesasPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=DESKTOP-1EHV8G7\\DEV;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 
@@ -34,8 +34,8 @@ namespace Mst_Pruebas
             entidad = new Mesas()
             {
 
-                Numero = 1,
-                Capacidad = 1,
+                Numero = 3,
+                Capacidad = 4,
                 Estado = true,
                 Ubicacion = "avenida"
             };
