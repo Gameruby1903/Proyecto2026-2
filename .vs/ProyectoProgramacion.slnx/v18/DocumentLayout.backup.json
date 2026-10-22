@@ -1,0 +1,283 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\luisl\\Proyecto2026-2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{01A9218B-27E2-4FD3-8BEF-D2182EF68164}|servicios_restaurante\\servicios_restaurante.csproj|c:\\users\\luisl\\proyecto2026-2\\servicios_restaurante\\servicios_restaurante.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{01A9218B-27E2-4FD3-8BEF-D2182EF68164}|servicios_restaurante\\servicios_restaurante.csproj|solutionrelative:servicios_restaurante\\servicios_restaurante.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|c:\\users\\luisl\\proyecto2026-2\\principal_restaurante\\implementaciones\\clientesaplicacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|solutionrelative:principal_restaurante\\implementaciones\\clientesaplicacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|c:\\users\\luisl\\proyecto2026-2\\principal_restaurante\\implementaciones\\categoriasaplicacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|solutionrelative:principal_restaurante\\implementaciones\\categoriasaplicacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|c:\\users\\luisl\\proyecto2026-2\\principal_restaurante\\interfaces\\icategoriasaplicacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|solutionrelative:principal_restaurante\\interfaces\\icategoriasaplicacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{795B0C32-A0CA-4BAE-9FE8-75679642AD51}|front_restaurante\\front_restaurante.csproj|c:\\users\\luisl\\proyecto2026-2\\front_restaurante\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{795B0C32-A0CA-4BAE-9FE8-75679642AD51}|front_restaurante\\front_restaurante.csproj|solutionrelative:front_restaurante\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\luisl\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\categoriaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\categoriaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\luisl\\proyecto2026-2\\presentacion_restaurante\\interfaces\\icomunicaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\interfaces\\icomunicaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\luisl\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\comunicaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\comunicaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\luisl\\proyecto2026-2\\presentacion_restaurante\\interfaces\\icategoriaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\interfaces\\icategoriaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|c:\\users\\luisl\\proyecto2026-2\\principal_restaurante\\entidades\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|solutionrelative:principal_restaurante\\entidades\\categorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\luisl\\proyecto2026-2\\presentacion_restaurante\\presentacion_restaurante.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\presentacion_restaurante.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A9218B-27E2-4FD3-8BEF-D2182EF68164}|servicios_restaurante\\servicios_restaurante.csproj|c:\\users\\luisl\\proyecto2026-2\\servicios_restaurante\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A9218B-27E2-4FD3-8BEF-D2182EF68164}|servicios_restaurante\\servicios_restaurante.csproj|solutionrelative:servicios_restaurante\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A9218B-27E2-4FD3-8BEF-D2182EF68164}|servicios_restaurante\\servicios_restaurante.csproj|c:\\users\\luisl\\proyecto2026-2\\servicios_restaurante\\controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A9218B-27E2-4FD3-8BEF-D2182EF68164}|servicios_restaurante\\servicios_restaurante.csproj|solutionrelative:servicios_restaurante\\controllers\\categoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|c:\\users\\luisl\\proyecto2026-2\\principal_restaurante\\interfaces\\iconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|solutionrelative:principal_restaurante\\interfaces\\iconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|c:\\users\\luisl\\proyecto2026-2\\principal_restaurante\\implementaciones\\ingredientesaplicacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|solutionrelative:principal_restaurante\\implementaciones\\ingredientesaplicacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClientesAplicacion.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\Implementaciones\\ClientesAplicacion.cs",
+              "RelativeDocumentMoniker": "Principal_Restaurante\\Implementaciones\\ClientesAplicacion.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\Implementaciones\\ClientesAplicacion.cs",
+              "RelativeToolTip": "Principal_Restaurante\\Implementaciones\\ClientesAplicacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T18:06:50.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ICategoriasPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\presentacion_restaurante\\Interfaces\\ICategoriasPresentacion.cs",
+              "RelativeDocumentMoniker": "presentacion_restaurante\\Interfaces\\ICategoriasPresentacion.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\presentacion_restaurante\\Interfaces\\ICategoriasPresentacion.cs",
+              "RelativeToolTip": "presentacion_restaurante\\Interfaces\\ICategoriasPresentacion.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAIwAMAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T18:02:29.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Categorias.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\Categorias.cs",
+              "RelativeDocumentMoniker": "Principal_Restaurante\\Entidades\\Categorias.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\Categorias.cs",
+              "RelativeToolTip": "Principal_Restaurante\\Entidades\\Categorias.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T17:58:04.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CategoriasPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\CategoriasPresentacion.cs",
+              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\CategoriasPresentacion.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\CategoriasPresentacion.cs",
+              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\CategoriasPresentacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T17:55:12.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IComunicaciones.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\presentacion_restaurante\\Interfaces\\IComunicaciones.cs",
+              "RelativeDocumentMoniker": "presentacion_restaurante\\Interfaces\\IComunicaciones.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\presentacion_restaurante\\Interfaces\\IComunicaciones.cs",
+              "RelativeToolTip": "presentacion_restaurante\\Interfaces\\IComunicaciones.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T17:52:26.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "presentacion_restaurante",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\presentacion_restaurante\\presentacion_restaurante.csproj",
+              "RelativeDocumentMoniker": "presentacion_restaurante\\presentacion_restaurante.csproj",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\presentacion_restaurante\\presentacion_restaurante.csproj",
+              "RelativeToolTip": "presentacion_restaurante\\presentacion_restaurante.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-22T17:49:52.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Comunicaciones.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\Comunicaciones.cs",
+              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\Comunicaciones.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\Comunicaciones.cs",
+              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\Comunicaciones.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T17:48:00.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\front_restaurante\\Program.cs",
+              "RelativeDocumentMoniker": "front_restaurante\\Program.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\front_restaurante\\Program.cs",
+              "RelativeToolTip": "front_restaurante\\Program.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T17:44:16.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\servicios_restaurante\\Program.cs",
+              "RelativeDocumentMoniker": "servicios_restaurante\\Program.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\servicios_restaurante\\Program.cs",
+              "RelativeToolTip": "servicios_restaurante\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T17:36:28.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CategoriasAplicacion.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\Implementaciones\\CategoriasAplicacion.cs",
+              "RelativeDocumentMoniker": "Principal_Restaurante\\Implementaciones\\CategoriasAplicacion.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\Implementaciones\\CategoriasAplicacion.cs",
+              "RelativeToolTip": "Principal_Restaurante\\Implementaciones\\CategoriasAplicacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T17:27:49.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ICategoriasAplicacion.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\Interfaces\\ICategoriasAplicacion.cs",
+              "RelativeDocumentMoniker": "Principal_Restaurante\\Interfaces\\ICategoriasAplicacion.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\Interfaces\\ICategoriasAplicacion.cs",
+              "RelativeToolTip": "Principal_Restaurante\\Interfaces\\ICategoriasAplicacion.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T17:26:40.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "servicios_restaurante",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\servicios_restaurante\\servicios_restaurante.csproj",
+              "RelativeDocumentMoniker": "servicios_restaurante\\servicios_restaurante.csproj",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\servicios_restaurante\\servicios_restaurante.csproj",
+              "RelativeToolTip": "servicios_restaurante\\servicios_restaurante.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-22T17:20:23.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CategoriasController.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\servicios_restaurante\\Controllers\\CategoriasController.cs",
+              "RelativeDocumentMoniker": "servicios_restaurante\\Controllers\\CategoriasController.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\servicios_restaurante\\Controllers\\CategoriasController.cs",
+              "RelativeToolTip": "servicios_restaurante\\Controllers\\CategoriasController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAuwAoAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T17:23:05.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IConexion.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\Interfaces\\IConexion.cs",
+              "RelativeDocumentMoniker": "Principal_Restaurante\\Interfaces\\IConexion.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\Interfaces\\IConexion.cs",
+              "RelativeToolTip": "Principal_Restaurante\\Interfaces\\IConexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T17:20:07.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IngredientesAplicacion.cs",
+              "DocumentMoniker": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\Implementaciones\\IngredientesAplicacion.cs",
+              "RelativeDocumentMoniker": "Principal_Restaurante\\Implementaciones\\IngredientesAplicacion.cs",
+              "ToolTip": "C:\\Users\\luisl\\Proyecto2026-2\\Principal_Restaurante\\Implementaciones\\IngredientesAplicacion.cs",
+              "RelativeToolTip": "Principal_Restaurante\\Implementaciones\\IngredientesAplicacion.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T17:01:04.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

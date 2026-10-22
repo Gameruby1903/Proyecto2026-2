@@ -1,5 +1,8 @@
 <Solution>
+  <Project Path="front_restaurante/front_restaurante.csproj" Id="795b0c32-a0ca-4bae-9fe8-75679642ad51" />
   <Project Path="mst_pruebasunitarias/mst_pruebasunitarias.csproj" Id="c6e5da42-9076-4a97-b016-6b61d6eedda8" />
+  <Project Path="presentacion_restaurante/presentacion_restaurante.csproj" Id="09a88dcf-a16b-41cf-abe3-2d2136c84de9" />
   <Project Path="Principal/Principal.csproj" Id="894ffff1-8f51-4f0d-9baf-66fbab1e8051" />
   <Project Path="Principal_Restaurante/lib_aplicaciones.csproj" />
+  <Project Path="servicios_restaurante/servicios_restaurante.csproj" Id="01a9218b-27e2-4fd3-8bef-d2182ef68164" />
 </Solution>

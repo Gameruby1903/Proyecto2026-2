@@ -1,0 +1,10 @@
+C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.csproj.AssemblyReference.cache
+C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.AssemblyInfoInputs.cache
+C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.AssemblyInfo.cs
+C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.csproj.CoreCompileInputs.cache
+C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.RazorAssemblyInfo.cache
+C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.RazorAssemblyInfo.cs
+C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.sourcelink.json

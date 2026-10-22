@@ -1,0 +1,6 @@
+C:\Users\luisl\Proyecto2026-2\presentacion_restaurante\obj\Debug\net10.0\presentacion_restaurante.csproj.AssemblyReference.cache
+C:\Users\luisl\Proyecto2026-2\presentacion_restaurante\obj\Debug\net10.0\presentacion_restaurante.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luisl\Proyecto2026-2\presentacion_restaurante\obj\Debug\net10.0\presentacion_restaurante.AssemblyInfoInputs.cache
+C:\Users\luisl\Proyecto2026-2\presentacion_restaurante\obj\Debug\net10.0\presentacion_restaurante.AssemblyInfo.cs
+C:\Users\luisl\Proyecto2026-2\presentacion_restaurante\obj\Debug\net10.0\presentacion_restaurante.csproj.CoreCompileInputs.cache
+C:\Users\luisl\Proyecto2026-2\presentacion_restaurante\obj\Debug\net10.0\presentacion_restaurante.sourcelink.json

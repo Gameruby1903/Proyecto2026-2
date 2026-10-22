@@ -22,7 +22,7 @@ namespace lib_aplicaciones.Implementaciones
         public DbSet<Productos>? Productos { get; set; }
         public DbSet<Mesas>? Mesas { get; set; }
         public DbSet<Pedidos>? Pedidos { get; set; }
-        public DbSet<DetallePedidos>? DetallePedidos { get; set; }
+        public DbSet<DetallePedidosAplicacion>? DetallePedidos { get; set; }
         public DbSet<MetodoPagos>? MetodoPagos { get; set; }
         public DbSet<Facturas>? Facturas { get; set; }
         public DbSet<Reservas>? Reservas { get; set; }
