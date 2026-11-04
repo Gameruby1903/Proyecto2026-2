@@ -3,64 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\USER\\Proyecto2026-2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\reservaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\reservaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\facturaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\facturaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|c:\\users\\user\\proyecto2026-2\\principal_restaurante\\entidades\\reservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|solutionrelative:principal_restaurante\\entidades\\reservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\interfaces\\ifacturaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\interfaces\\ifacturaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\turnospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\turnospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\proveedorespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\proveedorespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\inventariospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\inventariospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\categoriaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\categoriaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|c:\\users\\user\\proyecto2026-2\\principal_restaurante\\entidades\\turnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|solutionrelative:principal_restaurante\\entidades\\turnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\empleadospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\empleadospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\productospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\productospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\recetaingredientespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\recetaingredientespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\tipoempleadospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\tipoempleadospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|c:\\users\\user\\proyecto2026-2\\principal_restaurante\\entidades\\tipoempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|solutionrelative:principal_restaurante\\entidades\\tipoempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\sucursalespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\sucursalespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|c:\\users\\user\\proyecto2026-2\\principal_restaurante\\entidades\\sucursales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|solutionrelative:principal_restaurante\\entidades\\sucursales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|c:\\users\\user\\proyecto2026-2\\presentacion_restaurante\\implementaciones\\resenaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09A88DCF-A16B-41CF-ABE3-2D2136C84DE9}|presentacion_restaurante\\presentacion_restaurante.csproj|solutionrelative:presentacion_restaurante\\implementaciones\\resenaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|c:\\users\\user\\proyecto2026-2\\principal_restaurante\\entidades\\resenas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|solutionrelative:principal_restaurante\\entidades\\resenas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|c:\\users\\user\\proyecto2026-2\\principal_restaurante\\entidades\\proveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4DBB783-46D3-4AA3-F2B3-B575DB2F5F83}|Principal_Restaurante\\lib_aplicaciones.csproj|solutionrelative:principal_restaurante\\entidades\\proveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,201 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ReservasPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\ReservasPresentacion.cs",
-              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\ReservasPresentacion.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\ReservasPresentacion.cs",
-              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\ReservasPresentacion.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAwwFAAAAA6AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "IFacturasPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Interfaces\\IFacturasPresentacion.cs",
+              "RelativeDocumentMoniker": "presentacion_restaurante\\Interfaces\\IFacturasPresentacion.cs",
+              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Interfaces\\IFacturasPresentacion.cs",
+              "RelativeToolTip": "presentacion_restaurante\\Interfaces\\IFacturasPresentacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T17:04:49.938Z",
+              "WhenOpened": "2026-11-04T17:39:28.466Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Reservas.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\Reservas.cs",
-              "RelativeDocumentMoniker": "Principal_Restaurante\\Entidades\\Reservas.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\Reservas.cs",
-              "RelativeToolTip": "Principal_Restaurante\\Entidades\\Reservas.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "FacturasPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\FacturasPresentacion.cs",
+              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\FacturasPresentacion.cs",
+              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\FacturasPresentacion.cs",
+              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\FacturasPresentacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T17:04:44.079Z",
+              "WhenOpened": "2026-11-04T17:38:57.969Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TurnosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\TurnosPresentacion.cs",
-              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\TurnosPresentacion.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\TurnosPresentacion.cs",
-              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\TurnosPresentacion.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAFEAAAAQAAAAAAAAAA==",
+              "Title": "ProveedoresPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\ProveedoresPresentacion.cs",
+              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\ProveedoresPresentacion.cs",
+              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\ProveedoresPresentacion.cs",
+              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\ProveedoresPresentacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T17:01:12.663Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Turnos.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\Turnos.cs",
-              "RelativeDocumentMoniker": "Principal_Restaurante\\Entidades\\Turnos.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\Turnos.cs",
-              "RelativeToolTip": "Principal_Restaurante\\Entidades\\Turnos.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T17:01:05.341Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TipoEmpleadosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\TipoEmpleadosPresentacion.cs",
-              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\TipoEmpleadosPresentacion.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\TipoEmpleadosPresentacion.cs",
-              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\TipoEmpleadosPresentacion.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAwwFAAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T16:58:13.232Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "TipoEmpleados.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\TipoEmpleados.cs",
-              "RelativeDocumentMoniker": "Principal_Restaurante\\Entidades\\TipoEmpleados.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\TipoEmpleados.cs",
-              "RelativeToolTip": "Principal_Restaurante\\Entidades\\TipoEmpleados.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T16:58:18.127Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SucursalesPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\SucursalesPresentacion.cs",
-              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\SucursalesPresentacion.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\SucursalesPresentacion.cs",
-              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\SucursalesPresentacion.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAADwv1gAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T16:55:42.709Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Sucursales.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\Sucursales.cs",
-              "RelativeDocumentMoniker": "Principal_Restaurante\\Entidades\\Sucursales.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\Sucursales.cs",
-              "RelativeToolTip": "Principal_Restaurante\\Entidades\\Sucursales.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T16:55:36.971Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ResenasPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\ResenasPresentacion.cs",
-              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\ResenasPresentacion.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\ResenasPresentacion.cs",
-              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\ResenasPresentacion.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAwwFEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T16:53:03.776Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Resenas.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\Resenas.cs",
-              "RelativeDocumentMoniker": "Principal_Restaurante\\Entidades\\Resenas.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\Resenas.cs",
-              "RelativeToolTip": "Principal_Restaurante\\Entidades\\Resenas.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T16:52:20.068Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RecetaIngredientesPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\RecetaIngredientesPresentacion.cs",
-              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\RecetaIngredientesPresentacion.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\RecetaIngredientesPresentacion.cs",
-              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\RecetaIngredientesPresentacion.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAswFYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T16:51:04.114Z",
+              "WhenOpened": "2026-11-04T17:38:34.151Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "InventariosPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\InventariosPresentacion.cs",
+              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\InventariosPresentacion.cs",
+              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\InventariosPresentacion.cs",
+              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\InventariosPresentacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T17:38:31.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "CategoriasPresentacion.cs",
               "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\CategoriasPresentacion.cs",
               "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\CategoriasPresentacion.cs",
               "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\CategoriasPresentacion.cs",
               "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\CategoriasPresentacion.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAwwE4AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T16:42:18.68Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Proveedores.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\Proveedores.cs",
-              "RelativeDocumentMoniker": "Principal_Restaurante\\Entidades\\Proveedores.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\Entidades\\Proveedores.cs",
-              "RelativeToolTip": "Principal_Restaurante\\Entidades\\Proveedores.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T16:49:24.127Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProductosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\ProductosPresentacion.cs",
-              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\ProductosPresentacion.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\ProductosPresentacion.cs",
-              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\ProductosPresentacion.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAwwFUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T16:48:13.14Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EmpleadosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\EmpleadosPresentacion.cs",
-              "RelativeDocumentMoniker": "presentacion_restaurante\\Implementaciones\\EmpleadosPresentacion.cs",
-              "ToolTip": "C:\\Users\\USER\\Proyecto2026-2\\presentacion_restaurante\\Implementaciones\\EmpleadosPresentacion.cs",
-              "RelativeToolTip": "presentacion_restaurante\\Implementaciones\\EmpleadosPresentacion.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAowFMAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-04T16:44:33.4Z",
+              "WhenOpened": "2026-11-04T17:38:29.814Z",
               "EditorCaption": ""
             }
           ]

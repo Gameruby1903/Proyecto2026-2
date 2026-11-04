@@ -4011,39 +4011,23 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\USER\\.nuget\\packages\\": {},
-=======
-    "C:\\Users\\Deiby Santiago Serna\\.nuget\\packages\\": {},
->>>>>>> d353ca8 (IPresentaciones)
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\USER\\Proyecto2026-2\\mst_pruebasunitarias\\mst_pruebasunitarias.csproj",
       "projectName": "mst_pruebasunitarias",
       "projectPath": "C:\\Users\\USER\\Proyecto2026-2\\mst_pruebasunitarias\\mst_pruebasunitarias.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\USER\\Proyecto2026-2\\mst_pruebasunitarias\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\mst_pruebasunitarias\\mst_pruebasunitarias.csproj",
-      "projectName": "mst_pruebasunitarias",
-      "projectPath": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\mst_pruebasunitarias\\mst_pruebasunitarias.csproj",
-      "packagesPath": "C:\\Users\\Deiby Santiago Serna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\mst_pruebasunitarias\\obj\\",
->>>>>>> d353ca8 (IPresentaciones)
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\Deiby Santiago Serna\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> d353ca8 (IPresentaciones)
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4059,13 +4043,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {
               "projectPath": "C:\\Users\\USER\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj"
-=======
-            "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj": {
-              "projectPath": "C:\\Users\\Deiby Santiago Serna\\Proyecto2026-2\\Principal_Restaurante\\lib_aplicaciones.csproj"
->>>>>>> d353ca8 (IPresentaciones)
             }
           }
         }
@@ -4385,7 +4364,6 @@
         }
       }
     }
-<<<<<<< HEAD
   },
   "logs": [
     {
@@ -4409,7 +4387,4 @@
       ]
     }
   ]
-=======
-  }
->>>>>>> d353ca8 (IPresentaciones)
 }
