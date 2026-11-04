@@ -49,7 +49,7 @@ namespace Mst_Pruebas {
 
         private void Actualizar()
         {
-            this.entidad!.Nombre = "mesero";
+            this.entidad!.Nombre = "cajero";
 
             this.conexion!.TipoEmpleados!.Update(this.entidad);
             this.conexion!.SaveChanges();
