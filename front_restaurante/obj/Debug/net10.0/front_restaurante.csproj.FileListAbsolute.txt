@@ -8,3 +8,16 @@ C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaura
 C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.RazorAssemblyInfo.cache
 C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.RazorAssemblyInfo.cs
 C:\Users\luisl\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.sourcelink.json
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.csproj.AssemblyReference.cache
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.AssemblyInfoInputs.cache
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.AssemblyInfo.cs
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.csproj.CoreCompileInputs.cache
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.RazorAssemblyInfo.cache
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.RazorAssemblyInfo.cs
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.sourcelink.json
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.dll
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\refint\front_restaurante.dll
+C:\Users\USER\Proyecto2026-2\front_restaurante\obj\Debug\net10.0\front_restaurante.pdb

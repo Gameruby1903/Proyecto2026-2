@@ -4,16 +4,16 @@ using lib_aplicaciones.Entidades;
 
 namespace lib_aplicaciones.Implementaciones
 {
-    public class ProductossAplicacion : IProductossAplicacion
+    public class ProductosAplicacion : IProductosAplicacion
     {
         private IConexion IConexion;
 
-        public ProductossAplicacion(IConexion IConexion)
+        public ProductosAplicacion(IConexion IConexion)
         {
             this.IConexion = IConexion;
         }
 
-        public Productoss Actualizar(Productoss entidad)
+        public Productos Actualizar(Productos entidad)
         {
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
@@ -21,35 +21,35 @@ namespace lib_aplicaciones.Implementaciones
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            var entry = this.IConexion!.Entry<Productoss>(entidad);
+            var entry = this.IConexion!.Entry<Productos>(entidad);
             entry.State = EntityState.Modified;
             this.IConexion!.SaveChanges();
             return entidad;
         }
 
-        public Productoss Borrar(Productoss entidad)
+        public Productos Borrar(Productos entidad)
         {
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            this.IConexion.Productoss!.Remove(entidad!);
+            this.IConexion.Productos!.Remove(entidad!);
             this.IConexion.SaveChanges();
             return entidad;
         }
 
-        public List<Productoss> Buscar(Productoss entidad)
+        public List<Productos> Buscar(Productos entidad)
         {
-            return this.IConexion.Productoss!
+            return this.IConexion.Productos!
                 .Where(x => x.Id == entidad.Id)
                 .ToList();
         }
 
-        public List<Productoss> Consultar()
+        public List<Productos> Consultar()
         {
-            return this.IConexion.Productoss!.ToList();
+            return this.IConexion.Productos!.ToList();
         }
 
-        public Productoss Insertar(Productoss entidad)
+        public Productos Insertar(Productos entidad)
         {
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
@@ -57,12 +57,12 @@ namespace lib_aplicaciones.Implementaciones
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
-            this.IConexion.Productoss!.Add(entidad!);
+            this.IConexion.Productos!.Add(entidad!);
             this.IConexion.SaveChanges();
             return entidad;
         }
 
-        private bool Validar(Productoss entidad)
+        private bool Validar(Productos entidad)
         {
             if (entidad.Id <= 0)
                 return false;
