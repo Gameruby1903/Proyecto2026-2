@@ -40,7 +40,7 @@ namespace lib_aplicaciones.Implementaciones
         public List<Categorias> Buscar(Categorias entidad)
         {
             return this.IConexion.Categorias!
-                .Where(x => x.Nombre!.Contains(entidad.Nombre!))
+                .Where(x => x.Nombre!.Contains(entidad.Nombre ?? ""))
                 .ToList();
         }
 
@@ -62,11 +62,11 @@ namespace lib_aplicaciones.Implementaciones
             return entidad;
         }
 
+        // true = falta información
         private bool Validar(Categorias entidad)
         {
-            if (string.IsNullOrEmpty(entidad.Nombre))
-                return false;
-            return true;
+            return string.IsNullOrEmpty(entidad.Nombre);
         }
     }
+
 }

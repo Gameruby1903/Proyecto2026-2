@@ -1,5 +1,6 @@
 ﻿using lib_aplicaciones.Entidades;
 using lib_aplicaciones.Interfaces;
+using lib_aplicaciones.Nucleo;
 using Microsoft.EntityFrameworkCore;
 
 namespace lib_aplicaciones.Implementaciones
@@ -10,7 +11,7 @@ namespace lib_aplicaciones.Implementaciones
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(this.StringConexion!, p => { });
+            optionsBuilder.UseSqlServer(DatosGenerales.StringConexion(), p => { });
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
 
@@ -22,7 +23,7 @@ namespace lib_aplicaciones.Implementaciones
         public DbSet<Productos>? Productos { get; set; }
         public DbSet<Mesas>? Mesas { get; set; }
         public DbSet<Pedidos>? Pedidos { get; set; }
-        public DbSet<DetallePedidosAplicacion>? DetallePedidos { get; set; }
+        public DbSet<DetallePedidos>? DetallePedidos { get; set; }
         public DbSet<MetodoPagos>? MetodoPagos { get; set; }
         public DbSet<Facturas>? Facturas { get; set; }
         public DbSet<Reservas>? Reservas { get; set; }

@@ -62,7 +62,7 @@ namespace lib_aplicaciones.Implementaciones
             return entidad;
         }
 
-        private bool Validar(Facturas entidad)
+        private bool Validar(Inventarios entidad)
         {
             if (entidad.Id <= 0)
                 return false;

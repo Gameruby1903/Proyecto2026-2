@@ -79,9 +79,7 @@ namespace presentacion_restaurante.Implementaciones
         private bool Validar(Categorias entidad)
         {
             return string.IsNullOrEmpty(entidad.Nombre) ||
-                string.IsNullOrEmpty(entidad.Descripcion) ||
-                entidad.Disponible == true ||
-                entidad.OrdenMenu != 0;
+        string.IsNullOrEmpty(entidad.Descripcion);
         }
     }
 }

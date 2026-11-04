@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
-using presentacion_restaurante.Interfaces
+using presentacion_restaurante.Interfaces;
 
 namespace presentacion_restaurante.Implementaciones
 {
@@ -11,7 +11,7 @@ namespace presentacion_restaurante.Implementaciones
 
         public async Task<T> Ejecutar<T>(string url, object entidad)
         {
-            url = "http://localhost:5130/" + url;
+            url = "http://localhost:5298/" + url.TrimStart('/'); // TrimStart('/') es un método de C# que quita los caracteres / del inicio de un texto. Solo toca el principio, no el resto.
 
             var body = new StringContent(
                 JsonConvert.SerializeObject(entidad),
