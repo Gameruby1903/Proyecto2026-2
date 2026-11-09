@@ -36,13 +36,19 @@ namespace lib_aplicaciones.Implementaciones
             this.IConexion.SaveChanges();
             return entidad;
         }
-
+        public List<Categorias> Buscar(Categorias entidad)
+        {
+            return this.IConexion.Categorias!
+                .Where(x => x.Nombre!.Contains(entidad.Nombre!))
+                .ToList();
+        }
+        /*
         public List<Categorias> Buscar(Categorias entidad)
         {
             return this.IConexion.Categorias!
                 .Where(x => x.Nombre!.Contains(entidad.Nombre ?? ""))
                 .ToList();
-        }
+        }*/
 
         public List<Categorias> Consultar()
         {

@@ -1,6 +1,7 @@
-﻿using lib_aplicaciones.Interfaces;
+﻿using lib_aplicaciones.Entidades;
+using lib_aplicaciones.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using lib_aplicaciones.Entidades;
+using Microsoft.IdentityModel.Tokens;
 namespace lib_aplicaciones.Implementaciones
 {
     public class ComprasAplicacion : IComprasAplicacion
@@ -17,7 +18,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<Compras>(entidad);
@@ -53,7 +54,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             this.IConexion.Compras!.Add(entidad!);

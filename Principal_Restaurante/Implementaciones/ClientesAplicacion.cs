@@ -18,7 +18,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<Clientes>(entidad);
@@ -54,7 +54,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             this.IConexion.Clientes!.Add(entidad!);

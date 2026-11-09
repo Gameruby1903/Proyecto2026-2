@@ -18,7 +18,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<DetallePedidos>(entidad);
@@ -39,6 +39,10 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<DetallePedidos> Buscar(DetallePedidos entidad)
         {
+            if (entidad.Cantidad == 0)
+                return this.IConexion.DetallePedidos!.ToList();
+
+
             return this.IConexion.DetallePedidos!
                 .Where(x => x.Cantidad == entidad.Cantidad)
                 .ToList();
@@ -54,7 +58,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             this.IConexion.DetallePedidos!.Add(entidad!);

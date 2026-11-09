@@ -1,0 +1,172 @@
+﻿@page
+@model FacturasModel
+@{
+    ViewData["Title"] = "Facturas";
+}
+<form method="post"
+    enctype="multipart/form-data">
+
+    <div class="text-center">
+        <h1 class="display-4">Facturas</h1>
+        <div>
+            <input type="submit"
+                value="Consultar"
+                class="btn btn-secondary"
+                asp-page-handler="BtConsultar"/>
+            <input type="submit"
+                value="Nuevo"
+                class="btn btn-secondary"
+                asp-page-handler="BtNuevo"/>
+            <input type="submit"
+                value="Guardar"
+                class="btn btn-secondary"
+                asp-page-handler="BtGuardar"/>
+           
+            <input id="flPedido" 
+                   placeholder="Pedido"
+                   asp-for="@Model.Filtro!.FechaEmi" />
+        </div>
+
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml");
+        }
+        
+        @if (Model.Formulario || Model.Borrar)
+        {
+            <input type="hidden"
+                asp-for="@Model.Actual!.Id" />
+        }
+
+        @if (Model.Formulario)
+        {
+            <div>
+                <h3>Facturas</h3>
+
+               
+
+                <label>
+                    Pedido
+                </label>
+                <input id="nmPedido"
+                    asp-for="@Model.Actual!.Pedido"/>
+                <br />
+                <label>
+                    FechaEmi
+                </label>
+                <input id="nmFechaEmi"
+                       asp-for="@Model.Actual!.FechaEmi" />
+                <br />
+
+                <label>
+                    Subtotal
+                </label>
+                <input id="nmSubtotal"
+                       asp-for="@Model.Actual!.Subtotal" />
+                <br />
+
+                <label>
+                    Impuesto
+                </label>
+                <input id="nmImpuesto"
+                    asp-for="@Model.Actual!.Impuesto"/>
+                <br />
+
+                <label>
+                    Total
+                </label>
+                <input id="nmTotal"
+                       asp-for="@Model.Actual!.Total" />
+                <br />
+                <label>
+                    MetodoPago
+                </label>
+                <input id="nmMetodoPago"
+                       asp-for="@Model.Actual!.MetodoPago" />
+                <br />
+               
+            </div>
+        }
+
+        @if (Model.Borrar)
+        {
+            <div class="popup">
+                <div class="pp_del_inner">
+                    <h3>
+                        Mensaje
+                    </h3>
+
+                    <h4>
+                        ¿Quiere borrar la Categoria con información 
+                            
+                        @Model.Actual!.Pedido,
+                        @Model.Actual!.FechaEmi,
+                        @Model.Actual!.Subtotal,
+                        @Model.Actual!.Impuesto,
+                        @Model.Actual!.Total,
+                        @Model.Actual!.MetodoPago?
+
+                            
+                           
+                    </h4>
+                    <input type="submit"
+                        value="Cancelar"
+                        class="btn btn-secondary"
+                        asp-page-handler="BtConsultar"/>
+                    <input type="submit"
+                        value="Borrar"
+                        class="btn btn-secondary"
+                        asp-page-handler="BtBorrar"/>
+                </div>
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <br />
+            <br />
+            <div class="containers_vn panel panel-default">
+                <table class="tb_data table table-striped table-bordered table-hover">
+                    <tr>
+                        
+                        <th>Pedido</th>
+                        <th>FechaEmi</th>
+                        <th>Subtotal</th>
+                        <th>Impuesto</th>
+                        <th>Total</th>
+                        <th>MetodoPago</th>
+                    </tr>
+                    @if (Model != null && Model.Lista != null)
+                    {
+                        foreach (var elemento in Model.Lista)
+                        {
+                            <tr>
+                                
+                                <td>@elemento.Pedido</td>
+                                <td>@elemento.FechaEmi</td>
+                                <td>@elemento.Subtotal</td>
+                                <td>@elemento.Impuesto</td>
+                                <td>@elemento.Total</td>
+                                <td>@elemento.MetodoPago</td>
+                         
+                                <td>
+                                    <input type="submit"
+                                        value="Editar"
+                                        class="btn btn-secondary"
+                                        asp-page-handler="BtEditar"
+                                        asp-route-data="@elemento.Id"/>
+                                    <input type="submit"
+                                        value="Borrar"
+                                        class="btn btn-secondary"
+                                        asp-page-handler="BtPregBorrar"
+                                        asp-route-data="@elemento.Id"/>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div>
+        }
+
+        </div>
+</form>

@@ -8,7 +8,6 @@ namespace presentacion_restaurante.Implementaciones
 {
     public class DetalleComprasPresentacion : IDetalleComprasPresentacion
     {
-
         private IComunicaciones IComunicaciones;
 
         public DetalleComprasPresentacion(IComunicaciones IComunicaciones)
@@ -21,7 +20,9 @@ namespace presentacion_restaurante.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            // CORRECCIÓN: Se utiliza ! para lanzar la excepción
+            // cuando la información no sea válida.
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<DetalleCompras>(
@@ -66,7 +67,8 @@ namespace presentacion_restaurante.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            // CORRECCIÓN: Se invierte la condición.
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<DetalleCompras>(
@@ -78,10 +80,11 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(DetalleCompras entidad)
         {
-            return
-                entidad.PrecioUni != 0 ||
-                entidad.Cantidad != 0;
+            // CORRECCIÓN: Los dos campos deben ser mayores que cero.
+            if (entidad.PrecioUni <= 0 || entidad.Cantidad <= 0)
+                return false;
+
+            return true;
         }
     }
 }
-

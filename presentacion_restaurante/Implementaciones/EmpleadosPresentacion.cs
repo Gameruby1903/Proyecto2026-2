@@ -8,7 +8,6 @@ namespace presentacion_restaurante.Implementaciones
 {
     public class EmpleadosPresentacion : IEmpleadosPresentacion
     {
-
         private IComunicaciones IComunicaciones;
 
         public EmpleadosPresentacion(IComunicaciones IComunicaciones)
@@ -21,7 +20,8 @@ namespace presentacion_restaurante.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            // Se lanza la excepción si la información no es válida.
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Empleados>(
@@ -66,7 +66,8 @@ namespace presentacion_restaurante.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            // Se lanza la excepción si la información no es válida.
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Empleados>(
@@ -78,12 +79,16 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Empleados entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombre) ||
-                string.IsNullOrEmpty(entidad.Cedula) ||
-                string.IsNullOrEmpty(entidad.Telefono) ||
-                entidad.FechaContratacion == DateTime.MinValue;
+            // CORRECCIÓN:
+            // Todos los campos deben tener información.
+            // La fecha debe ser diferente de DateTime.MinValue.
+            // true = información válida.
+            // false = información inválida.
 
+            return !string.IsNullOrEmpty(entidad.Nombre) &&
+                   !string.IsNullOrEmpty(entidad.Cedula) &&
+                   !string.IsNullOrEmpty(entidad.Telefono) &&
+                   entidad.FechaContratacion != DateTime.MinValue;
         }
     }
 }
-
