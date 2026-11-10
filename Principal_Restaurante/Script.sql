@@ -4,7 +4,13 @@ CREATE DATABASE  Restaurante
 GO
 USE Restaurante
 GO
+CREATE TABLE [Auditorias] (
+    [Id] INT IDENTITY(1,1) PRIMARY KEY,
+    [Usuario] NVARCHAR(100) NOT NULL,
+    [Accion] NVARCHAR(100) NOT NULL,
+    [Fecha] SMALLDATETIME NOT NULL
 
+);
 CREATE TABLE [TipoEmpleados] (
     [Id] INT IDENTITY(1,1) PRIMARY KEY,
     [Nombre] NVARCHAR(100) NOT NULL,
