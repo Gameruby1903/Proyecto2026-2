@@ -7,8 +7,40 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="obj\Debug\net10.0\.NETCoreApp,Version=v10.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net10.0\front_restaurante.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net10.0\front_restaurante.GlobalUsings.g.cs" />
+    <Compile Include="obj\Debug\net10.0\front_restaurante.RazorAssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="obj\Debug\net10.0\rpswa.dswa.cache.json" />
+    <Content Include="obj\Debug\net10.0\staticwebassets.removed.txt" />
+    <Content Include="obj\front_restaurante.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\presentacion_restaurante\presentacion_restaurante.csproj" />
     <ProjectReference Include="..\Principal_Restaurante\lib_aplicaciones.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\net10.0\" />
+    <Folder Include="obj\Debug\net10.0\refint\" />
+    <Folder Include="obj\Debug\net10.0\ref\" />
+    <Folder Include="obj\Debug\net10.0\staticwebassets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="obj\Debug\net10.0\front_restaurante.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net10.0\front_restaurante.assets.cache" />
+    <None Include="obj\Debug\net10.0\front_restaurante.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net10.0\front_restaurante.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net10.0\front_restaurante.RazorAssemblyInfo.cache" />
+    <None Include="obj\front_restaurante.csproj.nuget.g.props" />
+    <None Include="obj\front_restaurante.csproj.nuget.g.targets" />
+    <None Include="obj\project.nuget.cache" />
   </ItemGroup>
 
 </Project>

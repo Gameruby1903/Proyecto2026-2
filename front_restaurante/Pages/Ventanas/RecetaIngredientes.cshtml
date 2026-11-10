@@ -1,0 +1,147 @@
+﻿@page
+@model RecetaIngredientesModel
+@{
+    ViewData["Title"] = "Receta Ingredientes";
+}
+<form method="post"
+      enctype="multipart/form-data">
+
+    <div class="text-center">
+        <h1 class="display-4">Receta Ingredientes</h1>
+        <div>
+            <input type="submit"
+                   value="Consultar"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtConsultar" />
+            <input type="submit"
+                   value="Nuevo"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtNuevo" />
+            <input type="submit"
+                   value="Guardar"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtGuardar" />
+            <input id="flNotas"
+                   placeholder="Notas"
+                   asp-for="@Model.Filtro!.Notas" />
+        </div>
+
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
+            ;
+        }
+
+        @if (Model.Formulario || Model.Borrar)
+        {
+            <input type="hidden"
+                   asp-for="@Model.Actual!.Id" />
+        }
+
+        @if (Model.Formulario)
+        {
+            <div>
+                <h3>Receta Ingredientes</h3>
+
+                <label>
+                    Producto
+                </label>
+                <input id="nmProducto"
+                       asp-for="@Model.Actual!.Producto" />
+                <br />
+
+                <label>
+                    Ingrediente
+                </label>
+                <input id="nmIngrediente"
+                       asp-for="@Model.Actual!.Ingrediente" />
+                <br />
+
+                <label>
+                    Cantidad Requerida
+                </label>
+                <input id="nmCantiReque"
+                       asp-for="@Model.Actual!.CantiReque" />
+                <br />
+
+                <label>
+                    Notas
+                </label>
+                <input id="nmNotas"
+                       asp-for="@Model.Actual!.Notas" />
+                <br />
+            </div>
+        }
+
+        @if (Model.Borrar)
+        {
+            <div class="popup">
+                <div class="pp_del_inner">
+                    <h3>
+                        Mensaje
+                    </h3>
+
+                    <h4>
+                        ¿Quiere borrar la Receta Ingrediente con información
+
+                        @Model.Actual!.Producto,
+                        @Model.Actual!.Ingrediente,
+                        @Model.Actual!.CantiReque,
+                        @Model.Actual!.Notas?
+
+                    </h4>
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn btn-secondary"
+                           asp-page-handler="BtConsultar" />
+                    <input type="submit"
+                           value="Borrar"
+                           class="btn btn-secondary"
+                           asp-page-handler="BtBorrar" />
+                </div>
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <br />
+            <br />
+            <div class="containers_vn panel panel-default">
+                <table class="tb_data table table-striped table-bordered table-hover">
+                    <tr>
+                        <th>Producto</th>
+                        <th>Ingrediente</th>
+                        <th>Cantidad Requerida</th>
+                        <th>Notas</th>
+                    </tr>
+                    @if (Model != null && Model.Lista != null)
+                    {
+                        foreach (var elemento in Model.Lista)
+                        {
+                            <tr>
+                                <td>@elemento.Producto</td>
+                                <td>@elemento.Ingrediente</td>
+                                <td>@elemento.CantiReque</td>
+                                <td>@elemento.Notas</td>
+
+                                <td>
+                                    <input type="submit"
+                                           value="Editar"
+                                           class="btn btn-secondary"
+                                           asp-page-handler="BtEditar"
+                                           asp-route-data="@elemento.Id" />
+                                    <input type="submit"
+                                           value="Borrar"
+                                           class="btn btn-secondary"
+                                           asp-page-handler="BtPregBorrar"
+                                           asp-route-data="@elemento.Id" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div>
+        }
+
+    </div>
+</form>
