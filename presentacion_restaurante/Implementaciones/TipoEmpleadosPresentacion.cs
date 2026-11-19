@@ -79,7 +79,7 @@ namespace presentacion_restaurante.Implementaciones
         private bool Validar(TipoEmpleados entidad)
         {
             return string.IsNullOrEmpty(entidad.Nombre) ||
-                entidad.SalarioBase != 0;
+                entidad.SalarioBase <= 0;
         }
     }
 }

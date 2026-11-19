@@ -18,7 +18,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<Proveedores>(entidad);
@@ -40,7 +40,8 @@ namespace lib_aplicaciones.Implementaciones
         public List<Proveedores> Buscar(Proveedores entidad)
         {
             return this.IConexion.Proveedores!
-                .Where(x => x.Id == entidad.Id)
+                .Where(x => string.IsNullOrEmpty(entidad.Nombre) ||
+                            (x.Nombre != null && x.Nombre.Contains(entidad.Nombre)))
                 .ToList();
         }
 

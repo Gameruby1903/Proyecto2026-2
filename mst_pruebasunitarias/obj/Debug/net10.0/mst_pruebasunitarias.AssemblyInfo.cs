@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mst_pruebasunitarias")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f65f595cb1247cc2d5e77b44ee4f50f7bd5ae4b2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef201b2d87e09a367bc15e03af122cf2db954c8e")]
 [assembly: System.Reflection.AssemblyProductAttribute("mst_pruebasunitarias")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mst_pruebasunitarias")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

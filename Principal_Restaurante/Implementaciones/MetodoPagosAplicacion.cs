@@ -18,7 +18,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<MetodoPagos>(entidad);
@@ -40,10 +40,10 @@ namespace lib_aplicaciones.Implementaciones
         public List<MetodoPagos> Buscar(MetodoPagos entidad)
         {
             return this.IConexion.MetodoPagos!
-                .Where(x => x.Tipo!.Contains(entidad.Tipo!))
+                .Where(x => string.IsNullOrEmpty(entidad.Tipo) ||
+                            (x.Tipo != null && x.Tipo.Contains(entidad.Tipo)))
                 .ToList();
         }
-
         public List<MetodoPagos> Consultar()
         {
             return this.IConexion.MetodoPagos!.ToList();
@@ -54,7 +54,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             this.IConexion.MetodoPagos!.Add(entidad!);

@@ -3,7 +3,7 @@ using lib_aplicaciones.Implementaciones;
 using lib_aplicaciones.Interfaces;
 
 IConexion conexion = new Conexion();
-conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True;TrustServerCertificate=true;";
+conexion.StringConexion = "server=(localdb)\\MSSQLLocalDB;database=Restaurante;Integrated Security=True;TrustServerCertificate=true;";
 
 
 

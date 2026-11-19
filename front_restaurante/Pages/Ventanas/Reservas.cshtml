@@ -47,6 +47,8 @@
                     Cliente
                 </label>
                 <input id="nmCliente"
+                       type="number"
+                       min="1"
                        asp-for="@Model.Actual!.Cliente" />
                 <br />
 
@@ -54,6 +56,8 @@
                     Mesa
                 </label>
                 <input id="nmMesa"
+                       type="number"
+                       min="1"
                        asp-for="@Model.Actual!.Mesa" />
                 <br />
 
@@ -61,6 +65,7 @@
                     Fecha y Hora
                 </label>
                 <input id="nmFechaHora"
+                       type="datetime-local"
                        asp-for="@Model.Actual!.FechaHora" />
                 <br />
 
@@ -68,6 +73,8 @@
                     Número de Personas
                 </label>
                 <input id="nmNPersonas"
+                       type="number"
+                       min="1"
                        asp-for="@Model.Actual!.NPersonas" />
                 <br />
 
@@ -90,13 +97,10 @@
 
                     <h4>
                         ¿Quiere borrar la Reserva con información
-
-                        @Model.Actual!.Cliente,
-                        @Model.Actual!.Mesa,
+                        Cliente @Model.Actual!.Cliente,
+                        Mesa @Model.Actual!.Mesa,
                         @Model.Actual!.FechaHora,
-                        @Model.Actual!.NPersonas,
                         @Model.Actual!.Estado?
-
                     </h4>
                     <input type="submit"
                            value="Cancelar"
@@ -122,6 +126,7 @@
                         <th>Fecha y Hora</th>
                         <th>Número de Personas</th>
                         <th>Estado</th>
+                        <th></th>
                     </tr>
                     @if (Model != null && Model.Lista != null)
                     {
@@ -133,7 +138,6 @@
                                 <td>@elemento.FechaHora</td>
                                 <td>@elemento.NPersonas</td>
                                 <td>@elemento.Estado</td>
-
                                 <td>
                                     <input type="submit"
                                            value="Editar"

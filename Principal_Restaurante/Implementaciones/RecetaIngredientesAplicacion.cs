@@ -18,7 +18,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<RecetaIngredientes>(entidad);
@@ -40,7 +40,8 @@ namespace lib_aplicaciones.Implementaciones
         public List<RecetaIngredientes> Buscar(RecetaIngredientes entidad)
         {
             return this.IConexion.RecetaIngredientes!
-                .Where(x => x.Id == entidad.Id)
+                .Where(x => string.IsNullOrEmpty(entidad.Notas) ||
+                            (x.Notas != null && x.Notas.Contains(entidad.Notas)))
                 .ToList();
         }
 
@@ -54,7 +55,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             this.IConexion.RecetaIngredientes!.Add(entidad!);
@@ -64,9 +65,14 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(RecetaIngredientes entidad)
         {
-            if (entidad.Id <= 0)
+            if (entidad.Producto <= 0)
                 return false;
-
+            if (entidad.Ingrediente <= 0)
+                return false;
+            if (entidad.CantiReque <= 0)
+                return false;
+            if (string.IsNullOrEmpty(entidad.Notas))
+                return false;
             return true;
         }
     }

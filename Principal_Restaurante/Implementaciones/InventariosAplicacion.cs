@@ -18,7 +18,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<Inventarios>(entidad);
@@ -40,10 +40,9 @@ namespace lib_aplicaciones.Implementaciones
         public List<Inventarios> Buscar(Inventarios entidad)
         {
             return this.IConexion.Inventarios!
-                .Where(x => x.Id == entidad.Id)
+                .Where(x => entidad.Ingrediente == 0 || x.Ingrediente == entidad.Ingrediente)
                 .ToList();
         }
-
         public List<Inventarios> Consultar()
         {
             return this.IConexion.Inventarios!.ToList();

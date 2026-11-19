@@ -78,9 +78,10 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(RecetaIngredientes entidad)
         {
-            return 
-                string.IsNullOrEmpty(entidad.Notas) ||
-                entidad.CantiReque != 0;
+            return entidad.Producto <= 0 ||
+                entidad.Ingrediente <= 0 ||
+                entidad.CantiReque <= 0 ||
+                string.IsNullOrEmpty(entidad.Notas);
         }
     }
 }

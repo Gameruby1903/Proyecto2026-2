@@ -80,8 +80,8 @@ namespace presentacion_restaurante.Implementaciones
         {
             return string.IsNullOrEmpty(entidad.Nombre) ||
                 string.IsNullOrEmpty(entidad.Descripcion) ||
-                entidad.Disponible == true ||
-                entidad.Precio != 0;
+                entidad.Precio <= 0 ||
+                entidad.Categoria <= 0;
         }
     }
 }

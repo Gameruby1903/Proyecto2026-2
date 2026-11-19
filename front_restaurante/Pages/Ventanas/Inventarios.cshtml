@@ -7,7 +7,7 @@
     enctype="multipart/form-data">
 
     <div class="text-center">
-        <h1 class="display-4">Categorias</h1>
+        <h1 class="display-4">Inventarios</h1>
         <div>
             <input type="submit"
                 value="Consultar"
@@ -42,6 +42,15 @@
             <div>
                 <h3>Inventarios</h3>
 
+                
+                <label>
+                    Ingrediente
+                </label>
+                <input id="nmIngrediente"
+                       type="number"
+                       min="1"
+                       asp-for="@Model.Actual!.Ingrediente" />
+                <br />
                
 
                 <label>
@@ -63,6 +72,7 @@
                 <input id="nmUltimaActu"
                        asp-for="@Model.Actual!.UltimaActu" />
                 <br />
+
                
             </div>
         }

@@ -17,7 +17,7 @@ namespace Mst_Pruebas
         public DetallePedidosPruebas()
         {
             this.conexion = new Conexion();
-            conexion.StringConexion = "server=localhost;database=Restaurante;Integrated Security=True" +
+            conexion.StringConexion = "server=(localdb)\\MSSQLLocalDB;database=Restaurante;Integrated Security=True" +
                 ";TrustServerCertificate=true;";
         }
 

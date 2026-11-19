@@ -66,6 +66,8 @@ namespace presentacion_restaurante.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
+            entidad.UltimaActu = DateTime.Now;   // la fecha se pone sola
+
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
@@ -78,10 +80,9 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Inventarios entidad)
         {
-            return 
-                entidad.CantDisponible != 0||
-                entidad.UltimaActu == DateTime.MinValue||
-                entidad.CantMinima == 0;
+            return entidad.Ingrediente <= 0 ||
+                entidad.CantDisponible < 0 ||
+                entidad.CantMinima < 0;
         }
     }
 }

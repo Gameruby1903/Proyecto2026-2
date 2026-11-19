@@ -18,7 +18,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<Resenas>(entidad);
@@ -40,7 +40,8 @@ namespace lib_aplicaciones.Implementaciones
         public List<Resenas> Buscar(Resenas entidad)
         {
             return this.IConexion.Resenas!
-                .Where(x => x.Id == entidad.Id)
+                .Where(x => string.IsNullOrEmpty(entidad.Comentario) ||
+                            (x.Comentario != null && x.Comentario.Contains(entidad.Comentario)))
                 .ToList();
         }
 
@@ -54,7 +55,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             this.IConexion.Resenas!.Add(entidad!);
@@ -64,9 +65,16 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Resenas entidad)
         {
-            if (entidad.Id <= 0)
+            if (entidad.Cliente <= 0)
                 return false;
-
+            if (entidad.Producto <= 0)
+                return false;
+            if (entidad.Calificacion < 1 || entidad.Calificacion > 5)
+                return false;
+            if (string.IsNullOrEmpty(entidad.Comentario))
+                return false;
+            if (entidad.Fecha == DateTime.MinValue)
+                return false;
             return true;
         }
     }

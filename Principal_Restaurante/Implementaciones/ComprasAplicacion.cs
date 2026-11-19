@@ -57,9 +57,13 @@ namespace lib_aplicaciones.Implementaciones
             if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
+            if (entidad.Fecha == DateTime.MinValue)
+                entidad.Fecha = DateTime.Now;
+
             this.IConexion.Compras!.Add(entidad!);
             this.IConexion.SaveChanges();
             return entidad;
+
         }
 
         private bool Validar(Compras entidad)
