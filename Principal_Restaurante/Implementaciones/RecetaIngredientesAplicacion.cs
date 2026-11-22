@@ -39,14 +39,11 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<RecetaIngredientes> Buscar(RecetaIngredientes entidad)
         {
-<<<<<<< HEAD
+
             return this.IConexion.RecetaIngredientes!.Include(x => x._Producto).Include(x => x._Ingrediente)
                 .Where(x => x.CantiReque == entidad.CantiReque)
-=======
-            return this.IConexion.RecetaIngredientes!
-                .Where(x => string.IsNullOrEmpty(entidad.Notas) ||
-                            (x.Notas != null && x.Notas.Contains(entidad.Notas)))
->>>>>>> eb8f1b5b799b558cfc37dadb1feb6dfdb2f17c03
+
+            
                 .ToList();
         }
 

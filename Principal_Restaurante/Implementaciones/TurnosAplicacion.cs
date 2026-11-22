@@ -36,7 +36,7 @@ namespace lib_aplicaciones.Implementaciones
             this.IConexion.SaveChanges();
             return entidad;
         }
-        public List<Turnos> Consultar(Turnos entidad)
+        public List<Turnos> Buscar(Turnos entidad)
         {
             return this.IConexion.Turnos!
                 .Include(x => x._Empleado)
