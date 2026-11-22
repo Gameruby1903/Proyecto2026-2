@@ -8,6 +8,9 @@ CREATE TABLE [Auditorias] (
     [Id] INT IDENTITY(1,1) PRIMARY KEY,
     [Usuario] NVARCHAR(100) NOT NULL,
     [Accion] NVARCHAR(100) NOT NULL,
+    [Entidad] NVARCHAR(100) NOT NULL,     -- Clientes, Mesas, ...
+    [IdRegistro] INT NOT NULL,
+    [Detalle] NVARCHAR(MAX) NULL, 
     [Fecha] SMALLDATETIME NOT NULL
 
 );
