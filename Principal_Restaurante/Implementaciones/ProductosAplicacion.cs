@@ -39,14 +39,14 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Productos> Buscar(Productos entidad)
         {
-            return this.IConexion.Productos!
-                .Where(x => x.Id == entidad.Id)
+            return this.IConexion.Productos!.Include(x => x._Categoria)
+                .Where(x => x.Nombre!.Contains(entidad.Nombre!))
                 .ToList();
         }
 
         public List<Productos> Consultar()
         {
-            return this.IConexion.Productos!.ToList();
+            return this.IConexion.Productos!.Include(x => x._Categoria).ToList();
         }
 
         public Productos Insertar(Productos entidad)
@@ -64,7 +64,8 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Productos entidad)
         {
-            if (entidad.Id <= 0)
+            if (string.IsNullOrEmpty(entidad.Nombre) || entidad.Categoria == 0 || entidad.Precio <= 0 || 
+                string.IsNullOrEmpty(entidad.Descripcion) || entidad.Disponible == false)
                 return false;
 
             return true;

@@ -78,9 +78,11 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Turnos entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombre) ||
-                entidad.FechaInicio == DateTime.MinValue ||
-                entidad.FechaFin == DateTime.MinValue;
+            if (string.IsNullOrEmpty(entidad.Nombre) || entidad.Empleado == 0 || entidad.FechaInicio == DateTime.MinValue
+                || entidad.FechaFin == DateTime.MinValue)
+                return false;
+
+            return true;
         }
     }
 }

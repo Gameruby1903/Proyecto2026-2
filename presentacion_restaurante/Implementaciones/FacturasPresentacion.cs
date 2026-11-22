@@ -78,11 +78,14 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Facturas entidad)
         {
-            return 
-                entidad.Subtotal != 0 ||
-                entidad.Impuesto != 0 ||
-                entidad.Total != 0 ||
-                entidad.FechaEmi == DateTime.MinValue;
+            // La fecha no puede estar vacía o tener el valor mínimo.
+            if (entidad.FechaEmi == DateTime.MinValue || entidad.Pedido == 0 ||
+                entidad.MetodoPago == 0 || entidad.Total == 0 || entidad.Impuesto == 0 || entidad.Subtotal == 0
+                || entidad.FechaEmi == DateTime.MinValue)
+                return false;
+
+            // Si cumple la validación, la información es correcta.
+            return true;
         }
     }
 }

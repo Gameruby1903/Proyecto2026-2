@@ -78,9 +78,9 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Ingredientes entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombre) ||
-                string.IsNullOrEmpty(entidad.UniMedida) ||
-                entidad.CostoUni != 0;
+            if (string.IsNullOrEmpty(entidad.Nombre) || string.IsNullOrEmpty(entidad.UniMedida) || entidad.CostoUni == 0 || entidad.Proveedor == 0)
+                return false;
+            return true;
         }
     }
 }

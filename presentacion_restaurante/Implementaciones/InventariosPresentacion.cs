@@ -78,10 +78,12 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Inventarios entidad)
         {
-            return 
-                entidad.CantDisponible != 0||
-                entidad.UltimaActu == DateTime.MinValue||
-                entidad.CantMinima == 0;
+            if (entidad.CantDisponible <= 0 || entidad.Ingrediente == 0 || entidad.CantDisponible <= 0 ||
+                entidad.CantMinima <= 0 || entidad.UltimaActu == DateTime.MinValue)
+
+                return false;
+
+            return true;
         }
     }
 }

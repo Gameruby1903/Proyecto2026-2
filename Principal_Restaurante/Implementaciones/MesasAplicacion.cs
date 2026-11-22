@@ -18,7 +18,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<Mesas>(entidad);
@@ -40,7 +40,7 @@ namespace lib_aplicaciones.Implementaciones
         public List<Mesas> Buscar(Mesas entidad)
         {
             return this.IConexion.Mesas!
-                .Where(x => x.Id == entidad.Id)
+                .Where(x => x.Numero == entidad.Numero)
                 .ToList();
         }
 
@@ -54,7 +54,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             this.IConexion.Mesas!.Add(entidad!);
@@ -64,8 +64,10 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Mesas entidad)
         {
-            if (entidad.Id <= 0)
-                return false;
+            if (entidad.Numero <= 0 || entidad.Capacidad <= 0 || 
+                string.IsNullOrEmpty(entidad.Ubicacion) || 
+                entidad.Estado == false)
+                return false; 
 
             return true;
         }

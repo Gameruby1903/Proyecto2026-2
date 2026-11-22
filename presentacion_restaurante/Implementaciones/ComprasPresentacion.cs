@@ -78,10 +78,12 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Compras entidad)
         {
-            return string.IsNullOrEmpty(entidad.Estado) ||
-                entidad.Total != 0 ||
-                entidad.Fecha == DateTime.MinValue;
-
+            if (string.IsNullOrEmpty(entidad.Estado) ||
+                entidad.Proveedor == 0 ||
+                entidad.Fecha == DateTime.MinValue ||
+                entidad.Total == 0)
+                return false;
+            return true;
         }
     }
 }

@@ -15,10 +15,9 @@ namespace lib_aplicaciones.Entidades
         public int Proveedor { get; set; }
         [ForeignKey("Proveedor")] public Proveedores? _Proveedor { get; set; }
 
-        public List<RecetaIngredientes> Recetas { get; set; } = new List<RecetaIngredientes>();
-
-      
-        public List<Inventarios> Inventarios { get; set; } = new List<Inventarios>();
-        public List<DetalleCompras> DetalleCompras { get; set; } = new List<DetalleCompras>();
+        [NotMapped] public List<RecetaIngredientes>? Recetas { get; set; }
+              
+        [NotMapped] public List<Inventarios>? Inventarios { get; set; } 
+        [NotMapped] public List<DetalleCompras>? DetalleCompras { get; set; } 
     }
 }

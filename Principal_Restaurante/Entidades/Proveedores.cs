@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace lib_aplicaciones.Entidades
@@ -12,9 +13,9 @@ namespace lib_aplicaciones.Entidades
         public string? Email { get; set; }
         public string? Direccion { get; set; }
 
-        public List<Ingredientes> Ingredientes { get; set; } = new List<Ingredientes>();
+        [NotMapped] public List<Ingredientes>? Ingredientes { get; set; }
 
-       
-        public List<Compras> Compras { get; set; } = new List<Compras>();
+
+        [NotMapped] public List<Compras>? Compras { get; set; } 
     }
 }

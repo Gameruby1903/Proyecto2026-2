@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace lib_aplicaciones.Entidades
@@ -12,6 +13,6 @@ namespace lib_aplicaciones.Entidades
         public bool Disponible { get; set; }
         public int OrdenMenu { get; set; }
 
-        public List<Productos> Productos { get; set; } = new List<Productos>();
+        [NotMapped] public List<Productos>? Productos { get; set; } 
     }
 }

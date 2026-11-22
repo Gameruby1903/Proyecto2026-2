@@ -14,6 +14,35 @@ namespace lib_aplicaciones.Implementaciones
             optionsBuilder.UseSqlServer(DatosGenerales.StringConexion(), p => { });
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Usuarios>()
+                .HasOne(x => x._Rol)
+                .WithMany()
+                .HasForeignKey(x => x.Rol);
+
+            modelBuilder.Entity<Usuarios>()
+                .HasOne(x => x._Empleado)
+                .WithMany()
+                .HasForeignKey(x => x.Empleado);
+
+            modelBuilder.Entity<Usuarios>()
+                .HasOne(x => x._Cliente)
+                .WithMany()
+                .HasForeignKey(x => x.Cliente);
+
+            modelBuilder.Entity<RolPermisos>()
+                .HasOne(x => x._Rol)
+                .WithMany()
+                .HasForeignKey(x => x.Rol);
+
+            modelBuilder.Entity<RolPermisos>()
+                .HasOne(x => x._Permiso)
+                .WithMany()
+                .HasForeignKey(x => x.Permiso);
+
+            base.OnModelCreating(modelBuilder);
+        }
 
         public DbSet<TipoEmpleados>? TipoEmpleados { get; set; }
         public DbSet<Sucursales>? Sucursales { get; set; }
@@ -35,5 +64,9 @@ namespace lib_aplicaciones.Implementaciones
         public DbSet<DetalleCompras>? DetalleCompras { get; set; }
         public DbSet<Turnos>? Turnos { get; set; }
         public DbSet<Resenas>? Resenas { get; set; }
+        public DbSet<Usuarios>? Usuarios { get; set; }
+        public DbSet<Permisos>? Permisos { get; set; }
+        public DbSet<Roles>? Roles { get; set; }
+        public DbSet<RolPermisos>? RolPermisos { get; set; }
     }
 }

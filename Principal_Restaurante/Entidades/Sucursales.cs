@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace lib_aplicaciones.Entidades
@@ -12,6 +13,6 @@ namespace lib_aplicaciones.Entidades
         public string? Telefono { get; set; }
         public string? Ciudad { get; set; }
 
-        public List<Empleados> Empleados { get; set; } = new List<Empleados>();
+        [NotMapped] public List<Empleados>? Empleados { get; set; }
     }
 }

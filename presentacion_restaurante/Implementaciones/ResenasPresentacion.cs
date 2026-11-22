@@ -78,10 +78,11 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Resenas entidad)
         {
-            return string.IsNullOrEmpty(entidad.Comentario) ||
+            if (entidad.Calificacion <= 0 || string.IsNullOrEmpty(entidad.Comentario) || entidad.Cliente == 0 || entidad.Producto == 0
+                || entidad.Fecha == DateTime.MinValue)
+                return false;
 
-                entidad.Calificacion != 0 ||
-            entidad.Fecha == DateTime.MinValue;
+            return true;
         }
     }
 }

@@ -19,8 +19,10 @@ namespace lib_aplicaciones.Entidades
         public int Sucursal { get; set; }
         [ForeignKey("Sucursal")] public Sucursales? _Sucursal { get; set; }
 
-        
-        public List<Pedidos> Pedidos { get; set; } = new List<Pedidos>();
-        public List<Turnos> Turnos { get; set; } = new List<Turnos>();
+
+        [NotMapped] public List<Pedidos>? Pedidos { get; set; } 
+        [NotMapped] public List<Turnos>? Turnos { get; set; } 
+
+        [NotMapped] public List<Usuarios>? Usuarios { get; set; } 
     }
 }

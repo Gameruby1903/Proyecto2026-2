@@ -78,10 +78,11 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Sucursales entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombre) ||
-                string.IsNullOrEmpty(entidad.Direccion) ||
-                string.IsNullOrEmpty(entidad.Telefono) ||
-                string.IsNullOrEmpty(entidad.Ciudad);
+            if (string.IsNullOrEmpty(entidad.Nombre) || string.IsNullOrEmpty(entidad.Direccion) || string.IsNullOrEmpty(entidad.Telefono) ||
+                string.IsNullOrEmpty(entidad.Ciudad))
+                return false;
+
+            return true;
         }
     }
 }

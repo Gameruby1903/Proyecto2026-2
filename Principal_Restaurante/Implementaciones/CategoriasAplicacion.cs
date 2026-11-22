@@ -18,7 +18,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<Categorias>(entidad);
@@ -60,7 +60,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             this.IConexion.Categorias!.Add(entidad!);
@@ -71,7 +71,9 @@ namespace lib_aplicaciones.Implementaciones
         // true = falta información
         private bool Validar(Categorias entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombre);
+            return string.IsNullOrEmpty(entidad.Nombre) ||
+        string.IsNullOrEmpty(entidad.Descripcion) || entidad.Disponible == false
+        || entidad.OrdenMenu <= 0;
         }
     }
 

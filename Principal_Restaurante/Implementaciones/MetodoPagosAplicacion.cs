@@ -64,7 +64,7 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(MetodoPagos entidad)
         {
-            if (string.IsNullOrEmpty(entidad.Tipo))
+            if (string.IsNullOrEmpty(entidad.Tipo) || string.IsNullOrEmpty(entidad.Descripcion))
                 return false;
             return true;
         }

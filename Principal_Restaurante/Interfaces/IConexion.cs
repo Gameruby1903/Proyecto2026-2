@@ -31,6 +31,11 @@ namespace lib_aplicaciones.Interfaces
         DbSet<DetalleCompras>? DetalleCompras { get; set; }
         DbSet<Turnos>? Turnos { get; set; }
         DbSet<Resenas>? Resenas { get; set; }
+        DbSet<Usuarios>? Usuarios   { get; set; }
+        DbSet<Permisos>? Permisos { get; set; }
+        DbSet<Roles>? Roles { get; set; }
+        DbSet<RolPermisos>? RolPermisos { get; set; }
+
 
         EntityEntry<T> Entry<T>(T entity) where T : class;
         int SaveChanges();

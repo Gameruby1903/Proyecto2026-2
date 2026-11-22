@@ -78,10 +78,12 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Proveedores entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombre) ||
+            if (string.IsNullOrEmpty(entidad.Nombre) ||
                 string.IsNullOrEmpty(entidad.Telefono) ||
-                string.IsNullOrEmpty(entidad.Email) ||
-                string.IsNullOrEmpty(entidad.Direccion);
+                string.IsNullOrEmpty(entidad.Email) || string.IsNullOrEmpty(entidad.Direccion))
+                return false;
+
+            return true;
         }
     }
 }

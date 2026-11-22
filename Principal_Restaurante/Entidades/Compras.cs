@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace lib_aplicaciones.Entidades
 {
@@ -16,6 +17,6 @@ namespace lib_aplicaciones.Entidades
         public decimal Total { get; set; }
         public string? Estado { get; set; }
 
-        public List<DetalleCompras> Detalles { get; set; } = new List<DetalleCompras>();
+        [NotMapped] public List<DetalleCompras>? Detalles { get; set; }
     }
 }

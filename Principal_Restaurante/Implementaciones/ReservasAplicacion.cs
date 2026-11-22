@@ -18,7 +18,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<Reservas>(entidad);
@@ -39,14 +39,14 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Reservas> Buscar(Reservas entidad)
         {
-            return this.IConexion.Reservas!
-                .Where(x => x.Id == entidad.Id)
+            return this.IConexion.Reservas!.Include(x => x._Cliente).Include(x => x._Mesa)
+                .Where(x => x.NPersonas== entidad.NPersonas)
                 .ToList();
         }
 
         public List<Reservas> Consultar()
         {
-            return this.IConexion.Reservas!.ToList();
+            return this.IConexion.Reservas!.Include(x => x._Cliente).Include(x => x._Mesa).ToList();
         }
 
         public Reservas Insertar(Reservas entidad)
@@ -54,7 +54,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             this.IConexion.Reservas!.Add(entidad!);
@@ -64,7 +64,9 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Reservas entidad)
         {
-            if (entidad.Id <= 0)
+            if (entidad.NPersonas <= 0 || entidad.Cliente == 0 || entidad.Mesa == 0
+                || entidad.FechaHora == DateTime.MinValue
+                || string.IsNullOrEmpty(entidad.Estado))
                 return false;
 
             return true;

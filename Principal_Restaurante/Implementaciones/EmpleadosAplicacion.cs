@@ -39,14 +39,14 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Empleados> Buscar(Empleados entidad)
         {
-            return this.IConexion.Empleados!
+            return this.IConexion.Empleados!.Include(x => x._TipoEmpleado).Include(x => x._Sucursal)
                 .Where(x => x.Nombre!.Contains(entidad.Nombre!))
                 .ToList();
         }
 
         public List<Empleados> Consultar()
         {
-            return this.IConexion.Empleados!.ToList();
+            return this.IConexion.Empleados!.Include(x => x._TipoEmpleado).Include(x => x._Sucursal).ToList();
         }
 
         public Empleados Insertar(Empleados entidad)
@@ -64,9 +64,10 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Empleados entidad)
         {
-            if (string.IsNullOrEmpty(entidad.Nombre))
-                return false;
-            return true;
+            return string.IsNullOrEmpty(entidad.Nombre) || (string.IsNullOrEmpty(entidad.Cedula) ||
+                string.IsNullOrEmpty(entidad.Telefono) || entidad.FechaContratacion == DateTime.MinValue ||
+                entidad.TipoEmpleado == 0 || entidad.Sucursal == 0);
+                
         }
     }
 }

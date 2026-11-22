@@ -20,8 +20,8 @@ namespace lib_aplicaciones.Entidades
         [ForeignKey("Empleado")] public Empleados? _Empleado { get; set; }
         public string? Estado { get; set; }
 
-        public List<DetallePedidos> Detalles { get; set; } = new List<DetallePedidos>();
+        [NotMapped] public List<DetallePedidos>? Detalles { get; set; } 
 
-        public List<Facturas> Facturas { get; set; } = new List<Facturas>();
+        [NotMapped] public List<Facturas>? Facturas { get; set; }
     }
 }

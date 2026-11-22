@@ -80,8 +80,10 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(DetalleCompras entidad)
         {
-            // CORRECCIÓN: Los dos campos deben ser mayores que cero.
-            if (entidad.PrecioUni <= 0 || entidad.Cantidad <= 0)
+            // La cantidad debe ser mayor que cero.
+            // true = información válida.
+            // false = información inválida.
+            if (entidad.Cantidad <= 0 || entidad.PrecioUni <= 0 || entidad.Ingrediente == 0 || entidad.Compra == 0)
                 return false;
 
             return true;

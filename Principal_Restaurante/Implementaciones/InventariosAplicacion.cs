@@ -1,6 +1,7 @@
-﻿using lib_aplicaciones.Interfaces;
+﻿using lib_aplicaciones.Entidades;
+using lib_aplicaciones.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using lib_aplicaciones.Entidades;
+using Microsoft.IdentityModel.Tokens;
 
 namespace lib_aplicaciones.Implementaciones
 {
@@ -18,7 +19,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<Inventarios>(entidad);
@@ -39,14 +40,14 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Inventarios> Buscar(Inventarios entidad)
         {
-            return this.IConexion.Inventarios!
-                .Where(x => x.Id == entidad.Id)
+            return this.IConexion.Inventarios!.Include(x => x._Ingrediente)
+                .Where(x => x.CantDisponible == entidad.CantDisponible)
                 .ToList();
         }
 
         public List<Inventarios> Consultar()
         {
-            return this.IConexion.Inventarios!.ToList();
+            return this.IConexion.Inventarios!.Include(x => x._Ingrediente).ToList();
         }
 
         public Inventarios Insertar(Inventarios entidad)
@@ -54,7 +55,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             this.IConexion.Inventarios!.Add(entidad!);
@@ -64,7 +65,9 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Inventarios entidad)
         {
-            if (entidad.Id <= 0)
+            if (entidad.CantDisponible <= 0 || entidad.Ingrediente == 0 || entidad.CantDisponible <= 0 || 
+                entidad.CantMinima <= 0 || entidad.UltimaActu == DateTime.MinValue)
+            
                 return false;
 
             return true;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace lib_aplicaciones.Entidades
@@ -10,8 +11,8 @@ namespace lib_aplicaciones.Entidades
         public string? Nombre { get; set; }
         public decimal SalarioBase { get; set; }
 
-     
-        public List<Empleados>? Empleados { get; set; } = new List<Empleados>();
+
+        [NotMapped] public List<Empleados>? Empleados { get; set; }
         /*En resumen, la segunda opción (`= new List<T>()`) evita **4 problemas principales**:
 1. **Evita el error `NullReferenceException`:** El programa jamás se romperá por intentar leer o modificar una lista inexistente.
 2. **Evita verificaciones de código innecesarias:** Te ahorra tener que escribir bloques de `if (lista != null)` antes de hacer un `foreach`, un `.Add()`, o un `.Count()`.

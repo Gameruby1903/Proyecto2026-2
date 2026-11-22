@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace lib_aplicaciones.Entidades
@@ -12,8 +13,8 @@ namespace lib_aplicaciones.Entidades
         public bool Estado { get; set; }
         public string? Ubicacion { get; set; }
 
-        
-        public List<Pedidos> Pedidos { get; set; } = new List<Pedidos>();
-        public List<Reservas> Reservas { get; set; } = new List<Reservas>();
+
+        [NotMapped] public List<Pedidos>? Pedidos { get; set; } 
+        [NotMapped] public List<Reservas>? Reservas { get; set; } 
     }
 }

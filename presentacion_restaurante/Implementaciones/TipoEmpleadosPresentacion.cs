@@ -76,10 +76,12 @@ namespace presentacion_restaurante.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(TipoEmpleados entidad)
+         private bool Validar(TipoEmpleados entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombre) ||
-                entidad.SalarioBase != 0;
+            if (string.IsNullOrEmpty(entidad.Nombre) || entidad.SalarioBase <= 0)
+                return false;
+
+            return true;
         }
     }
 }

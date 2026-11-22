@@ -78,8 +78,9 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(DetallePedidos entidad)
         {
-            return entidad.PrecioUni != 0 ||
-                entidad.Cantidad != 0;
+            if (entidad.Cantidad <= 0 || entidad.PrecioUni <= 0 || entidad.Pedido == 0 || entidad.Producto == 0)
+                return false;
+            return true;
         }
     }
 }

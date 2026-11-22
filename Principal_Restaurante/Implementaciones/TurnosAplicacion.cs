@@ -18,7 +18,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var entry = this.IConexion!.Entry<Turnos>(entidad);
@@ -39,14 +39,14 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Turnos> Buscar(Turnos entidad)
         {
-            return this.IConexion.Turnos!
-                .Where(x => x.Id == entidad.Id)
+            return this.IConexion.Turnos!.Include(x => x._Empleado)
+                .Where(x => x.Nombre!.Contains(entidad.Nombre!))
                 .ToList();
         }
 
         public List<Turnos> Consultar()
         {
-            return this.IConexion.Turnos!.ToList();
+            return this.IConexion.Turnos!.Include(x => x._Empleado).ToList();
         }
 
         public Turnos Insertar(Turnos entidad)
@@ -54,7 +54,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             this.IConexion.Turnos!.Add(entidad!);
@@ -64,7 +64,8 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Turnos entidad)
         {
-            if (entidad.Id <= 0)
+            if (string.IsNullOrEmpty(entidad.Nombre) || entidad.Empleado == 0 || entidad.FechaInicio == DateTime.MinValue
+                || entidad.FechaFin == DateTime.MinValue)
                 return false;
 
             return true;

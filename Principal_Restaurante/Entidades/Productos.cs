@@ -16,10 +16,10 @@ namespace lib_aplicaciones.Entidades
         public int Categoria { get; set; }
         [ForeignKey("Categoria")] public Categorias? _Categoria { get; set; }
 
-        public List<Resenas> Resenas { get; set; } = new List<Resenas>();
+        [NotMapped] public List<Resenas>? Resenas { get; set; } 
 
         // Relaciones por lista añadidas
-        public List<DetallePedidos> Detalles { get; set; } = new List<DetallePedidos>();
-        public List<RecetaIngredientes> Recetas { get; set; } = new List<RecetaIngredientes>();
+        [NotMapped] public List<DetallePedidos>? Detalles { get; set; } 
+        [NotMapped] public List<RecetaIngredientes>? Recetas { get; set; } 
     }
 }

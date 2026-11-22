@@ -174,6 +174,386 @@ CREATE TABLE [Resenas] (
     [Comentario] NVARCHAR(500) NULL,
     [Fecha] SMALLDATETIME NOT NULL
 );
+CREATE TABLE [Roles] (
+    [Id] INT IDENTITY(1,1) PRIMARY KEY,
+    [Nombre] NVARCHAR(50) NOT NULL UNIQUE,
+    [Descripcion] NVARCHAR(150) NULL
+);
+
+CREATE TABLE [Permisos] (
+    [Id] INT IDENTITY(1,1) PRIMARY KEY,
+    [Codigo] NVARCHAR(100) NOT NULL UNIQUE,   -- ej: 'Pedidos.Ver', 'Pedidos.Editar'
+    [Descripcion] NVARCHAR(150) NULL
+);
+
+CREATE TABLE [RolPermisos] (
+    [Id] INT IDENTITY(1,1) PRIMARY KEY,
+    [Rol] INT REFERENCES [Roles]([Id]) NOT NULL,
+    [Permiso] INT REFERENCES [Permisos]([Id]) NOT NULL,
+    UNIQUE ([Rol], [Permiso])
+);
+
+CREATE TABLE [Usuarios] (
+    [Id] INT IDENTITY(1,1) PRIMARY KEY,
+    [NombreUsuario] NVARCHAR(50) NOT NULL UNIQUE,
+    [Clave] NVARCHAR(200) NOT NULL,
+    [Activo] BIT NOT NULL,
+    [UltimoAcceso] SMALLDATETIME NULL,
+    [Rol] INT REFERENCES [Roles]([Id]) NOT NULL,
+    [Empleado] INT NULL REFERENCES [Empleados]([Id]),
+    [Cliente] INT NULL REFERENCES [Clientes]([Id]),
+    CHECK (([Empleado] IS NULL AND [Cliente] IS NOT NULL)
+        OR ([Empleado] IS NOT NULL AND [Cliente] IS NULL))
+);
+
+   USE Restaurante;
+GO
+
+SET NOCOUNT ON;
+SET XACT_ABORT ON;
+
+BEGIN TRY
+    BEGIN TRANSACTION;
+
+    -------------------------------------------------------
+    -- 1. CREAR LOS ROLES
+    -------------------------------------------------------
+
+    INSERT INTO Roles (Nombre, Descripcion)
+    SELECT v.Nombre, v.Descripcion
+    FROM (VALUES
+        ('Administrador', 'Acceso completo al sistema'),
+        ('Empleado', 'Gestion de las operaciones del restaurante'),
+        ('Cliente', 'Acceso a pedidos, reservas y resenas propias')
+    ) v(Nombre, Descripcion)
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM Roles r
+        WHERE r.Nombre = v.Nombre
+    );
+
+
+    -------------------------------------------------------
+    -- 2. CREAR LOS PERMISOS
+    -------------------------------------------------------
+
+    CREATE TABLE #Modulos (
+        Nombre NVARCHAR(50)
+    );
+
+    INSERT INTO #Modulos (Nombre) VALUES
+    ('Clientes'),
+    ('Empleados'),
+    ('Categorias'),
+    ('Productos'),
+    ('Mesas'),
+    ('Pedidos'),
+    ('DetallePedidos'),
+    ('MetodoPagos'),
+    ('Facturas'),
+    ('Reservas'),
+    ('Proveedores'),
+    ('Ingredientes'),
+    ('RecetaIngredientes'),
+    ('Inventarios'),
+    ('Compras'),
+    ('DetalleCompras'),
+    ('Turnos'),
+    ('Resenas'),
+    ('Usuarios'),
+    ('Roles'),
+    ('Permisos'),
+    ('Auditorias');
+
+    CREATE TABLE #Acciones (
+        Nombre NVARCHAR(30),
+        Descripcion NVARCHAR(50)
+    );
+
+    INSERT INTO #Acciones (Nombre, Descripcion) VALUES
+    ('Ver', 'Consultar'),
+    ('Crear', 'Crear'),
+    ('Actualizar', 'Actualizar'),
+    ('Eliminar', 'Eliminar');
+
+    INSERT INTO Permisos (Codigo, Descripcion)
+    SELECT
+        CONCAT(m.Nombre, '.', a.Nombre),
+        CONCAT(a.Descripcion, ' ', m.Nombre)
+    FROM #Modulos m
+    CROSS JOIN #Acciones a
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM Permisos p
+        WHERE p.Codigo = CONCAT(m.Nombre, '.', a.Nombre)
+    );
+
+    -- Permisos especiales para clientes
+
+    INSERT INTO Permisos (Codigo, Descripcion)
+    SELECT v.Codigo, v.Descripcion
+    FROM (VALUES
+        ('Pedidos.VerPropios', 'Consultar pedidos propios'),
+        ('Reservas.VerPropias', 'Consultar reservas propias'),
+        ('Resenas.VerPropias', 'Consultar resenas propias'),
+        ('Perfil.VerPropio', 'Consultar perfil propio'),
+        ('Perfil.ActualizarPropio', 'Actualizar perfil propio')
+    ) v(Codigo, Descripcion)
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM Permisos p
+        WHERE p.Codigo = v.Codigo
+    );
+
+
+    -------------------------------------------------------
+    -- 3. ASIGNAR TODOS LOS PERMISOS AL ADMINISTRADOR
+    -------------------------------------------------------
+
+    INSERT INTO RolPermisos (Rol, Permiso)
+    SELECT r.Id, p.Id
+    FROM Roles r
+    CROSS JOIN Permisos p
+    WHERE r.Nombre = 'Administrador'
+      AND NOT EXISTS (
+          SELECT 1
+          FROM RolPermisos rp
+          WHERE rp.Rol = r.Id
+            AND rp.Permiso = p.Id
+      );
+
+
+    -------------------------------------------------------
+    -- 4. PERMISOS DEL EMPLEADO
+    -------------------------------------------------------
+
+    CREATE TABLE #PermisosEmpleado (
+        Codigo NVARCHAR(100)
+    );
+
+    INSERT INTO #PermisosEmpleado (Codigo) VALUES
+    ('Clientes.Ver'),
+    ('Empleados.Ver'),
+    ('Categorias.Ver'),
+    ('Productos.Ver'),
+    ('Mesas.Ver'),
+
+    ('Pedidos.Ver'),
+    ('Pedidos.Crear'),
+    ('Pedidos.Actualizar'),
+
+    ('DetallePedidos.Ver'),
+    ('DetallePedidos.Crear'),
+    ('DetallePedidos.Actualizar'),
+
+    ('Reservas.Ver'),
+    ('Reservas.Crear'),
+    ('Reservas.Actualizar'),
+
+    ('Facturas.Ver'),
+    ('Facturas.Crear'),
+    ('MetodoPagos.Ver'),
+
+    ('Proveedores.Ver'),
+    ('Ingredientes.Ver'),
+    ('Inventarios.Ver'),
+    ('Compras.Ver'),
+    ('DetalleCompras.Ver'),
+    ('Turnos.Ver'),
+    ('Resenas.Ver');
+
+
+    INSERT INTO RolPermisos (Rol, Permiso)
+    SELECT r.Id, p.Id
+    FROM Roles r
+    INNER JOIN #PermisosEmpleado pe ON 1 = 1
+    INNER JOIN Permisos p ON p.Codigo = pe.Codigo
+    WHERE r.Nombre = 'Empleado'
+      AND NOT EXISTS (
+          SELECT 1
+          FROM RolPermisos rp
+          WHERE rp.Rol = r.Id
+            AND rp.Permiso = p.Id
+      );
+
+
+    -------------------------------------------------------
+    -- 5. PERMISOS DEL CLIENTE
+    -------------------------------------------------------
+
+    CREATE TABLE #PermisosCliente (
+        Codigo NVARCHAR(100)
+    );
+
+    INSERT INTO #PermisosCliente (Codigo) VALUES
+    ('Productos.Ver'),
+    ('Categorias.Ver'),
+
+    ('Pedidos.Crear'),
+    ('DetallePedidos.Crear'),
+    ('Pedidos.VerPropios'),
+
+    ('Reservas.Crear'),
+    ('Reservas.VerPropias'),
+
+    ('Resenas.Crear'),
+    ('Resenas.VerPropias'),
+
+    ('Perfil.VerPropio'),
+    ('Perfil.ActualizarPropio');
+
+
+    INSERT INTO RolPermisos (Rol, Permiso)
+    SELECT r.Id, p.Id
+    FROM Roles r
+    INNER JOIN #PermisosCliente pc ON 1 = 1
+    INNER JOIN Permisos p ON p.Codigo = pc.Codigo
+    WHERE r.Nombre = 'Cliente'
+      AND NOT EXISTS (
+          SELECT 1
+          FROM RolPermisos rp
+          WHERE rp.Rol = r.Id
+            AND rp.Permiso = p.Id
+      );
+
+
+    -------------------------------------------------------
+    -- 6. CREAR USUARIOS DE EMPLEADOS
+    -------------------------------------------------------
+
+    -- Administrador: Santiago Serna
+    INSERT INTO Usuarios
+        (NombreUsuario, Clave, Activo, Rol, Empleado, Cliente)
+    SELECT
+        'admin',
+        'Admin123!',
+        1,
+        r.Id,
+        e.Id,
+        NULL
+    FROM Empleados e
+    INNER JOIN Roles r ON r.Nombre = 'Administrador'
+    WHERE e.Cedula = '1001001001'
+      AND NOT EXISTS (
+          SELECT 1 FROM Usuarios u
+          WHERE u.NombreUsuario = 'admin'
+      );
+
+    -- Los demás empleados
+    INSERT INTO Usuarios
+        (NombreUsuario, Clave, Activo, Rol, Empleado, Cliente)
+    SELECT
+        v.Usuario,
+        'Empleado123!',
+        1,
+        r.Id,
+        e.Id,
+        NULL
+    FROM (VALUES
+        ('laura.restrepo', '1001001002'),
+        ('miguel.torres', '1001001003'),
+        ('daniela.rios', '1001001004'),
+        ('felipe.castro', '1001001005')
+    ) v(Usuario, Cedula)
+    INNER JOIN Empleados e ON e.Cedula = v.Cedula
+    INNER JOIN Roles r ON r.Nombre = 'Empleado'
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM Usuarios u
+        WHERE u.NombreUsuario = v.Usuario
+    );
+
+
+    -------------------------------------------------------
+    -- 7. CREAR USUARIOS DE CLIENTES
+    -------------------------------------------------------
+
+    INSERT INTO Usuarios
+        (NombreUsuario, Clave, Activo, Rol, Empleado, Cliente)
+    SELECT
+        v.Usuario,
+        'Cliente123!',
+        1,
+        r.Id,
+        NULL,
+        c.Id
+    FROM (VALUES
+        ('carlos.mendoza', '1017123456'),
+        ('ana.gomez', '1020987654'),
+        ('juan.perez', '1034567890'),
+        ('laura.rodriguez', '1045678901'),
+        ('andres.martinez', '1056789012')
+    ) v(Usuario, Cedula)
+    INNER JOIN Clientes c ON c.Cedula = v.Cedula
+    INNER JOIN Roles r ON r.Nombre = 'Cliente'
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM Usuarios u
+        WHERE u.NombreUsuario = v.Usuario
+    );
+
+
+    -------------------------------------------------------
+    -- 8. FINALIZAR
+    -------------------------------------------------------
+
+    DROP TABLE #Modulos;
+    DROP TABLE #Acciones;
+    DROP TABLE #PermisosEmpleado;
+    DROP TABLE #PermisosCliente;
+
+    COMMIT TRANSACTION;
+
+    PRINT 'Roles, permisos, relaciones y usuarios creados correctamente.';
+
+END TRY
+BEGIN CATCH
+
+    IF @@TRANCOUNT > 0
+        ROLLBACK TRANSACTION;
+
+    THROW;
+
+END CATCH;
+GO
+
+
+-------------------------------------------------------
+-- 9. COMPROBAR LOS RESULTADOS
+-------------------------------------------------------
+
+SELECT * FROM Roles ORDER BY Id;
+GO
+
+SELECT * FROM Permisos ORDER BY Codigo;
+GO
+
+SELECT
+    r.Nombre AS Rol,
+    p.Codigo AS Permiso
+FROM RolPermisos rp
+INNER JOIN Roles r ON r.Id = rp.Rol
+INNER JOIN Permisos p ON p.Id = rp.Permiso
+ORDER BY r.Nombre, p.Codigo;
+GO
+
+SELECT
+    u.Id,
+    u.NombreUsuario,
+    u.Activo,
+    r.Nombre AS Rol,
+    e.Nombre AS Empleado,
+    c.Nombre AS Cliente
+FROM Usuarios u
+INNER JOIN Roles r ON r.Id = u.Rol
+LEFT JOIN Empleados e ON e.Id = u.Empleado
+LEFT JOIN Clientes c ON c.Id = u.Cliente
+ORDER BY u.Id;
+GO
+       
+
+       
+        
 use Restaurante;
 GO
 -- ============================================================
@@ -376,6 +756,8 @@ VALUES
 (3, 4, 5, 'El cheesecake estuvo delicioso.', '2026-03-29 16:00'),
 (4, 5, 4, 'La ensalada estaba fresca.', '2026-03-29 21:00'),
 (5, 2, 5, 'El jugo de lulo estaba excelente.', '2026-03-30 21:30');
+
+
 
 SELECT * FROM TipoEmpleados;
 GO

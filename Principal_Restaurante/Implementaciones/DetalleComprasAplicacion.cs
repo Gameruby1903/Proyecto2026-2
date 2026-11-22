@@ -46,7 +46,7 @@ namespace lib_aplicaciones.Implementaciones
             // significa que no se está buscando una cantidad específica.
             // Por eso devolvemos todos los registros.
             if (entidad.Cantidad == 0)
-                return this.IConexion.DetalleCompras!.ToList();
+                return this.IConexion.DetalleCompras!.Include(x => x._Ingrediente).Include(x => x._Compra).ToList();
 
           
             return this.IConexion.DetalleCompras!
@@ -56,7 +56,7 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<DetalleCompras> Consultar()
         {
-            return this.IConexion.DetalleCompras!.ToList();
+            return this.IConexion.DetalleCompras!.Include(x => x._Ingrediente).Include(x => x._Compra).ToList();
         }
 
         public DetalleCompras Insertar(DetalleCompras entidad)
@@ -79,7 +79,7 @@ namespace lib_aplicaciones.Implementaciones
             // La cantidad debe ser mayor que cero.
             // true = información válida.
             // false = información inválida.
-            if (entidad.Cantidad <= 0)
+            if (entidad.Cantidad <= 0 || entidad.PrecioUni <= 0 || entidad.Ingrediente == 0 || entidad.Compra == 0)
                 return false;
 
             return true;

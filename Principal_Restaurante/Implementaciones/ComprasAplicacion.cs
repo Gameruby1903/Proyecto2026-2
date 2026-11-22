@@ -1,7 +1,7 @@
 ﻿using lib_aplicaciones.Entidades;
 using lib_aplicaciones.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
+
 namespace lib_aplicaciones.Implementaciones
 {
     public class ComprasAplicacion : IComprasAplicacion
@@ -39,14 +39,15 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Compras> Buscar(Compras entidad)
         {
-            return this.IConexion.Compras!
+            return this.IConexion.Compras!.Include(x => x._Proveedor)
                 .Where(x => x.Estado!.Contains(entidad.Estado!))
                 .ToList();
         }
 
         public List<Compras> Consultar()
         {
-            return this.IConexion.Compras!.ToList();
+            return this.IConexion.Compras!
+                .Include(x => x._Proveedor).ToList();
         }
 
         public Compras Insertar(Compras entidad)
@@ -64,7 +65,10 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Compras entidad)
         {
-            if (string.IsNullOrEmpty(entidad.Estado))
+            if (string.IsNullOrEmpty(entidad.Estado) ||
+                entidad.Proveedor == 0 ||
+                entidad.Fecha == DateTime.MinValue ||
+                entidad.Total == 0)
                 return false;
             return true;
         }

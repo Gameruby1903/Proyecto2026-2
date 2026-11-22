@@ -64,9 +64,10 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Clientes entidad)
         {
-            if (string.IsNullOrEmpty(entidad.Cedula))
-                return false;
-            return true;
+            return string.IsNullOrEmpty(entidad.Nombre) ||
+                string.IsNullOrEmpty(entidad.Cedula) ||
+                string.IsNullOrEmpty(entidad.Telefono) ||
+                string.IsNullOrEmpty(entidad.Email);
         }
     }
 }

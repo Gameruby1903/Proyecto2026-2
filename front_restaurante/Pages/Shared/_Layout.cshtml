@@ -1,151 +1,295 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using Newtonsoft.Json
+@using System.Collections.Generic
+
+@{
+    var permisosJson = Context.Session.GetString("Permisos");
+
+    var permisos = string.IsNullOrEmpty(permisosJson)
+        ? new List<string>()
+        : JsonConvert.DeserializeObject<List<string>>(permisosJson)
+            ?? new List<string>();
+
+    var usuario = Context.Session.GetString("Usuario");
+}
+
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - front_restaurante</title>
-    <script type="importmap"></script>
+    <title>@ViewData["Title"] - Restaurante</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/front_restaurante.styles.css" asp-append-version="true" />
 </head>
+
 <body>
+
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">front_restaurante</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+
+            <div class="container-fluid">
+
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    Restaurante
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
                     <span class="navbar-toggler-icon"></span>
+
                 </button>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
                     <ul class="navbar-nav flex-grow-1">
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-page="/Index">
+                                Inicio
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-page="/Ventanas/Categorias">Categorias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-page="/Ventanas/Clientes">Clientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-page="/Ventanas/Compras">Compras</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-page="/Ventanas/DetalleCompras">Detalle Compras</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-page="/Ventanas/DetallePedidos">Detalle Pedidos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-page="/Ventanas/Empleados">Empleados</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-area=""
-                               asp-page="/Ventanas/Facturas">Facturas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Ventanas/Ingredientes">Ingredientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Ventanas/Inventarios">Inventarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Ventanas/Mesas">Mesas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Ventanas/MetodoPagos">MetodoPagos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area=""
-                            asp-page="/Ventanas/Pedidos">Pedidos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"
-                            asp-area=""
-                            asp-page="/Ventanas/Productos">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Ventanas/Proveedores">Proveedores</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Ventanas/RecetaIngredientes">RecetaIngredientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Ventanas/Resenas">Resenas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Ventanas/Reservas">Reservas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Ventanas/Sucursales">Sucursales</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Ventanas/TipoEmpleados">TipoEmpleados</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Ventanas/Turnos">Turnos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" 
-                            asp-area="" 
-                            asp-page="/Privacy">Privacy</a>
-                        </li>
-                        
+
+                        @if (permisos.Contains("Categorias.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Categorias">
+                                    Categorias
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Clientes.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Clientes">
+                                    Clientes
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Compras.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Compras">
+                                    Compras
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("DetalleCompras.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/DetalleCompras">
+                                    Detalle Compras
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("DetallePedidos.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/DetallePedidos">
+                                    Detalle Pedidos
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Empleados.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Empleados">
+                                    Empleados
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Facturas.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Facturas">
+                                    Facturas
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Ingredientes.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Ingredientes">
+                                    Ingredientes
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Inventarios.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Inventarios">
+                                    Inventarios
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Mesas.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Mesas">
+                                    Mesas
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("MetodoPagos.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/MetodoPagos">
+                                    Metodos de Pago
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Pedidos.Ver") ||
+                             permisos.Contains("Pedidos.VerPropios") ||
+                             permisos.Contains("Pedidos.Crear"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Pedidos">
+                                    Pedidos
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Productos.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Productos">
+                                    Productos
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Proveedores.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Proveedores">
+                                    Proveedores
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("RecetaIngredientes.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/RecetaIngredientes">
+                                    Receta Ingredientes
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Resenas.Ver") ||
+                             permisos.Contains("Resenas.VerPropias") ||
+                             permisos.Contains("Resenas.Crear"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Resenas">
+                                    Reseñas
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Reservas.Ver") ||
+                             permisos.Contains("Reservas.VerPropias") ||
+                             permisos.Contains("Reservas.Crear"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Reservas">
+                                    Reservas
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Sucursales.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Sucursales">
+                                    Sucursales
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("TipoEmpleados.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/TipoEmpleados">
+                                    Tipos de Empleados
+                                </a>
+                            </li>
+                        }
+
+                        @if (permisos.Contains("Turnos.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Turnos">
+                                    Turnos
+                                </a>
+                            </li>
+                        }
+
                     </ul>
+
+                    <ul class="navbar-nav">
+
+                        @if (!string.IsNullOrEmpty(usuario))
+                        {
+                            <li class="nav-item">
+                                <span class="nav-link text-dark">
+                                    Usuario: @usuario
+                                </span>
+                            </li>
+
+                            <li class="nav-item">
+                                <form method="post" asp-page="/Index"
+                                      asp-page-handler="CerrarSesion">
+
+                                    <button type="submit" class="nav-link btn btn-link text-dark">
+                                        Cerrar sesión
+                                    </button>
+
+                                </form>
+                            </li>
+                        }
+
+                    </ul>
+
                 </div>
+
             </div>
+
         </nav>
     </header>
+
     <div class="container">
+
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+
     </div>
 
     <footer class="border-top footer text-muted">
+
         <div class="container">
-            &copy; 2026 - front_restaurante - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2026 - Restaurante
+            <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
+
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -153,5 +297,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

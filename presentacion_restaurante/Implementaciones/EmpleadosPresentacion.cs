@@ -79,16 +79,10 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Empleados entidad)
         {
-            // CORRECCIÓN:
-            // Todos los campos deben tener información.
-            // La fecha debe ser diferente de DateTime.MinValue.
-            // true = información válida.
-            // false = información inválida.
+            return string.IsNullOrEmpty(entidad.Nombre) || (string.IsNullOrEmpty(entidad.Cedula) ||
+                string.IsNullOrEmpty(entidad.Telefono) || entidad.FechaContratacion == DateTime.MinValue ||
+                entidad.TipoEmpleado == 0 || entidad.Sucursal == 0);
 
-            return !string.IsNullOrEmpty(entidad.Nombre) &&
-                   !string.IsNullOrEmpty(entidad.Cedula) &&
-                   !string.IsNullOrEmpty(entidad.Telefono) &&
-                   entidad.FechaContratacion != DateTime.MinValue;
         }
     }
 }

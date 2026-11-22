@@ -78,11 +78,12 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Mesas entidad)
         {
-            return
+            if (entidad.Numero <= 0 || entidad.Capacidad <= 0 ||
                 string.IsNullOrEmpty(entidad.Ubicacion) ||
-                entidad.Capacidad == 0||
-                entidad.Estado == true ||
-                entidad.Numero != 0;
+                entidad.Estado == false)
+                return false;
+
+            return true;
         }
     }
 }

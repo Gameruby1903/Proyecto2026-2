@@ -78,10 +78,11 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Productos entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombre) ||
-                string.IsNullOrEmpty(entidad.Descripcion) ||
-                entidad.Disponible == true ||
-                entidad.Precio != 0;
+            if (string.IsNullOrEmpty(entidad.Nombre) || entidad.Categoria == 0 || entidad.Precio <= 0 ||
+                string.IsNullOrEmpty(entidad.Descripcion) || entidad.Disponible == false)
+                return false;
+
+            return true;
         }
     }
 }

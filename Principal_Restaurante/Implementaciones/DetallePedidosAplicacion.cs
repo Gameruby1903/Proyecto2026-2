@@ -40,7 +40,7 @@ namespace lib_aplicaciones.Implementaciones
         public List<DetallePedidos> Buscar(DetallePedidos entidad)
         {
             if (entidad.Cantidad == 0)
-                return this.IConexion.DetallePedidos!.ToList();
+                return this.IConexion.DetallePedidos!.Include(x => x._Pedido).Include(x => x._Producto).ToList();
 
 
             return this.IConexion.DetallePedidos!
@@ -50,7 +50,7 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<DetallePedidos> Consultar()
         {
-            return this.IConexion.DetallePedidos!.ToList();
+            return this.IConexion.DetallePedidos!.Include(x => x._Pedido).Include(x => x._Producto).ToList();
         }
 
         public DetallePedidos Insertar(DetallePedidos entidad)
@@ -68,7 +68,7 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(DetallePedidos entidad)
         {
-            if (entidad.Cantidad <= 0)
+            if (entidad.Cantidad <= 0 || entidad.PrecioUni <= 0 || entidad.Pedido == 0 || entidad.Producto == 0)
                 return false;
             return true;
         }

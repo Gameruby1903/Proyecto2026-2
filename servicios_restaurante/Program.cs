@@ -1,7 +1,8 @@
 
+using lib_aplicaciones.Entidades;
 using lib_aplicaciones.Implementaciones;
 using lib_aplicaciones.Interfaces;
-
+using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -26,11 +27,17 @@ builder.Services.AddScoped<IReservasAplicacion, ReservasAplicacion>();
 builder.Services.AddScoped<ISucursalesAplicacion, SucursalesAplicacion>();
 builder.Services.AddScoped<ITipoEmpleadosAplicacion, TipoEmpleadosAplicacion>();
 builder.Services.AddScoped<ITurnosAplicacion, TurnosAplicacion>();
+builder.Services.AddScoped<IUsuariosAplicacion, UsuariosAplicacion>();
+builder.Services.AddScoped<IPermisosAplicacion, PermisosAplicacion>();
+builder.Services.AddScoped<IRolesAplicacion, RolesAplicacion>();
+builder.Services.AddScoped<IRolPermisosAplicacion, RolPermisosAplicacion>();
+
+
 
 var app = builder.Build();
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+app.MapGet("/", () => "");
 app.Run();
-

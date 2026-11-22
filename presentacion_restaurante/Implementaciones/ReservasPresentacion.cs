@@ -78,9 +78,12 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Reservas entidad)
         {
-            return string.IsNullOrEmpty(entidad.Estado) ||
-                entidad.FechaHora == DateTime.MinValue ||
-                entidad.NPersonas != 0;
+            if (entidad.NPersonas <= 0 || entidad.Cliente == 0 || entidad.Mesa == 0
+                || entidad.FechaHora == DateTime.MinValue
+                || string.IsNullOrEmpty(entidad.Estado))
+                return false;
+
+            return true;
         }
     }
 }

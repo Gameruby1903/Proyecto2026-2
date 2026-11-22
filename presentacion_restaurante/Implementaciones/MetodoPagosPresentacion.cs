@@ -78,9 +78,9 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(MetodoPagos entidad)
         {
-            return string.IsNullOrEmpty(entidad.Tipo) ||
-                string.IsNullOrEmpty(entidad.Descripcion);
-                
+            if (string.IsNullOrEmpty(entidad.Tipo) || string.IsNullOrEmpty(entidad.Descripcion))
+                return false;
+            return true;
         }
     }
 }

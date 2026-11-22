@@ -23,13 +23,17 @@ namespace presentacion_restaurante.Implementaciones
             var message = await cliente_http.PostAsync(url, body);
 
             if (!message.IsSuccessStatusCode)
-                throw new Exception("Error Comunicacion");
-
+            {
+                var error = await message.Content.ReadAsStringAsync();
+                throw new Exception("Error Comunicacion: " + error);
+            }
             var respuesta = await message.Content.ReadAsStringAsync();
             cliente_http.Dispose();
             cliente_http = null;
 
-            respuesta = Replace(respuesta);
+            /* respuesta = Replace(respuesta);
+             return JsonConvert.DeserializeObject<T>(respuesta)!;
+            */
             return JsonConvert.DeserializeObject<T>(respuesta)!;
         }
 

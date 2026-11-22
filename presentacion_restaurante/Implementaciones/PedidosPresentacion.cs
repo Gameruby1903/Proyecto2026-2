@@ -21,7 +21,7 @@ namespace presentacion_restaurante.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Pedidos>(
@@ -66,7 +66,7 @@ namespace presentacion_restaurante.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Pedidos>(
@@ -78,11 +78,12 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Pedidos entidad)
         {
-            return 
-                string.IsNullOrEmpty(entidad.Estado) ||
-                entidad.Fecha == DateTime.MinValue;
-            
+            if (entidad.Fecha == DateTime.MinValue || entidad.Mesa == 0 || entidad.Cliente == 0 || entidad.Empleado == 0 ||
+                string.IsNullOrEmpty(entidad.Estado))
+                return false;
+            return true;
         }
     }
 }
+
 
