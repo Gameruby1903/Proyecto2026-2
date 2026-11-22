@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IConexion, Conexion>();
+builder.Services.AddScoped<IAuditoriasAplicacion, AuditoriasAplicacion>();
 builder.Services.AddScoped<ICategoriasAplicacion, CategoriasAplicacion>();
 builder.Services.AddScoped<IClientesAplicacion, ClientesAplicacion>();
 builder.Services.AddScoped<IComprasAplicacion, ComprasAplicacion>();
@@ -38,6 +39,13 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.Use(async (ctx, next) =>
+{
+    var conexion = ctx.RequestServices.GetRequiredService<IConexion>();
+    var u = ctx.Request.Headers["Usuario"].FirstOrDefault();
+    conexion.Usuario = string.IsNullOrEmpty(u) ? "desconocido" : Uri.UnescapeDataString(u);
+    await next();
+});
 app.MapControllers();
 app.MapGet("/", () => "");
 app.Run();

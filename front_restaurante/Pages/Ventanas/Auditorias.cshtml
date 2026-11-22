@@ -1,0 +1,56 @@
+﻿@page
+@model AuditoriasModel
+@{
+    ViewData["Title"] = "Auditorias";
+}
+<form method="post" enctype="multipart/form-data">
+
+    <div class="text-center">
+        <h1 class="display-4">Auditorias</h1>
+        <div>
+            <input type="submit"
+                   value="Consultar"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtConsultar" />
+            <input placeholder="Usuario"
+                   asp-for="@Model.Filtro!.Usuario" />
+            <input placeholder="Entidad"
+                   asp-for="@Model.Filtro!.Entidad" />
+        </div>
+
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
+            ;
+        }
+
+        <br />
+        <br />
+        <div class="containers_vn panel panel-default">
+            <table class="tb_data table table-striped table-bordered table-hover">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Usuario</th>
+                    <th>Acción</th>
+                    <th>Entidad</th>
+                    <th>Registro</th>
+                    <th>Detalle</th>
+                </tr>
+                @if (Model.Lista != null)
+                {
+                    foreach (var elemento in Model.Lista)
+                    {
+                        <tr>
+                            <td>@elemento.Fecha.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>@elemento.Usuario</td>
+                            <td>@elemento.Accion</td>
+                            <td>@elemento.Entidad</td>
+                            <td>@elemento.IdRegistro</td>
+                            <td style="text-align:left">@elemento.Detalle</td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+</form>

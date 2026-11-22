@@ -11,6 +11,8 @@ namespace lib_aplicaciones.Interfaces
     {
         string? StringConexion { get; set; }
 
+        DbSet<Auditorias>? Auditorias { get; set; }
+        string? Usuario { get; set; }
         DbSet<TipoEmpleados>? TipoEmpleados { get; set; }
         DbSet<Sucursales>? Sucursales { get; set; }
         DbSet<Empleados>? Empleados { get; set; }

@@ -8,7 +8,7 @@ namespace presentacion_restaurante.Implementaciones
 {
     public class Comunicaciones : IComunicaciones
     {
-
+        public string? Usuario { get; set; }
         public async Task<T> Ejecutar<T>(string url, object entidad)
         {
             url = "http://localhost:5298/" + url.TrimStart('/'); // TrimStart('/') es un método de C# que quita los caracteres / del inicio de un texto. Solo toca el principio, no el resto.
@@ -19,6 +19,8 @@ namespace presentacion_restaurante.Implementaciones
 
             var cliente_http = new HttpClient();
             cliente_http.Timeout = new TimeSpan(0, 4, 0);
+            if (!string.IsNullOrEmpty(Usuario))
+                cliente_http.DefaultRequestHeaders.Add("Usuario", Uri.EscapeDataString(Usuario));
 
             var message = await cliente_http.PostAsync(url, body);
 

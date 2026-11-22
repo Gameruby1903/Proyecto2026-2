@@ -19,6 +19,7 @@ builder.Services.AddRazorPages(options =>
 builder.Services.AddScoped<IComunicaciones, Comunicaciones>();
 
 // Registrar presentaciones
+builder.Services.AddScoped<IAuditoriasPresentacion, AuditoriasPresentacion>();
 builder.Services.AddScoped<ICategoriasPresentacion, CategoriasPresentacion>();
 builder.Services.AddScoped<IClientesPresentacion, ClientesPresentacion>();
 builder.Services.AddScoped<IComprasPresentacion, ComprasPresentacion>();

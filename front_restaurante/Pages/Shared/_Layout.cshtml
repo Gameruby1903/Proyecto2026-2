@@ -55,7 +55,12 @@
                                 Inicio
                             </a>
                         </li>
-
+                        @if (permisos.Contains("Auditorias.Ver"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Auditorias">Auditorias</a>
+                            </li>
+                        }
                         @if (permisos.Contains("Categorias.Ver"))
                         {
                             <li class="nav-item">

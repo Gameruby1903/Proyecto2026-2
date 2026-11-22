@@ -2,6 +2,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using presentacion_restaurante.Interfaces;
 
 namespace front_restaurante.Nucleo
 {
@@ -26,7 +27,11 @@ namespace front_restaurante.Nucleo
             if (string.IsNullOrEmpty(usuario))
             {
                 context.Result = new RedirectToPageResult("/Index");
-            }
+            } return;
+            // Entrega el usuario logueado a Comunicaciones (misma instancia scoped de la petición)
+            var comunicaciones = context.HttpContext.RequestServices
+                .GetRequiredService<IComunicaciones>();
+            comunicaciones.Usuario = usuario;
         }
 
         public void OnPageHandlerExecuted(
