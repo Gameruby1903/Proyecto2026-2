@@ -39,11 +39,12 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Ingredientes> Buscar(Ingredientes entidad)
         {
-            return this.IConexion.Ingredientes!.Include(x => x._Proveedor)
-                .Where(x => x.Nombre!.Contains(entidad.Nombre!))
+            return this.IConexion.Ingredientes!
+                .Include(x => x._Proveedor)
+                .Where(x => string.IsNullOrEmpty(entidad.Nombre) ||
+                            (x.Nombre != null && x.Nombre.Contains(entidad.Nombre)))
                 .ToList();
         }
-
         public List<Ingredientes> Consultar()
         {
             return this.IConexion.Ingredientes!.Include(x => x._Proveedor).ToList();

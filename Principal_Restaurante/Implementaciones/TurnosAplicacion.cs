@@ -36,14 +36,14 @@ namespace lib_aplicaciones.Implementaciones
             this.IConexion.SaveChanges();
             return entidad;
         }
-
-        public List<Turnos> Buscar(Turnos entidad)
+        public List<Turnos> Consultar(Turnos entidad)
         {
-            return this.IConexion.Turnos!.Include(x => x._Empleado)
-                .Where(x => x.Nombre!.Contains(entidad.Nombre!))
+            return this.IConexion.Turnos!
+                .Include(x => x._Empleado)
+                .Where(x => string.IsNullOrEmpty(entidad.Nombre) ||
+                            (x.Nombre != null && x.Nombre.Contains(entidad.Nombre)))
                 .ToList();
         }
-
         public List<Turnos> Consultar()
         {
             return this.IConexion.Turnos!.Include(x => x._Empleado).ToList();

@@ -39,8 +39,10 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Reservas> Buscar(Reservas entidad)
         {
+
             return this.IConexion.Reservas!.Include(x => x._Cliente).Include(x => x._Mesa)
                 .Where(x => x.NPersonas== entidad.NPersonas)
+
                 .ToList();
         }
 
@@ -64,11 +66,13 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Reservas entidad)
         {
+
             if (entidad.NPersonas <= 0 || entidad.Cliente == 0 || entidad.Mesa == 0
                 || entidad.FechaHora == DateTime.MinValue
                 || string.IsNullOrEmpty(entidad.Estado))
-                return false;
 
+    
+                return false;
             return true;
         }
     }

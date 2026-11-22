@@ -39,9 +39,9 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Resenas> Buscar(Resenas entidad)
         {
+
             return this.IConexion.Resenas!.Include(x => x._Producto).Include(x => x._Cliente)
-                .Where(x => x.Calificacion == entidad.Calificacion)
-                .ToList();
+                .Where(x => x.Calificacion == entidad.Calificacion).ToList();
         }
 
         public List<Resenas> Consultar()
@@ -64,10 +64,12 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Resenas entidad)
         {
+
             if (entidad.Calificacion <= 0 || string.IsNullOrEmpty(entidad.Comentario) || entidad.Cliente == 0 || entidad.Producto == 0 
                 || entidad.Fecha == DateTime.MinValue)
-                return false;
 
+         
+                return false;
             return true;
         }
     }

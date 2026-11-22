@@ -40,7 +40,7 @@ namespace lib_aplicaciones.Implementaciones
         public List<Proveedores> Buscar(Proveedores entidad)
         {
             return this.IConexion.Proveedores!
-                .Where(x => x.Nombre!.Contains(entidad.Nombre!))
+              .Where(x => x.Nombre!.Contains(entidad.Nombre!))      
                 .ToList();
         }
 

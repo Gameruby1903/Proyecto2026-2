@@ -40,8 +40,8 @@ namespace lib_aplicaciones.Implementaciones
         public List<Mesas> Buscar(Mesas entidad)
         {
             return this.IConexion.Mesas!
-                .Where(x => x.Numero == entidad.Numero)
-                .ToList();
+
+                .Where(x => x.Numero == entidad.Numero).ToList();
         }
 
         public List<Mesas> Consultar()
@@ -64,11 +64,14 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Mesas entidad)
         {
+
             if (entidad.Numero <= 0 || entidad.Capacidad <= 0 || 
                 string.IsNullOrEmpty(entidad.Ubicacion) || 
                 entidad.Estado == false)
                 return false; 
 
+
+     
             return true;
         }
     }

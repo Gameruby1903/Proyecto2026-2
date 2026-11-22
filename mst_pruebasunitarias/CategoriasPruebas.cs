@@ -15,8 +15,8 @@ namespace Mst_Pruebas {
         {
             this.conexion = new Conexion();
 
-            conexion.StringConexion = "server=(localdb);database=Restaurante3;Integrated Security=True;TrustServerCertificate=true;";
-
+            conexion.StringConexion = "server=(localdb)\\MSSQLLocalDB;database=Restaurante3;Integrated Security=True;TrustServerCertificate=true;";
+            
 
         }
 

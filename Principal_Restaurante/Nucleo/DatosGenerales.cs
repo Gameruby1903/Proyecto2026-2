@@ -6,7 +6,8 @@ namespace lib_aplicaciones.Nucleo
     {
         public static string StringConexion()
         {
-            return "server=localhost;database=Restaurante;Integrated Security=True;TrustServerCertificate=true;";
+            return @"server=(localdb)\MSSQLLocalDB;database=Restaurante;Integrated Security=True;TrustServerCertificate=true;";
+            
         }
     }
 }

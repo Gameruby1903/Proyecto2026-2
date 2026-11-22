@@ -66,7 +66,7 @@ namespace presentacion_restaurante.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
-            if (!Validar(entidad))
+            if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Compras>(
@@ -78,12 +78,15 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Compras entidad)
         {
+
             if (string.IsNullOrEmpty(entidad.Estado) ||
                 entidad.Proveedor == 0 ||
                 entidad.Fecha == DateTime.MinValue ||
                 entidad.Total == 0)
                 return false;
             return true;
+
+
         }
     }
 }

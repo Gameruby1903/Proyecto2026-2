@@ -81,6 +81,7 @@ namespace presentacion_restaurante.Implementaciones
             if (string.IsNullOrEmpty(entidad.Nombre) || string.IsNullOrEmpty(entidad.UniMedida) || entidad.CostoUni == 0 || entidad.Proveedor == 0)
                 return false;
             return true;
+
         }
     }
 }

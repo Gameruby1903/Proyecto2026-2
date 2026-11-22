@@ -40,7 +40,11 @@ namespace lib_aplicaciones.Implementaciones
         public List<TipoEmpleados> Buscar(TipoEmpleados entidad)
         {
             return this.IConexion.TipoEmpleados!
+
                 .Where(x => x.Nombre!.Contains(entidad.Nombre!))
+
+                
+
                 .ToList();
         }
 
@@ -64,9 +68,10 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(TipoEmpleados entidad)
         {
-            if (string.IsNullOrEmpty(entidad.Nombre) || entidad.SalarioBase <= 0)
-                return false;
 
+            if (string.IsNullOrEmpty(entidad.Nombre) || entidad.SalarioBase <= 0)
+
+                return false;
             return true;
         }
     }

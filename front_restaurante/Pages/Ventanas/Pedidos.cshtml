@@ -4,37 +4,38 @@
     ViewData["Title"] = "Pedidos";
 }
 <form method="post"
-    enctype="multipart/form-data">
+      enctype="multipart/form-data">
 
     <div class="text-center">
         <h1 class="display-4">Pedidos</h1>
         <div>
             <input type="submit"
-                value="Consultar"
-                class="btn btn-secondary"
-                asp-page-handler="BtConsultar"/>
+                   value="Consultar"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtConsultar" />
             <input type="submit"
-                value="Nuevo"
-                class="btn btn-secondary"
-                asp-page-handler="BtNuevo"/>
+                   value="Nuevo"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtNuevo" />
             <input type="submit"
-                value="Guardar"
-                class="btn btn-secondary"
-                asp-page-handler="BtGuardar"/>
-            <input id="flFecha" 
-                placeholder="Fecha"
-                asp-for="@Model.Filtro!.Fecha"/>
+                   value="Guardar"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtGuardar" />
+            <input id="flEstado"
+                   placeholder="Estado"
+                   asp-for="@Model.Filtro!.Estado" />
         </div>
 
         @if (ViewData.ContainsKey("Mensaje"))
         {
-            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml");
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
+            ;
         }
-        
+
         @if (Model.Formulario || Model.Borrar)
         {
             <input type="hidden"
-                asp-for="@Model.Actual!.Id" />
+                   asp-for="@Model.Actual!.Id" />
         }
 
         @if (Model.Formulario)
@@ -42,13 +43,12 @@
             <div>
                 <h3>Pedidos</h3>
 
-               
-
                 <label>
                     Fecha
                 </label>
-                <input id="flFecha"
-                    asp-for="@Model.Actual!.Fecha"/>
+                <input id="nmFecha"
+                       type="datetime-local"
+                       asp-for="@Model.Actual!.Fecha" />
                 <br />
                 <label>Cliente:</label>
                 <select asp-for="Actual.Cliente"
@@ -84,7 +84,39 @@
                 <br />
 
 
-               
+                <label>
+                    Cliente
+                </label>
+                <input id="nmCliente"
+                       type="number"
+                       min="1"
+                       asp-for="@Model.Actual!.Cliente" />
+                <br />
+
+                <label>
+                    Mesa
+                </label>
+                <input id="nmMesa"
+                       type="number"
+                       min="1"
+                       asp-for="@Model.Actual!.Mesa" />
+                <br />
+
+                <label>
+                    Empleado
+                </label>
+                <input id="nmEmpleado"
+                       type="number"
+                       min="1"
+                       asp-for="@Model.Actual!.Empleado" />
+                <br />
+
+                <label>
+                    Estado
+                </label>
+                <input id="nmEstado"
+                       asp-for="@Model.Actual!.Estado" />
+                <br />
             </div>
         }
 
@@ -97,6 +129,7 @@
                     </h3>
 
                     <h4>
+
                         ¿Quiere borrar el Pedido con información 
                             
                         @Model.Actual!.Fecha,
@@ -109,15 +142,23 @@
 
                             
                            
+=======
+                        ¿Quiere borrar el Pedido con información
+                        @Model.Actual!.Fecha,
+                        Cliente @Model.Actual!.Cliente,
+                        Mesa @Model.Actual!.Mesa,
+                        Empleado @Model.Actual!.Empleado,
+                        @Model.Actual!.Estado?
+
                     </h4>
                     <input type="submit"
-                        value="Cancelar"
-                        class="btn btn-secondary"
-                        asp-page-handler="BtConsultar"/>
+                           value="Cancelar"
+                           class="btn btn-secondary"
+                           asp-page-handler="BtConsultar" />
                     <input type="submit"
-                        value="Borrar"
-                        class="btn btn-secondary"
-                        asp-page-handler="BtBorrar"/>
+                           value="Borrar"
+                           class="btn btn-secondary"
+                           asp-page-handler="BtBorrar" />
                 </div>
             </div>
         }
@@ -129,16 +170,24 @@
             <div class="containers_vn panel panel-default">
                 <table class="tb_data table table-striped table-bordered table-hover">
                     <tr>
+
                         
                         <th>Pedidos</th>
                        
+
+                        <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Mesa</th>
+                        <th>Empleado</th>
+                        <th>Estado</th>
+                        <th></th>
+
                     </tr>
                     @if (Model != null && Model.Lista != null)
                     {
                         foreach (var elemento in Model.Lista)
                         {
                             <tr>
-                                
                                 <td>@elemento.Fecha</td>
                                 <td>@elemento.Cliente</td>
                                 <td>@elemento.Mesa</td>
@@ -147,18 +196,20 @@
 
 
 
+
                          
+
                                 <td>
                                     <input type="submit"
-                                        value="Editar"
-                                        class="btn btn-secondary"
-                                        asp-page-handler="BtEditar"
-                                        asp-route-data="@elemento.Id"/>
+                                           value="Editar"
+                                           class="btn btn-secondary"
+                                           asp-page-handler="BtEditar"
+                                           asp-route-data="@elemento.Id" />
                                     <input type="submit"
-                                        value="Borrar"
-                                        class="btn btn-secondary"
-                                        asp-page-handler="BtPregBorrar"
-                                        asp-route-data="@elemento.Id"/>
+                                           value="Borrar"
+                                           class="btn btn-secondary"
+                                           asp-page-handler="BtPregBorrar"
+                                           asp-route-data="@elemento.Id" />
                                 </td>
                             </tr>
                         }
@@ -167,5 +218,5 @@
             </div>
         }
 
-        </div>
+    </div>
 </form>

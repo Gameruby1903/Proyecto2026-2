@@ -40,11 +40,10 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Inventarios> Buscar(Inventarios entidad)
         {
-            return this.IConexion.Inventarios!.Include(x => x._Ingrediente)
-                .Where(x => x.CantDisponible == entidad.CantDisponible)
-                .ToList();
-        }
 
+            return this.IConexion.Inventarios!.Include(x => x._Ingrediente)
+                .Where(x => x.CantDisponible == entidad.CantDisponible).ToList();
+        }
         public List<Inventarios> Consultar()
         {
             return this.IConexion.Inventarios!.Include(x => x._Ingrediente).ToList();

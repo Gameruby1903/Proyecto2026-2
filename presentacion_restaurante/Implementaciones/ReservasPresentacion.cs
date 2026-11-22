@@ -66,6 +66,9 @@ namespace presentacion_restaurante.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
+            if (string.IsNullOrEmpty(entidad.Estado))
+                entidad.Estado = "Pendiente";
+
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
@@ -78,12 +81,14 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Reservas entidad)
         {
+
             if (entidad.NPersonas <= 0 || entidad.Cliente == 0 || entidad.Mesa == 0
                 || entidad.FechaHora == DateTime.MinValue
                 || string.IsNullOrEmpty(entidad.Estado))
                 return false;
 
             return true;
+
         }
     }
 }

@@ -66,6 +66,9 @@ namespace presentacion_restaurante.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
+            if (entidad.Fecha == DateTime.MinValue)
+                entidad.Fecha = DateTime.Now;
+
             if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
@@ -78,11 +81,13 @@ namespace presentacion_restaurante.Implementaciones
 
         private bool Validar(Resenas entidad)
         {
+
             if (entidad.Calificacion <= 0 || string.IsNullOrEmpty(entidad.Comentario) || entidad.Cliente == 0 || entidad.Producto == 0
                 || entidad.Fecha == DateTime.MinValue)
                 return false;
 
             return true;
+
         }
     }
 }

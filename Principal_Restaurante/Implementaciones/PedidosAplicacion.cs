@@ -37,11 +37,15 @@ namespace lib_aplicaciones.Implementaciones
             return entidad;
         }
 
-        public List<Pedidos> Buscar(Pedidos  entidad)
+        public List<Pedidos> Buscar(Pedidos entidad)
         {
-            return this.IConexion.Pedidos!.Include(x => x._Mesa).Include(x => x._Cliente).Include(x => x._Empleado)
-                .Where(x => x.Fecha == entidad.Fecha)
-                .ToList();
+
+            return this.IConexion.Pedidos!.Include(x => x._Mesa).Include(x => x._Cliente).Include(x => x._Empleado).ToList();
+               
+
+            
+
+              
         }
 
         public List<Pedidos> Consultar()
@@ -54,6 +58,15 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id != 0)
                 throw new Exception("Ya se guardo");
 
+<<<<<<< HEAD
+=======
+            if (string.IsNullOrEmpty(entidad.Estado))
+                entidad.Estado = "Pendiente";
+
+            if (entidad.Fecha == DateTime.MinValue)
+                entidad.Fecha = DateTime.Now;
+
+>>>>>>> eb8f1b5b799b558cfc37dadb1feb6dfdb2f17c03
             if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
@@ -64,8 +77,20 @@ namespace lib_aplicaciones.Implementaciones
 
         private bool Validar(Pedidos entidad)
         {
+<<<<<<< HEAD
             if (entidad.Fecha == DateTime.MinValue || entidad.Mesa == 0 || entidad.Cliente == 0 || entidad.Empleado == 0 ||
                 string.IsNullOrEmpty(entidad.Estado))
+=======
+            if (entidad.Fecha == DateTime.MinValue)
+                return false;
+            if (entidad.Cliente <= 0)
+                return false;
+            if (entidad.Mesa <= 0)
+                return false;
+            if (entidad.Empleado <= 0)
+                return false;
+            if (string.IsNullOrEmpty(entidad.Estado))
+>>>>>>> eb8f1b5b799b558cfc37dadb1feb6dfdb2f17c03
                 return false;
             return true;
         }

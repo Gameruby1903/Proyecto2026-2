@@ -40,8 +40,10 @@ namespace lib_aplicaciones.Implementaciones
         public List<Sucursales> Buscar(Sucursales entidad)
         {
             return this.IConexion.Sucursales!
-                .Where(x => x.Nombre!.Contains(entidad.Nombre!))
-                .ToList();
+
+                .Where(x => x.Nombre!.Contains(entidad.Nombre!)).ToList();
+
+
         }
 
         public List<Sucursales> Consultar()
