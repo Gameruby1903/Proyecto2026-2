@@ -124,6 +124,15 @@
                             </li>
                         }
 
+                        @if (permisos.Contains("Facturas.Crear"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Ventanas/Facturacion">
+                                    Facturacion
+                                </a>
+                            </li>
+                        }
+
                         @if (permisos.Contains("Ingredientes.Ver"))
                         {
                             <li class="nav-item">

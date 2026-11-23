@@ -162,8 +162,8 @@
                                 <td>@elemento.Cedula</td>
                                 <td>@elemento.Telefono</td>
                                 <td>@elemento.FechaContratacion</td>
-                                <td>@elemento._TipoEmpleado!.Nombre</td>
-                                <td>@elemento._Sucursal!.Nombre</td>
+                                <td>@elemento._TipoEmpleado?.Nombre</td>
+                                <td>@elemento._Sucursal?.Nombre</td>
                                 <td>
                                     @if (elemento.Imagen != null)
                                     {

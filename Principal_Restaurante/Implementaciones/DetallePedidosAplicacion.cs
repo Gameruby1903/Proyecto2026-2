@@ -21,6 +21,12 @@ namespace lib_aplicaciones.Implementaciones
             if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
+            if (!this.IConexion.Pedidos!.Any(x => x.Id == entidad.Pedido))
+                throw new Exception("El pedido no existe");
+
+            if (!this.IConexion.Productos!.Any(x => x.Id == entidad.Producto))
+                throw new Exception("El producto no existe");
+
             var entry = this.IConexion!.Entry<DetallePedidos>(entidad);
             entry.State = EntityState.Modified;
             this.IConexion!.SaveChanges();
@@ -39,12 +45,10 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<DetallePedidos> Buscar(DetallePedidos entidad)
         {
-            if (entidad.Cantidad == 0)
-                return this.IConexion.DetallePedidos!.Include(x => x._Pedido).Include(x => x._Producto).ToList();
-
-
             return this.IConexion.DetallePedidos!
-                .Where(x => x.Cantidad == entidad.Cantidad)
+                .Include(x => x._Pedido)
+                .Include(x => x._Producto)
+                .Where(x => entidad.Cantidad == 0 || x.Cantidad == entidad.Cantidad)
                 .ToList();
         }
 
@@ -60,6 +64,12 @@ namespace lib_aplicaciones.Implementaciones
 
             if (!Validar(entidad))
                 throw new Exception("Falta informacion");
+
+            if (!this.IConexion.Pedidos!.Any(x => x.Id == entidad.Pedido))
+                throw new Exception("El pedido no existe");
+
+            if (!this.IConexion.Productos!.Any(x => x.Id == entidad.Producto))
+                throw new Exception("El producto no existe");
 
             this.IConexion.DetallePedidos!.Add(entidad!);
             this.IConexion.SaveChanges();

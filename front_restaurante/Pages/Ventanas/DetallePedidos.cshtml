@@ -47,16 +47,24 @@
                 <label>
                     Pedido
                 </label>
-                <input id="nmPedido"
-                    asp-for="@Model.Actual!.Pedido"/>
+                <select id="nmPedido"
+                        asp-for="@Model.Actual!.Pedido">
+                    <option value="0">Seleccione un pedido</option>
+                    @foreach (var p in Model.Pedidos)
+                    {
+                        <option value="@p.Id">Pedido @p.Id - @p.Fecha.ToString("dd/MM/yyyy HH:mm")</option>
+                    }
+                </select>
                 <br />
                 <label>
                     Producto
                 </label>
-                <input id="nmProducto"
-                       asp-for="@Model.Actual!.Producto" />
+                <select id="nmProducto"
+                        asp-for="@Model.Actual!.Producto"
+                        asp-items="@(new SelectList(Model.Productos, "Id", "Nombre"))">
+                    <option value="0">Seleccione un producto</option>
+                </select>
                 <br />
-
                 <label>
                     Cantidad
                 </label>

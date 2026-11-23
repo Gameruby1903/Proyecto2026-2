@@ -1,0 +1,107 @@
+﻿@page
+@model FacturacionModel
+@{
+    ViewData["Title"] = "Facturacion";
+}
+<form method="post"
+      enctype="multipart/form-data">
+
+    <div class="text-center">
+        <h1 class="display-4">Facturacion</h1>
+        <div>
+            <input type="submit"
+                   value="Consultar"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtConsultar" />
+        </div>
+
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
+            ;
+        }
+
+        @if (Model.Formulario)
+        {
+            <input type="hidden" asp-for="@Model.Actual!.Pedido" />
+
+            <div>
+                <h3>Factura del pedido @Model.Actual!.Pedido</h3>
+
+                <table class="tb_data table table-bordered" style="width: 50%; margin: auto;">
+                    <tr>
+                        <th>Subtotal</th>
+                        <td>$@Model.Actual!.Subtotal.ToString("N0")</td>
+                    </tr>
+                    <tr>
+                        <th>IVA (19%)</th>
+                        <td>$@Model.Actual!.Impuesto.ToString("N0")</td>
+                    </tr>
+                    <tr>
+                        <th>Total</th>
+                        <td><strong>$@Model.Actual!.Total.ToString("N0")</strong></td>
+                    </tr>
+                </table>
+                <br />
+
+                <label>Metodo de pago:</label>
+                <select asp-for="@Model.Actual!.MetodoPago"
+                        asp-items="@(new SelectList(Model.MetodosPago, "Id", "Tipo"))">
+                    <option value="0">Seleccione un metodo de pago</option>
+                </select>
+                <br />
+                <br />
+
+                <input type="submit"
+                       value="Cancelar"
+                       class="btn btn-secondary"
+                       asp-page-handler="BtConsultar" />
+                <input type="submit"
+                       value="Generar factura"
+                       class="btn btn-primary"
+                       asp-page-handler="BtFacturar" />
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <br />
+            <h4>Pedidos pendientes por facturar</h4>
+            <div class="containers_vn panel panel-default">
+                <table class="tb_data table table-striped table-bordered table-hover">
+                    <tr>
+                        <th>Pedido</th>
+                        <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Mesa</th>
+                        <th>Empleado</th>
+                        <th>Estado</th>
+                        <th>Accion</th>
+                    </tr>
+                    @if (Model != null && Model.Lista != null)
+                    {
+                        foreach (var elemento in Model.Lista)
+                        {
+                            <tr>
+                                <td>@elemento.Id</td>
+                                <td>@elemento.Fecha</td>
+                                <td>@elemento._Cliente?.Nombre</td>
+                                <td>@elemento._Mesa?.Numero</td>
+                                <td>@elemento._Empleado?.Nombre</td>
+                                <td>@elemento.Estado</td>
+                                <td>
+                                    <input type="submit"
+                                           value="Facturar"
+                                           class="btn btn-secondary"
+                                           asp-page-handler="BtPreparar"
+                                           asp-route-data="@elemento.Id" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div>
+        }
+
+    </div>
+</form>

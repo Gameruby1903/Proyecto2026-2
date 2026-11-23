@@ -50,50 +50,36 @@
                        type="datetime-local"
                        asp-for="@Model.Actual!.Fecha" />
                 <br />
-                <label>Cliente:</label>
-                <select asp-for="Actual.Cliente"
-                        asp-items="@(new SelectList(Model.Clientes, "Id", "Nombre"))">
-                    <option value="">Seleccione un cliente</option>
-                </select>
-                <br />
-
-
-                <label>Mesa:</label>
-                <select asp-for="Actual.Mesa"
-                        asp-items="@(new SelectList(Model.Mesas, "Id", "Numero"))">
-                    <option value="">Seleccione una mesa</option>
-                </select>
-                <br />
-                <label>
-                    Empleado
-                </label>
-                <label>Empleado:</label>
-
-                <select id="nmEmpleado"
-                        asp-for="Actual.Empleado"
-                        asp-items="@(new SelectList(Model.Empleados, "Id", "Nombre"))">
-                    <option value="">Seleccione un empleado</option>
-                </select>
-                <br />
-
-                <label>
-                    Estado
-                </label>
-                <input id="flEstado"
-                       asp-for="@Model.Actual!.Estado" />
-                <br />
-
 
                 <label>
                     Cliente
                 </label>
-                <input id="nmCliente"
-                       type="number"
-                       min="1"
-                       asp-for="@Model.Actual!.Cliente" />
+                <select id="nmCliente"
+                        asp-for="@Model.Actual!.Cliente"
+                        asp-items="@(new SelectList(Model.Clientes, "Id", "Nombre"))">
+                    <option value="0">Seleccione un cliente</option>
+                </select>
                 <br />
 
-                           
+                <label>
+                    Mesa
+                </label>
+                <select id="nmMesa"
+                        asp-for="@Model.Actual!.Mesa"
+                        asp-items="@(new SelectList(Model.Mesas, "Id", "Numero"))">
+                    <option value="0">Seleccione una mesa</option>
+                </select>
+                <br />
+
+                <label>
+                    Empleado
+                </label>
+                <select id="nmEmpleado"
+                        asp-for="@Model.Actual!.Empleado"
+                        asp-items="@(new SelectList(Model.Empleados, "Id", "Nombre"))">
+                    <option value="0">Seleccione un empleado</option>
+                </select>
+                <br />
 
                 <label>
                     Estado
@@ -101,6 +87,7 @@
                 <input id="nmEstado"
                        asp-for="@Model.Actual!.Estado" />
                 <br />
+
                 <label>
                     Imagen
                 </label>
@@ -110,8 +97,8 @@
                          width="100"
                          src="data:image;base64,
                     @System.Convert.ToBase64String(
-                    Convert.FromBase64String(
-                    Model.Actual!.Imagen))" />
+     Convert.FromBase64String(
+     Model.Actual!.Imagen))" />
                 }
                 <input type="file"
                        asp-for="FormFile" />
@@ -127,27 +114,12 @@
                     </h3>
 
                     <h4>
-
                         ¿Quiere borrar el Pedido con información
                         @Model.Actual!.Fecha,
                         Cliente @Model.Actual!.Cliente,
                         Mesa @Model.Actual!.Mesa,
                         Empleado @Model.Actual!.Empleado,
                         @Model.Actual!.Estado?
-
-                        ¿Quiere borrar el Pedido con información 
-                            
-                        @Model.Actual!.Fecha,
-                        @Model.Actual!.Cliente,
-                        @Model.Actual!.Mesa,
-                        @Model.Actual!.Empleado,
-                        @Model.Actual!.Estado?
-        
-
-
-
-
-
                     </h4>
                     <input type="submit"
                            value="Cancelar"
@@ -168,11 +140,7 @@
             <div class="containers_vn panel panel-default">
                 <table class="tb_data table table-striped table-bordered table-hover">
                     <tr>
-
-                        
-                        <th>Pedidos</th>
-                       
-
+                        <th>Pedido</th>
                         <th>Fecha</th>
                         <th>Cliente</th>
                         <th>Mesa</th>
@@ -180,20 +148,18 @@
                         <th>Estado</th>
                         <th>Imagen</th>
                         <th>Acción</th>
-
                     </tr>
                     @if (Model != null && Model.Lista != null)
                     {
                         foreach (var elemento in Model.Lista)
                         {
                             <tr>
+                                <td>@elemento.Id</td>
                                 <td>@elemento.Fecha</td>
-                                <td>@elemento._Cliente!.Nombre</td>
-                                <td>@elemento._Mesa!.Numero</td>
-                                <td>@elemento._Empleado!.Nombre</td>
+                                <td>@elemento._Cliente?.Nombre</td>
+                                <td>@elemento._Mesa?.Numero</td>
+                                <td>@elemento._Empleado?.Nombre</td>
                                 <td>@elemento.Estado</td>
-
-
                                 <td>
                                     @if (elemento.Imagen != null)
                                     {
@@ -201,12 +167,9 @@
                                              width="60"
                                              src="data:image;base64,
                                         @System.Convert.ToBase64String(
-                                        Convert.FromBase64String(elemento.Imagen))" />
+     Convert.FromBase64String(elemento.Imagen))" />
                                     }
                                 </td>
-
-                         
-
                                 <td>
                                     <input type="submit"
                                            value="Editar"

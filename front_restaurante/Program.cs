@@ -1,4 +1,4 @@
-
+﻿
 using front_restaurante.Nucleo;
 using lib_aplicaciones.Implementaciones;
 using lib_aplicaciones.Interfaces;
@@ -27,6 +27,7 @@ builder.Services.AddScoped<IDetalleComprasPresentacion, DetalleComprasPresentaci
 builder.Services.AddScoped<IDetallePedidosPresentacion, DetallePedidosPresentacion>();
 builder.Services.AddScoped<IEmpleadosPresentacion, EmpleadosPresentacion>();
 builder.Services.AddScoped<IFacturasPresentacion, FacturasPresentacion>();
+builder.Services.AddScoped<IFacturacionPresentacion, FacturacionPresentacion>();
 builder.Services.AddScoped<IIngredientesPresentacion, IngredientesPresentacion>();
 builder.Services.AddScoped<IInventariosPresentacion, InventariosPresentacion>();
 builder.Services.AddScoped<IMesasPresentacion, MesasPresentacion>();

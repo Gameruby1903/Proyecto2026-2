@@ -42,15 +42,10 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<DetalleCompras> Buscar(DetalleCompras entidad)
         {
-            // CORRECCIÓN: Si la cantidad del filtro es cero,
-            // significa que no se está buscando una cantidad específica.
-            // Por eso devolvemos todos los registros.
-            if (entidad.Cantidad == 0)
-                return this.IConexion.DetalleCompras!.Include(x => x._Ingrediente).Include(x => x._Compra).ToList();
-
-          
             return this.IConexion.DetalleCompras!
-                .Where(x => x.Cantidad == entidad.Cantidad)
+                .Include(x => x._Ingrediente)
+                .Include(x => x._Compra)
+                .Where(x => entidad.Cantidad == 0 || x.Cantidad == entidad.Cantidad)
                 .ToList();
         }
 

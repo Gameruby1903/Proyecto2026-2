@@ -32,6 +32,11 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
+            // No borrar si otras tablas lo usan (si no, SQL lanza error de llave foránea)
+            if (this.IConexion.DetallePedidos!.Any(x => x.Pedido == entidad.Id) ||
+                this.IConexion.Facturas!.Any(x => x.Pedido == entidad.Id))
+                throw new Exception("No se puede borrar el pedido porque tiene registros relacionados en: DetallePedidos, Facturas");
+
             this.IConexion.Pedidos!.Remove(entidad!);
             this.IConexion.SaveChanges();
             return entidad;
@@ -39,13 +44,13 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Pedidos> Buscar(Pedidos entidad)
         {
-
-            return this.IConexion.Pedidos!.Include(x => x._Mesa).Include(x => x._Cliente).Include(x => x._Empleado).ToList();
-               
-
-            
-
-              
+            return this.IConexion.Pedidos!
+                .Include(x => x._Mesa)
+                .Include(x => x._Cliente)
+                .Include(x => x._Empleado)
+                .Where(x => string.IsNullOrEmpty(entidad.Estado) ||
+                            (x.Estado != null && x.Estado.Contains(entidad.Estado)))
+                .ToList();
         }
 
         public List<Pedidos> Consultar()
