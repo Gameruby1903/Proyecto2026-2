@@ -172,7 +172,7 @@ namespace lib_aplicaciones.Implementaciones
         }
       
            public List<string> ConsultarPermisos(Usuarios entidad)
-        {
+        {/*
             var consulta =
                 from u in this.IConexion.Usuarios!
                 join rp in this.IConexion.RolPermisos!
@@ -183,7 +183,28 @@ namespace lib_aplicaciones.Implementaciones
                 select p.Codigo;
 
             return consulta.ToList()!;
-        
+            */
+            // 1. Buscar al usuario para saber su rol
+            var usuario = this.IConexion.Usuarios!
+                .FirstOrDefault(u => u.Id == entidad.Id);
+
+            if (usuario == null)
+                return new List<string>();
+
+            // 2. Buscar los ids de permisos que tiene ese rol
+            var idsPermisos = this.IConexion.RolPermisos!
+                .Where(rp => rp.Rol == usuario.Rol)
+                .Select(rp => rp.Permiso)
+                .ToList();
+
+            // 3. Traer los códigos de esos permisos
+            var codigos = this.IConexion.Permisos!
+                .Where(p => idsPermisos.Contains(p.Id))
+                .Select(p => p.Codigo)
+                .ToList();
+
+            return codigos!;
+
         }
         public List<string> ConsultarPermisosPorNombre(string nombre)
         {

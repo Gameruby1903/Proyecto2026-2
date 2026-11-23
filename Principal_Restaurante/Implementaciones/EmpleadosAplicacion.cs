@@ -32,6 +32,12 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
+            // No borrar si otras tablas lo usan (si no, SQL lanza error de llave foránea)
+            if (this.IConexion.Pedidos!.Any(x => x.Empleado == entidad.Id) ||
+                this.IConexion.Turnos!.Any(x => x.Empleado == entidad.Id) ||
+                this.IConexion.Usuarios!.Any(x => x.Empleado == entidad.Id))
+                throw new Exception("No se puede borrar el empleado porque tiene registros relacionados en: Pedidos, Turnos, Usuarios");
+
             this.IConexion.Empleados!.Remove(entidad!);
             this.IConexion.SaveChanges();
             return entidad;
@@ -39,11 +45,13 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Empleados> Buscar(Empleados entidad)
         {
-            return this.IConexion.Empleados!.Include(x => x._TipoEmpleado).Include(x => x._Sucursal)
-                .Where(x => x.Nombre!.Contains(entidad.Nombre!))
+            return this.IConexion.Empleados!
+                .Include(x => x._TipoEmpleado)
+                .Include(x => x._Sucursal)
+                .Where(x => string.IsNullOrEmpty(entidad.Nombre) ||
+                            (x.Nombre != null && x.Nombre.Contains(entidad.Nombre)))
                 .ToList();
         }
-
         public List<Empleados> Consultar()
         {
             return this.IConexion.Empleados!.Include(x => x._TipoEmpleado).Include(x => x._Sucursal).ToList();

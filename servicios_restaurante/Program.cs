@@ -1,4 +1,4 @@
-
+﻿
 using lib_aplicaciones.Entidades;
 using lib_aplicaciones.Implementaciones;
 using lib_aplicaciones.Interfaces;
@@ -15,6 +15,7 @@ builder.Services.AddScoped<IDetalleComprasAplicacion, DetalleComprasAplicacion>(
 builder.Services.AddScoped<IDetallePedidosAplicacion, DetallePedidosAplicacion>();
 builder.Services.AddScoped<IEmpleadosAplicacion, EmpleadosAplicacion>();
 builder.Services.AddScoped<IFacturasAplicacion, FacturasAplicacion>();
+builder.Services.AddScoped<IFacturacionAplicacion, FacturacionAplicacion>();
 builder.Services.AddScoped<IIngredientesAplicacion, IngredientesAplicacion>();
 builder.Services.AddScoped<IInventariosAplicacion, InventariosAplicacion>();
 builder.Services.AddScoped<IMesasAplicacion, MesasAplicacion>();

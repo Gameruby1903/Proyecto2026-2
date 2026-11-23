@@ -32,6 +32,12 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
+            // No borrar si otras tablas lo usan (si no, SQL lanza error de llave foránea)
+            if (this.IConexion.DetallePedidos!.Any(x => x.Producto == entidad.Id) ||
+                this.IConexion.RecetaIngredientes!.Any(x => x.Producto == entidad.Id) ||
+                this.IConexion.Resenas!.Any(x => x.Producto == entidad.Id))
+                throw new Exception("No se puede borrar el producto porque tiene registros relacionados en: DetallePedidos, RecetaIngredientes, Resenas");
+
             this.IConexion.Productos!.Remove(entidad!);
             this.IConexion.SaveChanges();
             return entidad;

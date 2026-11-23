@@ -32,6 +32,13 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
+            // No borrar si otras tablas lo usan (si no, SQL lanza error de llave foránea)
+            if (this.IConexion.Resenas!.Any(x => x.Cliente == entidad.Id) ||
+                this.IConexion.Pedidos!.Any(x => x.Cliente == entidad.Id) ||
+                this.IConexion.Reservas!.Any(x => x.Cliente == entidad.Id) ||
+                this.IConexion.Usuarios!.Any(x => x.Cliente == entidad.Id))
+                throw new Exception("No se puede borrar el cliente porque tiene registros relacionados en: Resenas, Pedidos, Reservas, Usuarios");
+
             this.IConexion.Clientes!.Remove(entidad!);
             this.IConexion.SaveChanges();
             return entidad;

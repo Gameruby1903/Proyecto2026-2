@@ -32,6 +32,10 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
+            // No borrar si otras tablas lo usan (si no, SQL lanza error de llave foránea)
+            if (this.IConexion.Empleados!.Any(x => x.TipoEmpleado == entidad.Id))
+                throw new Exception("No se puede borrar el tipo de empleado porque tiene registros relacionados en: Empleados");
+
             this.IConexion.TipoEmpleados!.Remove(entidad!);
             this.IConexion.SaveChanges();
             return entidad;

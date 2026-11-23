@@ -32,6 +32,11 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
+            // No borrar si otras tablas lo usan (si no, SQL lanza error de llave foránea)
+            if (this.IConexion.Pedidos!.Any(x => x.Mesa == entidad.Id) ||
+                this.IConexion.Reservas!.Any(x => x.Mesa == entidad.Id))
+                throw new Exception("No se puede borrar la mesa porque tiene registros relacionados en: Pedidos, Reservas");
+
             this.IConexion.Mesas!.Remove(entidad!);
             this.IConexion.SaveChanges();
             return entidad;

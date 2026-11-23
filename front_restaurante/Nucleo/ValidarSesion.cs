@@ -22,7 +22,11 @@ namespace front_restaurante.Nucleo
                 return;
             }
 
+
             // Pasar el usuario a Comunicaciones (para enviarlo al API)
+
+            // Entrega el usuario logueado a Comunicaciones (misma instancia scoped de la petición)
+
             var comunicaciones = context.HttpContext.RequestServices
                 .GetRequiredService<IComunicaciones>();
             comunicaciones.Usuario = usuario;
