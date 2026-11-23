@@ -45,11 +45,13 @@
 
                
 
-                <label>
-                    Proveedor
-                </label>
-                <input id="nmProveedor"
-                    asp-for="@Model.Actual!.Proveedor"/>
+                <label>Proveedor:</label>
+
+                <select id="nmProveedor"
+                        asp-for="Actual.Proveedor"
+                        asp-items="@(new SelectList(Model.Proveedores, "Id", "Nombre"))">
+                    <option value="">Seleccione un proveedor</option>
+                </select>
                 <br />
                 <label>
                     Fecha

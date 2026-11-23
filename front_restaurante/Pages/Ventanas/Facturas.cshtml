@@ -45,11 +45,11 @@
 
                
 
-                <label>
-                    Pedido
-                </label>
-                <input id="nmPedido"
-                    asp-for="@Model.Actual!.Pedido"/>
+                <label>Pedido:</label>
+                <select asp-for="Actual.Pedido"
+                        asp-items="@(new SelectList(Model.Pedidos, "Id", "Nombre"))">
+                    <option value="">Seleccione un pedido</option>
+                </select>
                 <br />
                 <label>
                     FechaEmi
@@ -78,11 +78,11 @@
                 <input id="nmTotal"
                        asp-for="@Model.Actual!.Total" />
                 <br />
-                <label>
-                    MetodoPago
-                </label>
-                <input id="nmMetodoPago"
-                       asp-for="@Model.Actual!.MetodoPago" />
+                <label>Metodo de Pago:</label>
+                <select asp-for="Actual.MetodoPago"
+                        asp-items="@(new SelectList(Model.MetodoPagos, "Id", "Nombre"))">
+                    <option value="">Seleccione un método de pago</option>
+                </select>
                 <br />
                 <label>
                     Imagen

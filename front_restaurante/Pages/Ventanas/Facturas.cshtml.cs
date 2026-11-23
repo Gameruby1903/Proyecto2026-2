@@ -9,15 +9,26 @@ namespace front_restaurante.Pages.Ventanas
     public class FacturasModel : PageModel
     {
         private IFacturasPresentacion IFacturasPresentacion;
+        private IPedidosPresentacion IPedidosPresentacion;
+        private IMetodoPagosPresentacion IMetodoPagosPresentacion;
 
-        public FacturasModel(IFacturasPresentacion IFacturasPresentacion)
+        public FacturasModel(IFacturasPresentacion IFacturasPresentacion, IPedidosPresentacion IPedidosPresentacion,
+            IMetodoPagosPresentacion IMetodoPagosPresentacion)
         {
             this.IFacturasPresentacion = IFacturasPresentacion;
+            this.IPedidosPresentacion = IPedidosPresentacion;
+            this.IMetodoPagosPresentacion = IMetodoPagosPresentacion;
             this.Filtro = new Facturas();
+
+            this.Lista = new List<Facturas>();
+            this.Pedidos = new List<Pedidos>();
+            this.MetodoPagos = new List<MetodoPagos>();
         }
         public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<Facturas> Lista { get; set; }
+        [BindProperty] public List<Pedidos> Pedidos  { get; set; }
+        [BindProperty] public List<MetodoPagos> MetodoPagos { get; set; }
         [BindProperty] public Facturas? Filtro { get; set; }
         [BindProperty] public Facturas? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
@@ -25,16 +36,24 @@ namespace front_restaurante.Pages.Ventanas
         
         public void OnGet() { OnPostBtConsultar(); }
 
+        private void CargarListas()
+        {
+            this.Pedidos = this.IPedidosPresentacion.Consultar();
+            this.MetodoPagos = this.IMetodoPagosPresentacion.Consultar();
+        }
+
         public void OnPostBtConsultar()
         {
             try
             {
-                Filtro!.FechaEmi = Filtro!.FechaEmi; 
-                Lista = this.IFacturasPresentacion.Buscar(Filtro!);
+                Filtro ??= new Facturas();
+
+                Lista = this.IFacturasPresentacion.Buscar(Filtro);
             }
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+                Lista = new List<Facturas>();
             }
         }
 
@@ -44,6 +63,8 @@ namespace front_restaurante.Pages.Ventanas
             {
                 Formulario = true;
                 this.Actual = new Facturas();
+
+                CargarListas();
             }
             catch (Exception ex)
             {
@@ -55,6 +76,7 @@ namespace front_restaurante.Pages.Ventanas
         {
             try
             {
+
                 if (this.Actual!.Id == 0)
                     this.Actual = this.IFacturasPresentacion.Insertar(this.Actual!);
                 else
@@ -63,6 +85,9 @@ namespace front_restaurante.Pages.Ventanas
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+
+                Formulario = true;
+                CargarListas();
             }
             finally
             {
@@ -75,8 +100,13 @@ namespace front_restaurante.Pages.Ventanas
             try
             {
                 Formulario = true;
+
                 OnPostBtConsultar();
-                this.Actual = this.Lista.FirstOrDefault(x => x.Id == Convert.ToInt32(data));
+
+                this.Actual = this.Lista.FirstOrDefault(
+                    x => x.Id == Convert.ToInt32(data));
+
+                CargarListas();
             }
             catch (Exception ex)
             {
@@ -89,8 +119,11 @@ namespace front_restaurante.Pages.Ventanas
             try
             {
                 Borrar = true;
+
                 OnPostBtConsultar();
-                this.Actual = this.Lista.FirstOrDefault(x => x.Id == Convert.ToInt32(data));
+
+                this.Actual = this.Lista.FirstOrDefault(
+                    x => x.Id == Convert.ToInt32(data));
             }
             catch (Exception ex)
             {
@@ -104,6 +137,7 @@ namespace front_restaurante.Pages.Ventanas
             {
                 if (this.Actual!.Id == 0)
                     return;
+
                 this.Actual = this.IFacturasPresentacion.Borrar(this.Actual!);
             }
             catch (Exception ex)

@@ -3,21 +3,32 @@ using presentacion_restaurante.Interfaces;
 using lib_aplicaciones.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace front_restaurante.Pages.Ventanas
 {
     public class RecetaIngredientesModel : PageModel
     {
         private IRecetaIngredientesPresentacion IRecetaIngredientesPresentacion;
+        private IProductosPresentacion IProductosPresentacion;
+        private IIngredientesPresentacion IIngredientesPresentacion;
 
-        public RecetaIngredientesModel(IRecetaIngredientesPresentacion IRecetaIngredientesPresentacion)
+        public RecetaIngredientesModel(IRecetaIngredientesPresentacion IRecetaIngredientesPresentacion,IProductosPresentacion IProductosPresentacion, IIngredientesPresentacion IIngredientesPresentacion)
         {
             this.IRecetaIngredientesPresentacion = IRecetaIngredientesPresentacion;
+            this.IProductosPresentacion = IProductosPresentacion;
+            this.IIngredientesPresentacion = IIngredientesPresentacion;
             this.Filtro = new RecetaIngredientes();
+
+            this.Lista = new List<RecetaIngredientes>();
+            this.Productos = new List<Productos>();
+            this.Ingredientes = new List<Ingredientes>();
         }
         public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<RecetaIngredientes> Lista { get; set; }
+        [BindProperty] public List<Productos> Productos { get; set; }
+        [BindProperty] public List<Ingredientes> Ingredientes { get; set; }
         [BindProperty] public RecetaIngredientes? Filtro { get; set; }
         [BindProperty] public RecetaIngredientes? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
@@ -25,16 +36,24 @@ namespace front_restaurante.Pages.Ventanas
 
         public void OnGet() { OnPostBtConsultar(); }
 
+        private void CargarListas()
+        {
+            this.Productos = this.IProductosPresentacion.Consultar();
+            this.Ingredientes = this.IIngredientesPresentacion.Consultar();
+        }
+
         public void OnPostBtConsultar()
         {
             try
             {
-                Filtro!.Notas = Filtro!.Notas ?? "";
-                Lista = this.IRecetaIngredientesPresentacion.Buscar(Filtro!);
+                Filtro ??= new RecetaIngredientes();
+
+                Lista = this.IRecetaIngredientesPresentacion.Buscar(Filtro);
             }
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+                Lista = new List<RecetaIngredientes>();
             }
         }
 
@@ -44,6 +63,8 @@ namespace front_restaurante.Pages.Ventanas
             {
                 Formulario = true;
                 this.Actual = new RecetaIngredientes();
+
+                CargarListas();
             }
             catch (Exception ex)
             {
@@ -55,6 +76,7 @@ namespace front_restaurante.Pages.Ventanas
         {
             try
             {
+
                 if (this.Actual!.Id == 0)
                     this.Actual = this.IRecetaIngredientesPresentacion.Insertar(this.Actual!);
                 else
@@ -63,6 +85,9 @@ namespace front_restaurante.Pages.Ventanas
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+
+                Formulario = true;
+                CargarListas();
             }
             finally
             {
@@ -75,8 +100,13 @@ namespace front_restaurante.Pages.Ventanas
             try
             {
                 Formulario = true;
+
                 OnPostBtConsultar();
-                this.Actual = this.Lista.FirstOrDefault(x => x.Id == Convert.ToInt32(data));
+
+                this.Actual = this.Lista.FirstOrDefault(
+                    x => x.Id == Convert.ToInt32(data));
+
+                CargarListas();
             }
             catch (Exception ex)
             {
@@ -89,8 +119,11 @@ namespace front_restaurante.Pages.Ventanas
             try
             {
                 Borrar = true;
+
                 OnPostBtConsultar();
-                this.Actual = this.Lista.FirstOrDefault(x => x.Id == Convert.ToInt32(data));
+
+                this.Actual = this.Lista.FirstOrDefault(
+                    x => x.Id == Convert.ToInt32(data));
             }
             catch (Exception ex)
             {
@@ -104,6 +137,7 @@ namespace front_restaurante.Pages.Ventanas
             {
                 if (this.Actual!.Id == 0)
                     return;
+
                 this.Actual = this.IRecetaIngredientesPresentacion.Borrar(this.Actual!);
             }
             catch (Exception ex)

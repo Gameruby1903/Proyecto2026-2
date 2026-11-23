@@ -36,7 +36,7 @@
             <input type="hidden"
                 asp-for="@Model.Actual!.Id" />
         }
-
+       
         @if (Model.Formulario)
         {
             <div>
@@ -44,17 +44,22 @@
 
                
 
-                <label>
-                    Ingrediente
-                </label>
-                <input id="nmIngrediente"
-                    asp-for="@Model.Actual!.Ingrediente"/>
+                <label>Ingrediente:</label>
+
+                <select id="nmIngrediente"
+                        asp-for="Actual.Ingrediente"
+                        asp-items="@(new SelectList(Model.Ingredientes, "Id", "Nombre"))">
+                    <option value="">Seleccione un ingrediente</option>
+                </select>
                 <br />
-                <label>
-                    Compra
-                </label>
-                <input id="nmCompra"
-                       asp-for="@Model.Actual!.Compra" />
+
+                <label>Compra:</label>
+
+                <select id="nmCompra"
+                        asp-for="Actual.Compra"
+                        asp-items="@(new SelectList(Model.Compras, "Id", "Nombre"))">
+                    <option value="">Seleccione una compra</option>
+                </select>
                 <br />
 
                 <label>

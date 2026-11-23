@@ -43,22 +43,18 @@
             <div>
                 <h3>Reservas</h3>
 
-                <label>
-                    Cliente
-                </label>
-                <input id="nmCliente"
-                       type="number"
-                       min="1"
-                       asp-for="@Model.Actual!.Cliente" />
+                <label>CLientes:</label>
+                <select asp-for="Actual.Cliente"
+                        asp-items="@(new SelectList(Model.Clientes, "Id", "Nombre"))">
+                    <option value="">Seleccione un cliente</option>
+                </select>
                 <br />
 
-                <label>
-                    Mesa
-                </label>
-                <input id="nmMesa"
-                       type="number"
-                       min="1"
-                       asp-for="@Model.Actual!.Mesa" />
+                <label>Mesas:</label>
+                <select asp-for="Actual.Mesa"
+                        asp-items="@(new SelectList(Model.Mesas, "Id", "Nombre"))">
+                    <option value="">Seleccione una mesa</option>
+                </select>
                 <br />
 
                 <label>

@@ -43,11 +43,11 @@
             <div>
                 <h3>Turnos</h3>
 
-                <label>
-                    Empleado
-                </label>
-                <input id="nmEmpleado"
-                       asp-for="@Model.Actual!.Empleado" />
+                <label>Empleados:</label>
+                <select asp-for="Actual.Empleado"
+                        asp-items="@(new SelectList(Model.Empleados, "Id", "Nombre"))">
+                    <option value="">Seleccione un empleado</option>
+                </select>
                 <br />
 
                 <label>

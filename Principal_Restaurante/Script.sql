@@ -249,7 +249,87 @@ CREATE TABLE [Usuarios] (
         OR ([Empleado] IS NOT NULL AND [Cliente] IS NULL))
 );
 
-   USE Restaurante;
+   
+       
+
+       
+        
+use Restaurante;
+GO
+-- ============================================================
+-- 1. TABLAS INDEPENDIENTES
+-- ============================================================
+
+INSERT INTO [TipoEmpleados] ([Nombre], [SalarioBase]) VALUES
+('Administrador', 2500000.00),
+('Cajero', 1300000.00),
+('Mesero', 1300000.00),
+('Chef', 2200000.00),
+('Auxiliar de Cocina', 1500000.00);
+
+
+INSERT INTO [Sucursales] ([Nombre], [Direccion], [Telefono], [Ciudad]) VALUES
+('Sucursal Central', 'Calle 50 # 45-10', '6044445566', 'Medellín'),
+('Sucursal Poblado', 'Carrera 43A # 10-20', '6043332211', 'Medellín'),
+('Sucursal Laureles', 'Carrera 70 # 45-30', '6045556677', 'Medellín'),
+('Sucursal Envigado', 'Carrera 27 # 35-15', '6044447788', 'Envigado'),
+('Sucursal Bello', 'Calle 30 # 50-25', '6043338899', 'Bello');
+
+
+INSERT INTO [Clientes] ([Nombre], [Cedula], [Telefono], [Email]) VALUES
+('Carlos Mendoza', '1017123456', '3001234567', 'carlos.mendoza@email.com'),
+('Ana María Gómez', '1020987654', '3109876543', 'ana.gomez@email.com'),
+('Juan Pérez', '1034567890', '3204567890', 'juan.perez@email.com'),
+('Laura Rodríguez', '1045678901', '3156789012', 'laura.rodriguez@email.com'),
+('Andrés Martínez', '1056789012', '3007890123', 'andres.martinez@email.com');
+
+
+INSERT INTO [Categorias] ([Nombre], [Descripcion], [Disponible], [OrdenMenu]) VALUES
+('Bebidas', 'Refrescos, jugos y bebidas calientes', 1, 1),
+('Platos Fuertes', 'Especialidades de la casa y carnes', 1, 2),
+('Entradas', 'Entradas y acompañamientos', 1, 3),
+('Postres', 'Postres y dulces de la casa', 1, 4),
+('Ensaladas', 'Ensaladas frescas y saludables', 1, 5);
+
+
+INSERT INTO [Mesas] ([Numero], [Capacidad], [Estado], [Ubicacion]) VALUES
+(1, 4, 1, 'Terraza'),
+(2, 2, 1, 'Salón Principal'),
+(3, 6, 1, 'Salón Principal'),
+(4, 4, 1, 'Segundo Piso'),
+(5, 8, 1, 'Terraza');
+
+
+INSERT INTO [MetodoPagos] ([Tipo], [Descripcion]) VALUES
+('Efectivo', 'Pago en billetes y monedas'),
+('Tarjeta', 'Tarjeta de crédito o débito'),
+('Transferencia', 'Transferencia bancaria'),
+('Nequi', 'Pago mediante Nequi'),
+('Daviplata', 'Pago mediante Daviplata');
+
+
+INSERT INTO [Proveedores] ([Nombre], [Telefono], [Email], [Direccion]) VALUES
+('Distribuidora Avícola S.A.', '3120001122', 'ventas@avicola.com', 'Carrera 65 # 30-12'),
+('Lácteos del Campo', '3159998877', 'contacto@lacteos.com', 'Calle 10 # 20-30'),
+('Frutas Medellín', '3104567891', 'ventas@frutasmed.com', 'Carrera 52 # 40-18'),
+('Carnes Premium', '3007894561', 'contacto@carnespremium.com', 'Calle 33 # 60-25'),
+('Distribuciones El Sabor', '3201234567', 'ventas@elsabor.com', 'Carrera 80 # 25-10');
+
+
+-- ============================================================
+-- 2. TABLAS DEPENDIENTES DE NIVEL 1
+-- ============================================================
+
+INSERT INTO [Empleados]
+([Nombre], [Cedula], [Telefono], [FechaContratacion], [TipoEmpleado], [Sucursal])
+VALUES
+('Santiago Serna', '1001001001', '3011111111', '2026-01-15 08:00', 1, 1),
+('Laura Restrepo', '1001001002', '3012222222', '2026-02-01 08:00', 3, 2),
+('Miguel Torres', '1001001003', '3013333333', '2026-02-15 08:00', 2, 3),
+('Daniela Ríos', '1001001004', '3014444444', '2026-03-01 08:00', 4, 4),
+('Felipe Castro', '1001001005', '3015555555', '2026-03-10 08:00', 5, 5);
+
+USE Restaurante;
 GO
 
 SET NOCOUNT ON;
@@ -460,7 +540,15 @@ BEGIN TRY
       );
 
 
+    
+
+
     -------------------------------------------------------
+    -- 8. FINALIZAR
+    -------------------------------------------------------
+
+
+-------------------------------------------------------
     -- 6. CREAR USUARIOS DE EMPLEADOS
     -------------------------------------------------------
 
@@ -535,11 +623,7 @@ BEGIN TRY
         WHERE u.NombreUsuario = v.Usuario
     );
 
-
-    -------------------------------------------------------
-    -- 8. FINALIZAR
-    -------------------------------------------------------
-
+    
     DROP TABLE #Modulos;
     DROP TABLE #Acciones;
     DROP TABLE #PermisosEmpleado;
@@ -593,85 +677,6 @@ LEFT JOIN Empleados e ON e.Id = u.Empleado
 LEFT JOIN Clientes c ON c.Id = u.Cliente
 ORDER BY u.Id;
 GO
-       
-
-       
-        
-use Restaurante;
-GO
--- ============================================================
--- 1. TABLAS INDEPENDIENTES
--- ============================================================
-
-INSERT INTO [TipoEmpleados] ([Nombre], [SalarioBase]) VALUES
-('Administrador', 2500000.00),
-('Cajero', 1300000.00),
-('Mesero', 1300000.00),
-('Chef', 2200000.00),
-('Auxiliar de Cocina', 1500000.00);
-
-
-INSERT INTO [Sucursales] ([Nombre], [Direccion], [Telefono], [Ciudad]) VALUES
-('Sucursal Central', 'Calle 50 # 45-10', '6044445566', 'Medellín'),
-('Sucursal Poblado', 'Carrera 43A # 10-20', '6043332211', 'Medellín'),
-('Sucursal Laureles', 'Carrera 70 # 45-30', '6045556677', 'Medellín'),
-('Sucursal Envigado', 'Carrera 27 # 35-15', '6044447788', 'Envigado'),
-('Sucursal Bello', 'Calle 30 # 50-25', '6043338899', 'Bello');
-
-
-INSERT INTO [Clientes] ([Nombre], [Cedula], [Telefono], [Email]) VALUES
-('Carlos Mendoza', '1017123456', '3001234567', 'carlos.mendoza@email.com'),
-('Ana María Gómez', '1020987654', '3109876543', 'ana.gomez@email.com'),
-('Juan Pérez', '1034567890', '3204567890', 'juan.perez@email.com'),
-('Laura Rodríguez', '1045678901', '3156789012', 'laura.rodriguez@email.com'),
-('Andrés Martínez', '1056789012', '3007890123', 'andres.martinez@email.com');
-
-
-INSERT INTO [Categorias] ([Nombre], [Descripcion], [Disponible], [OrdenMenu]) VALUES
-('Bebidas', 'Refrescos, jugos y bebidas calientes', 1, 1),
-('Platos Fuertes', 'Especialidades de la casa y carnes', 1, 2),
-('Entradas', 'Entradas y acompañamientos', 1, 3),
-('Postres', 'Postres y dulces de la casa', 1, 4),
-('Ensaladas', 'Ensaladas frescas y saludables', 1, 5);
-
-
-INSERT INTO [Mesas] ([Numero], [Capacidad], [Estado], [Ubicacion]) VALUES
-(1, 4, 1, 'Terraza'),
-(2, 2, 1, 'Salón Principal'),
-(3, 6, 1, 'Salón Principal'),
-(4, 4, 1, 'Segundo Piso'),
-(5, 8, 1, 'Terraza');
-
-
-INSERT INTO [MetodoPagos] ([Tipo], [Descripcion]) VALUES
-('Efectivo', 'Pago en billetes y monedas'),
-('Tarjeta', 'Tarjeta de crédito o débito'),
-('Transferencia', 'Transferencia bancaria'),
-('Nequi', 'Pago mediante Nequi'),
-('Daviplata', 'Pago mediante Daviplata');
-
-
-INSERT INTO [Proveedores] ([Nombre], [Telefono], [Email], [Direccion]) VALUES
-('Distribuidora Avícola S.A.', '3120001122', 'ventas@avicola.com', 'Carrera 65 # 30-12'),
-('Lácteos del Campo', '3159998877', 'contacto@lacteos.com', 'Calle 10 # 20-30'),
-('Frutas Medellín', '3104567891', 'ventas@frutasmed.com', 'Carrera 52 # 40-18'),
-('Carnes Premium', '3007894561', 'contacto@carnespremium.com', 'Calle 33 # 60-25'),
-('Distribuciones El Sabor', '3201234567', 'ventas@elsabor.com', 'Carrera 80 # 25-10');
-
-
--- ============================================================
--- 2. TABLAS DEPENDIENTES DE NIVEL 1
--- ============================================================
-
-INSERT INTO [Empleados]
-([Nombre], [Cedula], [Telefono], [FechaContratacion], [TipoEmpleado], [Sucursal])
-VALUES
-('Santiago Serna', '1001001001', '3011111111', '2026-01-15 08:00', 1, 1),
-('Laura Restrepo', '1001001002', '3012222222', '2026-02-01 08:00', 3, 2),
-('Miguel Torres', '1001001003', '3013333333', '2026-02-15 08:00', 2, 3),
-('Daniela Ríos', '1001001004', '3014444444', '2026-03-01 08:00', 4, 4),
-('Felipe Castro', '1001001005', '3015555555', '2026-03-10 08:00', 5, 5);
-
 
 INSERT INTO [Productos]
 ([Nombre], [Descripcion], [Precio], [Disponible], [Categoria])

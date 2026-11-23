@@ -9,21 +9,36 @@ namespace front_restaurante.Pages.Ventanas
     public class ComprasModel : PageModel
     {
         private IComprasPresentacion IComprasPresentacion;
+        private IProveedoresPresentacion IProveedoresPresentacion;
 
-        public ComprasModel(IComprasPresentacion IComprasPresentacion)
+        public ComprasModel(IComprasPresentacion IComprasPresentacion, 
+            IProveedoresPresentacion IProveedoresPresentacion)
+
         {
             this.IComprasPresentacion = IComprasPresentacion;
+            this.IProveedoresPresentacion = IProveedoresPresentacion;
             this.Filtro = new Compras();
+
+
+
+            this.Lista = new List<Compras>();
+            this.Proveedores = new List<Proveedores>();
         }
         public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<Compras> Lista { get; set; }
+        [BindProperty] public List<Proveedores> Proveedores { get; set; }
         [BindProperty] public Compras? Filtro { get; set; }
         [BindProperty] public Compras? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
         [BindProperty] public bool Borrar { get; set; } = false;
         
         public void OnGet() { OnPostBtConsultar(); }
+
+        private void CargarListas()
+        {
+            this.Proveedores = this.IProveedoresPresentacion.Consultar();
+        }
 
         public void OnPostBtConsultar()
         {
@@ -44,6 +59,7 @@ namespace front_restaurante.Pages.Ventanas
             {
                 Formulario = true;
                 this.Actual = new Compras();
+                CargarListas();
             }
             catch (Exception ex)
             {
@@ -55,6 +71,7 @@ namespace front_restaurante.Pages.Ventanas
         {
             try
             {
+
                 if (this.Actual!.Id == 0)
                     this.Actual = this.IComprasPresentacion.Insertar(this.Actual!);
                 else
@@ -63,6 +80,9 @@ namespace front_restaurante.Pages.Ventanas
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+
+                Formulario = true;
+                CargarListas();
             }
             finally
             {
@@ -75,8 +95,13 @@ namespace front_restaurante.Pages.Ventanas
             try
             {
                 Formulario = true;
+
                 OnPostBtConsultar();
-                this.Actual = this.Lista.FirstOrDefault(x => x.Id == Convert.ToInt32(data));
+
+                this.Actual = this.Lista.FirstOrDefault(
+                    x => x.Id == Convert.ToInt32(data));
+
+                CargarListas();
             }
             catch (Exception ex)
             {

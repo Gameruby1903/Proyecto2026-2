@@ -9,21 +9,39 @@ namespace front_restaurante.Pages.Ventanas
     public class DetallePedidosModel : PageModel
     {
         private IDetallePedidosPresentacion IDetallePedidosPresentacion;
+        private IPedidosPresentacion IPedidosPresentacion;
+        private IProductosPresentacion IProductosPresentacion;
 
-        public DetallePedidosModel(IDetallePedidosPresentacion IDetallePedidosPresentacion)
+        public DetallePedidosModel(IDetallePedidosPresentacion IDetallePedidosPresentacion,
+            IPedidosPresentacion IPedidosPresentacion,
+            IProductosPresentacion IProductosPresentacion)
         {
             this.IDetallePedidosPresentacion = IDetallePedidosPresentacion;
+            this.IPedidosPresentacion = IPedidosPresentacion;
+            this.IProductosPresentacion = IProductosPresentacion;
             this.Filtro = new DetallePedidos();
+
+            this.Lista = new List<DetallePedidos>();
+            this.Pedidos = new List<Pedidos>();
+            this.Productos = new List<Productos>();
         }
         public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<DetallePedidos> Lista { get; set; }
+        [BindProperty] public List<Pedidos> Pedidos { get; set; }
+        [BindProperty] public List<Productos> Productos { get; set; }
         [BindProperty] public DetallePedidos? Filtro { get; set; }
         [BindProperty] public DetallePedidos? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
         [BindProperty] public bool Borrar { get; set; } = false;
         
         public void OnGet() { OnPostBtConsultar(); }
+
+        private void CargarListas()
+        {
+            this.Pedidos = this.IPedidosPresentacion.Consultar();
+            this.Productos = this.IProductosPresentacion.Consultar();
+        }
 
         public void OnPostBtConsultar()
         {
@@ -44,6 +62,7 @@ namespace front_restaurante.Pages.Ventanas
             {
                 Formulario = true;
                 this.Actual = new DetallePedidos();
+                CargarListas();
             }
             catch (Exception ex)
             {
@@ -55,6 +74,7 @@ namespace front_restaurante.Pages.Ventanas
         {
             try
             {
+
                 if (this.Actual!.Id == 0)
                     this.Actual = this.IDetallePedidosPresentacion.Insertar(this.Actual!);
                 else
@@ -63,6 +83,9 @@ namespace front_restaurante.Pages.Ventanas
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+
+                Formulario = true;
+                CargarListas();
             }
             finally
             {
@@ -75,8 +98,13 @@ namespace front_restaurante.Pages.Ventanas
             try
             {
                 Formulario = true;
+
                 OnPostBtConsultar();
-                this.Actual = this.Lista.FirstOrDefault(x => x.Id == Convert.ToInt32(data));
+
+                this.Actual = this.Lista.FirstOrDefault(
+                    x => x.Id == Convert.ToInt32(data));
+
+                CargarListas();
             }
             catch (Exception ex)
             {

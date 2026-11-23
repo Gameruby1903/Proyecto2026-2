@@ -77,13 +77,11 @@
                 </select>
                 <br />
 
-                <label>
-                    Categoria
-                </label>
-                <input id="nmCategoria"
-                       type="number"
-                       min="1"
-                       asp-for="@Model.Actual!.Categoria" />
+                <label>Categorias:</label>
+                <select asp-for="Actual.Categoria"
+                        asp-items="@(new SelectList(Model.Categorias, "Id", "Nombre"))">
+                    <option value="">Seleccione una categoría</option>
+                </select>
                 <br />
                 
                 <label>

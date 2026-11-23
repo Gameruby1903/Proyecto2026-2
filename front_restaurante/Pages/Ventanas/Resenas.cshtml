@@ -43,24 +43,19 @@
             <div>
                 <h3>Reseñas</h3>
 
-                <label>
-                    Cliente
-                </label>
-                <input id="nmCliente"
-                       type="number"
-                       min="1"
-                       asp-for="@Model.Actual!.Cliente" />
+                <label>CLientes:</label>
+                <select asp-for="Actual.Cliente"
+                        asp-items="@(new SelectList(Model.Clientes, "Id", "Nombre"))">
+                    <option value="">Seleccione un cliente</option>
+                </select>
                 <br />
 
-                <label>
-                    Producto
-                </label>
-                <input id="nmProducto"
-                       type="number"
-                       min="1"
-                       asp-for="@Model.Actual!.Producto" />
+                <label>Productos:</label>
+                <select asp-for="Actual.Producto"
+                        asp-items="@(new SelectList(Model.Productos, "Id", "Nombre"))">
+                    <option value="">Seleccione un producto</option>
+                </select>
                 <br />
-
                 <label>
                     Calificación
                 </label>

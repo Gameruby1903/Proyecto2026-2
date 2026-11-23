@@ -63,14 +63,13 @@
                 <input id="nmCostoUni"
                        asp-for="@Model.Actual!.CostoUni" />
                 <br />
-                <label>
-                    Proveedor
-                </label>
-                <input id="nmProveedor"
-                       type="number"
-                       min="1"
-                       asp-for="@Model.Actual!.Proveedor" />
+                <label>Proveedores:</label>
+                <select asp-for="Actual.Proveedor"
+                        asp-items="@(new SelectList(Model.Proveedores, "Id", "Nombre"))">
+                    <option value="">Seleccione un proveedor</option>
+                </select>
                 <br />
+
                 <label>
                     Imagen
                 </label>
@@ -85,6 +84,8 @@
                 }
                 <input type="file"
                        asp-for="FormFile" />
+=======
+>>>>>>> Stashed changes
             </div>
         }
 

@@ -43,18 +43,18 @@
             <div>
                 <h3>Receta Ingredientes</h3>
 
-                <label>
-                    Producto
-                </label>
-                <input id="nmProducto"
-                       asp-for="@Model.Actual!.Producto" />
+                <label>Productos:</label>
+                <select asp-for="Actual.Producto"
+                        asp-items="@(new SelectList(Model.Productos, "Id", "Nombre"))">
+                    <option value="">Seleccione un producto</option>
+                </select>
                 <br />
 
-                <label>
-                    Ingrediente
-                </label>
-                <input id="nmIngrediente"
-                       asp-for="@Model.Actual!.Ingrediente" />
+                <label>Ingredientes:</label>
+                <select asp-for="Actual.Ingrediente"
+                        asp-items="@(new SelectList(Model.Ingredientes, "Id", "Nombre"))">
+                    <option value="">Seleccione un ingrediente</option>
+                </select>
                 <br />
 
                 <label>

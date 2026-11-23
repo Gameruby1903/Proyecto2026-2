@@ -9,15 +9,21 @@ namespace front_restaurante.Pages.Ventanas
     public class TurnosModel : PageModel
     {
         private ITurnosPresentacion ITurnosPresentacion;
+        private IEmpleadosPresentacion IEmpleadosPresentacion;
 
-        public TurnosModel(ITurnosPresentacion ITurnosPresentacion)
+        public TurnosModel(ITurnosPresentacion ITurnosPresentacion, IEmpleadosPresentacion IEmpleadosPresentacion)
         {
             this.ITurnosPresentacion = ITurnosPresentacion;
+            this.IEmpleadosPresentacion = IEmpleadosPresentacion;
             this.Filtro = new Turnos();
+
+            this.Lista = new List<Turnos>();
+            this.Empleados = new List<Empleados>();
         }
         public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<Turnos> Lista { get; set; }
+        [BindProperty] public List<Empleados> Empleados { get; set; }
         [BindProperty] public Turnos? Filtro { get; set; }
         [BindProperty] public Turnos? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
@@ -25,16 +31,23 @@ namespace front_restaurante.Pages.Ventanas
 
         public void OnGet() { OnPostBtConsultar(); }
 
+        private void CargarListas()
+        {
+            this.Empleados = this.IEmpleadosPresentacion.Consultar();
+        }
+
         public void OnPostBtConsultar()
         {
             try
             {
-                Filtro!.Nombre = Filtro!.Nombre ?? "";
-                Lista = this.ITurnosPresentacion.Buscar(Filtro!);
+                Filtro ??= new Turnos();
+
+                Lista = this.ITurnosPresentacion.Buscar(Filtro);
             }
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+                Lista = new List<Turnos>();
             }
         }
 
@@ -44,6 +57,8 @@ namespace front_restaurante.Pages.Ventanas
             {
                 Formulario = true;
                 this.Actual = new Turnos();
+
+                CargarListas();
             }
             catch (Exception ex)
             {
@@ -55,6 +70,7 @@ namespace front_restaurante.Pages.Ventanas
         {
             try
             {
+
                 if (this.Actual!.Id == 0)
                     this.Actual = this.ITurnosPresentacion.Insertar(this.Actual!);
                 else
@@ -63,6 +79,9 @@ namespace front_restaurante.Pages.Ventanas
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+
+                Formulario = true;
+                CargarListas();
             }
             finally
             {
@@ -75,8 +94,13 @@ namespace front_restaurante.Pages.Ventanas
             try
             {
                 Formulario = true;
+
                 OnPostBtConsultar();
-                this.Actual = this.Lista.FirstOrDefault(x => x.Id == Convert.ToInt32(data));
+
+                this.Actual = this.Lista.FirstOrDefault(
+                    x => x.Id == Convert.ToInt32(data));
+
+                CargarListas();
             }
             catch (Exception ex)
             {
@@ -89,8 +113,11 @@ namespace front_restaurante.Pages.Ventanas
             try
             {
                 Borrar = true;
+
                 OnPostBtConsultar();
-                this.Actual = this.Lista.FirstOrDefault(x => x.Id == Convert.ToInt32(data));
+
+                this.Actual = this.Lista.FirstOrDefault(
+                    x => x.Id == Convert.ToInt32(data));
             }
             catch (Exception ex)
             {
@@ -104,6 +131,7 @@ namespace front_restaurante.Pages.Ventanas
             {
                 if (this.Actual!.Id == 0)
                     return;
+
                 this.Actual = this.ITurnosPresentacion.Borrar(this.Actual!);
             }
             catch (Exception ex)

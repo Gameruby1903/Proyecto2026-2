@@ -9,15 +9,27 @@ namespace front_restaurante.Pages.Ventanas
     public class ResenasModel : PageModel
     {
         private IResenasPresentacion IResenasPresentacion;
+        private IClientesPresentacion IClientesPresentacion;
+        private IProductosPresentacion IProductosPresentacion;
 
-        public ResenasModel(IResenasPresentacion IResenasPresentacion)
+        public ResenasModel(IResenasPresentacion IResenasPresentacion, IClientesPresentacion IClientesPresentacion, IProductosPresentacion IProductosPresentacion   )
         {
             this.IResenasPresentacion = IResenasPresentacion;
+
+            this.IClientesPresentacion = IClientesPresentacion;
+            this.IProductosPresentacion = IProductosPresentacion;
             this.Filtro = new Resenas();
+
+            this.Lista = new List<Resenas>();
+            this.Clientes = new List<Clientes>();
+            this.Productos = new List<Productos>();
+
         }
         public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<Resenas> Lista { get; set; }
+        [BindProperty] public List<Clientes> Clientes { get; set; }
+        [BindProperty] public List<Productos> Productos { get; set; }
         [BindProperty] public Resenas? Filtro { get; set; }
         [BindProperty] public Resenas? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
@@ -25,16 +37,24 @@ namespace front_restaurante.Pages.Ventanas
 
         public void OnGet() { OnPostBtConsultar(); }
 
+        private void CargarListas()
+        {
+            this.Clientes = this.IClientesPresentacion.Consultar();
+            this.Productos = this.IProductosPresentacion.Consultar();
+        }
+
         public void OnPostBtConsultar()
         {
             try
             {
-                Filtro!.Comentario = Filtro!.Comentario ?? "";
-                Lista = this.IResenasPresentacion.Buscar(Filtro!);
+                Filtro ??= new Resenas();
+
+                Lista = this.IResenasPresentacion.Buscar(Filtro);
             }
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+                Lista = new List<Resenas>();
             }
         }
 
@@ -44,6 +64,8 @@ namespace front_restaurante.Pages.Ventanas
             {
                 Formulario = true;
                 this.Actual = new Resenas();
+
+                CargarListas();
             }
             catch (Exception ex)
             {
@@ -55,6 +77,7 @@ namespace front_restaurante.Pages.Ventanas
         {
             try
             {
+
                 if (this.Actual!.Id == 0)
                     this.Actual = this.IResenasPresentacion.Insertar(this.Actual!);
                 else
@@ -63,6 +86,9 @@ namespace front_restaurante.Pages.Ventanas
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+
+                Formulario = true;
+                CargarListas();
             }
             finally
             {
@@ -75,8 +101,13 @@ namespace front_restaurante.Pages.Ventanas
             try
             {
                 Formulario = true;
+
                 OnPostBtConsultar();
-                this.Actual = this.Lista.FirstOrDefault(x => x.Id == Convert.ToInt32(data));
+
+                this.Actual = this.Lista.FirstOrDefault(
+                    x => x.Id == Convert.ToInt32(data));
+
+                CargarListas();
             }
             catch (Exception ex)
             {
@@ -89,8 +120,11 @@ namespace front_restaurante.Pages.Ventanas
             try
             {
                 Borrar = true;
+
                 OnPostBtConsultar();
-                this.Actual = this.Lista.FirstOrDefault(x => x.Id == Convert.ToInt32(data));
+
+                this.Actual = this.Lista.FirstOrDefault(
+                    x => x.Id == Convert.ToInt32(data));
             }
             catch (Exception ex)
             {
@@ -104,6 +138,7 @@ namespace front_restaurante.Pages.Ventanas
             {
                 if (this.Actual!.Id == 0)
                     return;
+
                 this.Actual = this.IResenasPresentacion.Borrar(this.Actual!);
             }
             catch (Exception ex)

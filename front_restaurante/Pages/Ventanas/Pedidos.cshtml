@@ -93,23 +93,7 @@
                        asp-for="@Model.Actual!.Cliente" />
                 <br />
 
-                <label>
-                    Mesa
-                </label>
-                <input id="nmMesa"
-                       type="number"
-                       min="1"
-                       asp-for="@Model.Actual!.Mesa" />
-                <br />
-
-                <label>
-                    Empleado
-                </label>
-                <input id="nmEmpleado"
-                       type="number"
-                       min="1"
-                       asp-for="@Model.Actual!.Empleado" />
-                <br />
+                           
 
                 <label>
                     Estado
@@ -150,6 +134,19 @@
                         Mesa @Model.Actual!.Mesa,
                         Empleado @Model.Actual!.Empleado,
                         @Model.Actual!.Estado?
+
+                        ¿Quiere borrar el Pedido con información 
+                            
+                        @Model.Actual!.Fecha,
+                        @Model.Actual!.Cliente,
+                        @Model.Actual!.Mesa,
+                        @Model.Actual!.Empleado,
+                        @Model.Actual!.Estado?
+        
+
+
+
+
 
                     </h4>
                     <input type="submit"

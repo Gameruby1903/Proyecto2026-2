@@ -9,15 +9,21 @@ namespace front_restaurante.Pages.Ventanas
     public class InventariosModel : PageModel
     {
         private IInventariosPresentacion IInventariosPresentacion;
+        private IIngredientesPresentacion IIngredientesPresentacion;
 
-        public InventariosModel(IInventariosPresentacion IInventariosPresentacion)
+        public InventariosModel(IInventariosPresentacion IInventariosPresentacion, IIngredientesPresentacion IIngredientesPresentacion)
         {
             this.IInventariosPresentacion = IInventariosPresentacion;
+            this.IIngredientesPresentacion = IIngredientesPresentacion;
             this.Filtro = new Inventarios();
+            
+            this.Lista = new List<Inventarios>();
+            this.Ingredientes = new List<Ingredientes>();
         }
         public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<Inventarios> Lista { get; set; }
+        [BindProperty] public List<Ingredientes> Ingredientes  { get; set; }
         [BindProperty] public Inventarios? Filtro { get; set; }
         [BindProperty] public Inventarios? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
@@ -25,16 +31,23 @@ namespace front_restaurante.Pages.Ventanas
         
         public void OnGet() { OnPostBtConsultar(); }
 
+        private void CargarListas()
+        {
+            this.Ingredientes = this.IIngredientesPresentacion.Consultar();
+        }
+
         public void OnPostBtConsultar()
         {
             try
             {
-                Filtro!.CantDisponible = Filtro!.CantDisponible;
-                Lista = this.IInventariosPresentacion.Buscar(Filtro!);
+                Filtro ??= new Inventarios();
+
+                Lista = this.IInventariosPresentacion.Buscar(Filtro);
             }
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+                Lista = new List<Inventarios>();
             }
         }
 
@@ -44,6 +57,8 @@ namespace front_restaurante.Pages.Ventanas
             {
                 Formulario = true;
                 this.Actual = new Inventarios();
+
+                CargarListas();
             }
             catch (Exception ex)
             {
@@ -55,6 +70,7 @@ namespace front_restaurante.Pages.Ventanas
         {
             try
             {
+
                 if (this.Actual!.Id == 0)
                     this.Actual = this.IInventariosPresentacion.Insertar(this.Actual!);
                 else
@@ -63,6 +79,9 @@ namespace front_restaurante.Pages.Ventanas
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+
+                Formulario = true;
+                CargarListas();
             }
             finally
             {
@@ -75,8 +94,13 @@ namespace front_restaurante.Pages.Ventanas
             try
             {
                 Formulario = true;
+
                 OnPostBtConsultar();
-                this.Actual = this.Lista.FirstOrDefault(x => x.Id == Convert.ToInt32(data));
+
+                this.Actual = this.Lista.FirstOrDefault(
+                    x => x.Id == Convert.ToInt32(data));
+
+                CargarListas();
             }
             catch (Exception ex)
             {
@@ -89,8 +113,11 @@ namespace front_restaurante.Pages.Ventanas
             try
             {
                 Borrar = true;
+
                 OnPostBtConsultar();
-                this.Actual = this.Lista.FirstOrDefault(x => x.Id == Convert.ToInt32(data));
+
+                this.Actual = this.Lista.FirstOrDefault(
+                    x => x.Id == Convert.ToInt32(data));
             }
             catch (Exception ex)
             {
@@ -104,6 +131,7 @@ namespace front_restaurante.Pages.Ventanas
             {
                 if (this.Actual!.Id == 0)
                     return;
+
                 this.Actual = this.IInventariosPresentacion.Borrar(this.Actual!);
             }
             catch (Exception ex)

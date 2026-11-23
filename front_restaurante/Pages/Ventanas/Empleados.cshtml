@@ -73,17 +73,17 @@
                        asp-for="@Model.Actual!.FechaContratacion" />
                 <br />
 
-                <label>
-                    TipoEmpleado
-                </label>
-                <input id="nmTipoEmpleado"
-                       asp-for="@Model.Actual!.TipoEmpleado" />
+                <label>TipoEmpleado:</label>
+                <select asp-for="Actual.TipoEmpleado"
+                        asp-items="@(new SelectList(Model.TiposEmpleados, "Id", "Nombre"))">
+                    <option value="">Seleccione un tipo de empleado</option>
+                </select>
                 <br />
-                <label>
-                    Sucursal
-                </label>
-                <input id="nmSucursal"
-                       asp-for="@Model.Actual!.Sucursal" />
+                <label>Sucursal:</label>
+                <select asp-for="Actual.Sucursal"
+                        asp-items="@(new SelectList(Model.Sucursales, "Id", "Nombre"))">
+                    <option value="">Seleccione una sucursal</option>
+                </select>
                 <br />
                 <label>
                     Imagen

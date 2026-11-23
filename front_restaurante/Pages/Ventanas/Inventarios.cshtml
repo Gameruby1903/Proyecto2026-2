@@ -45,13 +45,11 @@
                 <h3>Inventarios</h3>
 
                 
-                <label>
-                    Ingrediente
-                </label>
-                <input id="nmIngrediente"
-                       type="number"
-                       min="1"
-                       asp-for="@Model.Actual!.Ingrediente" />
+                <label>Ingredienes:</label>
+                <select asp-for="Actual.Ingrediente"
+                        asp-items="@(new SelectList(Model.Ingredientes, "Id", "Nombre"))">
+                    <option value="">Seleccione un ingrediente</option>
+                </select>
                 <br />
                
 
