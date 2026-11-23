@@ -12,6 +12,10 @@
                    value="Consultar"
                    class="btn btn-secondary"
                    asp-page-handler="BtConsultar" />
+            <input type="submit"
+                   value="Descargar PDF"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtPdf" />
             <input placeholder="Usuario"
                    asp-for="@Model.Filtro!.Usuario" />
             <input placeholder="Entidad"
