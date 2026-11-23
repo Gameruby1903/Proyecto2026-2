@@ -1,3 +1,4 @@
+using front_restaurante.Nucleo;
 using lib_aplicaciones.Entidades;
 using presentacion_restaurante.Interfaces;
 using lib_aplicaciones.Nucleo;
@@ -34,6 +35,13 @@ namespace front_restaurante.Pages.Ventanas
         [BindProperty] public bool Borrar { get; set; } = false;
         
         public void OnGet() { OnPostBtConsultar(); }
+
+        public IActionResult OnPostBtPdf()
+        {
+            OnPostBtConsultar();   // vuelve a consultar respetando los filtros escritos
+            var pdf = ReportePdf.Generar("Empleados", Lista);
+            return File(pdf, "application/pdf", $"Empleados_{DateTime.Now:yyyyMMdd_HHmm}.pdf");
+        }
 
         private void CargarListas()
         {

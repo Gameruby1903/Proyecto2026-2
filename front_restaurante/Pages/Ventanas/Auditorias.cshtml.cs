@@ -1,3 +1,4 @@
+using front_restaurante.Nucleo;
 using lib_aplicaciones.Entidades;
 using lib_aplicaciones.Nucleo;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,13 @@ namespace front_restaurante.Pages.Ventanas
         [BindProperty] public Auditorias? Filtro { get; set; }
 
         public void OnGet() { OnPostBtConsultar(); }
+
+        public IActionResult OnPostBtPdf()
+        {
+            OnPostBtConsultar();   // vuelve a consultar respetando los filtros escritos
+            var pdf = ReportePdf.Generar("Auditorias", Lista);
+            return File(pdf, "application/pdf", $"Auditorias_{DateTime.Now:yyyyMMdd_HHmm}.pdf");
+        }
 
         public void OnPostBtConsultar()
         {
