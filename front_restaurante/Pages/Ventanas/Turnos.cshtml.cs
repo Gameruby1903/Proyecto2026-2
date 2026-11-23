@@ -15,6 +15,7 @@ namespace front_restaurante.Pages.Ventanas
             this.ITurnosPresentacion = ITurnosPresentacion;
             this.Filtro = new Turnos();
         }
+        public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<Turnos> Lista { get; set; }
         [BindProperty] public Turnos? Filtro { get; set; }

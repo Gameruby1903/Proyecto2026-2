@@ -18,5 +18,7 @@ namespace lib_aplicaciones.Entidades
         public int Calificacion { get; set; }
         public string? Comentario { get; set; }
         public DateTime Fecha { get; set; }
+        public string? Imagen { get; set; }
+
     }
 }

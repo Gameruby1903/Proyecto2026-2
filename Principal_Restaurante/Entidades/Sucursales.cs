@@ -12,6 +12,7 @@ namespace lib_aplicaciones.Entidades
         public string? Direccion { get; set; }
         public string? Telefono { get; set; }
         public string? Ciudad { get; set; }
+        public string? Imagen { get; set; }
 
         [NotMapped] public List<Empleados>? Empleados { get; set; }
     }

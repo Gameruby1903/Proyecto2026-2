@@ -11,6 +11,7 @@ namespace lib_aplicaciones.Entidades
         public string? Nombre { get; set; }
         public decimal SalarioBase { get; set; }
 
+        public string? Imagen { get; set; }
 
         [NotMapped] public List<Empleados>? Empleados { get; set; }
         /*En resumen, la segunda opción (`= new List<T>()`) evita **4 problemas principales**:

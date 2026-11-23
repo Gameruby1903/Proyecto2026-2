@@ -15,6 +15,7 @@ namespace front_restaurante.Pages.Ventanas
             this.IMetodoPagosPresentacion = IMetodoPagosPresentacion;
             this.Filtro = new MetodoPagos();
         }
+        public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<MetodoPagos> Lista { get; set; }
         [BindProperty] public MetodoPagos? Filtro { get; set; }

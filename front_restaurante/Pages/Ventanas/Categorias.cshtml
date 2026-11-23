@@ -70,7 +70,20 @@
                 <input id="nmOrdenMenu"
                     asp-for="@Model.Actual!.OrdenMenu"/>
                 <br />
-
+                <label>
+                    Imagen
+                </label>
+                @if (Model.Actual!.Imagen != null)
+                {
+                    <img height="100"
+                         width="100"
+                         src="data:image;base64,
+                    @System.Convert.ToBase64String(
+                    Convert.FromBase64String(
+                    Model.Actual!.Imagen))" />
+                }
+                <input type="file"
+                       asp-for="FormFile" />
                
             </div>
         }
@@ -118,6 +131,8 @@
                         <th>Descripcion</th>
                         <th>Disponible</th>
                         <th>Orden Menu</th>
+                        <th>Imagen</th>
+                        <th>Acción</th>
                        
                     </tr>
                     @if (Model != null && Model.Lista != null)
@@ -130,7 +145,16 @@
                                 <td>@elemento.Descripcion</td>
                                 <td>@elemento.Disponible</td>
                                 <td>@elemento.OrdenMenu</td>
-                         
+                                <td>
+                                    @if (elemento.Imagen != null)
+                                    {
+                                        <img height="60"
+                                             width="60"
+                                             src="data:image;base64,
+                                        @System.Convert.ToBase64String(
+                                        Convert.FromBase64String(elemento.Imagen))" />
+                                    }
+                                </td>
                                 <td>
                                     <input type="submit"
                                         value="Editar"

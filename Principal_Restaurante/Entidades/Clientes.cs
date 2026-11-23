@@ -12,6 +12,7 @@ namespace lib_aplicaciones.Entidades
         public string? Cedula { get; set; }
         public string? Telefono { get; set; }
         public string? Email { get; set; }
+        public string? Imagen { get; set; }
 
         [NotMapped] public List<Resenas>? Resenas { get; set; }
         [NotMapped] public List<Usuarios>? Usuarios { get; set; }

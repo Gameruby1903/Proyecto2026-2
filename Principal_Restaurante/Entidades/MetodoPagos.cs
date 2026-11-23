@@ -11,6 +11,7 @@ namespace lib_aplicaciones.Entidades
         public string? Tipo { get; set; }
         public string? Descripcion { get; set; }
 
+        public string? Imagen { get; set; }
 
         [NotMapped] public List<Facturas>? Facturas { get; set; } 
     }

@@ -15,6 +15,7 @@ namespace front_restaurante.Pages.Ventanas
             this.IProveedoresPresentacion = IProveedoresPresentacion;
             this.Filtro = new Proveedores();
         }
+        public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<Proveedores> Lista { get; set; }
         [BindProperty] public Proveedores? Filtro { get; set; }

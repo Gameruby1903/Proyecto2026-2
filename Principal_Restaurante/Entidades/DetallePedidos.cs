@@ -16,6 +16,7 @@ namespace lib_aplicaciones.Entidades
         [ForeignKey("Producto")] public Productos? _Producto { get; set; }
         public int Cantidad { get; set; }
         public decimal PrecioUni { get; set; }
-       
+        public string? Imagen { get; set; }
+
     }
 }

@@ -15,6 +15,7 @@ namespace front_restaurante.Pages.Ventanas
             this.ICategoriasPresentacion = ICategoriasPresentacion;
             this.Filtro = new Categorias();
         }
+        public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<Categorias> Lista { get; set; }
         [BindProperty] public Categorias? Filtro { get; set; }

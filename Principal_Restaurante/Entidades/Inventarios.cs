@@ -15,5 +15,7 @@ namespace lib_aplicaciones.Entidades
         public decimal CantDisponible { get; set; }
         public decimal CantMinima { get; set; }
         public DateTime UltimaActu { get; set; }
+        public string? Imagen { get; set; }
+
     }
 }

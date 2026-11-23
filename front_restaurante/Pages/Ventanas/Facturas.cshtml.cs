@@ -15,6 +15,7 @@ namespace front_restaurante.Pages.Ventanas
             this.IFacturasPresentacion = IFacturasPresentacion;
             this.Filtro = new Facturas();
         }
+        public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<Facturas> Lista { get; set; }
         [BindProperty] public Facturas? Filtro { get; set; }

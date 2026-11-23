@@ -15,6 +15,7 @@ namespace front_restaurante.Pages.Ventanas
             this.IDetallePedidosPresentacion = IDetallePedidosPresentacion;
             this.Filtro = new DetallePedidos();
         }
+        public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<DetallePedidos> Lista { get; set; }
         [BindProperty] public DetallePedidos? Filtro { get; set; }

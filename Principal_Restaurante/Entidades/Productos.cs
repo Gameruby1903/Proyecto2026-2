@@ -15,6 +15,7 @@ namespace lib_aplicaciones.Entidades
 
         public int Categoria { get; set; }
         [ForeignKey("Categoria")] public Categorias? _Categoria { get; set; }
+        public string? Imagen { get; set; }
 
         [NotMapped] public List<Resenas>? Resenas { get; set; } 
 

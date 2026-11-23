@@ -12,6 +12,7 @@ namespace lib_aplicaciones.Entidades
         public string? Descripcion { get; set; }
         public bool Disponible { get; set; }
         public int OrdenMenu { get; set; }
+        public string? Imagen { get; set; }
 
         [NotMapped] public List<Productos>? Productos { get; set; } 
     }

@@ -14,6 +14,7 @@ namespace lib_aplicaciones.Entidades
 
         public int Proveedor { get; set; }
         [ForeignKey("Proveedor")] public Proveedores? _Proveedor { get; set; }
+        public string? Imagen { get; set; }
 
         [NotMapped] public List<RecetaIngredientes>? Recetas { get; set; }
               

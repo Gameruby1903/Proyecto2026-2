@@ -16,6 +16,8 @@ namespace lib_aplicaciones.Entidades
         public DateTime Fecha { get; set; }
         public decimal Total { get; set; }
         public string? Estado { get; set; }
+        public string? Imagen { get; set; }
+
 
         [NotMapped] public List<DetalleCompras>? Detalles { get; set; }
     }

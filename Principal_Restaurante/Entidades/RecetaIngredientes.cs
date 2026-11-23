@@ -16,5 +16,7 @@ namespace lib_aplicaciones.Entidades
         [ForeignKey("Ingrediente")] public Ingredientes? _Ingrediente { get; set; }
         public decimal CantiReque { get; set; }
         public string? Notas { get; set; }
+        public string? Imagen { get; set; }
+
     }
 }

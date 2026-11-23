@@ -33,6 +33,7 @@ namespace front_restaurante.Pages.Ventanas
             this.Mesas = new List<Mesas>();
             this.Clientes = new List<Clientes>();
         }
+        public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<Pedidos> Lista { get; set; }
         [BindProperty] public List<Empleados> Empleados { get; set; }

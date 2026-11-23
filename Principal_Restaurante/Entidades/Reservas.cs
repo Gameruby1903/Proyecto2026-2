@@ -18,5 +18,7 @@ namespace lib_aplicaciones.Entidades
         public DateTime FechaHora { get; set; }
         public int NPersonas { get; set; }
         public string? Estado { get; set; }
+        public string? Imagen { get; set; }
+
     }
 }

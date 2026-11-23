@@ -15,6 +15,7 @@ namespace front_restaurante.Pages.Ventanas
             this.IMesasPresentacion = IMesasPresentacion;
             this.Filtro = new Mesas();
         }
+        public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<Mesas> Lista { get; set; }
         [BindProperty] public Mesas? Filtro { get; set; }

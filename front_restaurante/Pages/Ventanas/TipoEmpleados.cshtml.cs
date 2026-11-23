@@ -15,6 +15,7 @@ namespace front_restaurante.Pages.Ventanas
             this.ITipoEmpleadosPresentacion = ITipoEmpleadosPresentacion;
             this.Filtro = new TipoEmpleados();
         }
+        public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<TipoEmpleados> Lista { get; set; }
         [BindProperty] public TipoEmpleados? Filtro { get; set; }

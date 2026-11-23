@@ -19,6 +19,8 @@ namespace lib_aplicaciones.Entidades
 
         public int MetodoPago { get; set; }
         [ForeignKey("MetodoPago")] public MetodoPagos? _MetodoPago { get; set; }
+        public string? Imagen { get; set; }
+
     }
 
 }

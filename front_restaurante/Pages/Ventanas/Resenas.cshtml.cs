@@ -15,6 +15,7 @@ namespace front_restaurante.Pages.Ventanas
             this.IResenasPresentacion = IResenasPresentacion;
             this.Filtro = new Resenas();
         }
+        public IFormFile? FormFile { get; set; }
 
         [BindProperty] public List<Resenas> Lista { get; set; }
         [BindProperty] public Resenas? Filtro { get; set; }

@@ -13,6 +13,7 @@ namespace lib_aplicaciones.Entidades
         public bool Estado { get; set; }
         public string? Ubicacion { get; set; }
 
+        public string? Imagen { get; set; }
 
         [NotMapped] public List<Pedidos>? Pedidos { get; set; } 
         [NotMapped] public List<Reservas>? Reservas { get; set; } 

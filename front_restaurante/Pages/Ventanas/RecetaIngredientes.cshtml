@@ -70,6 +70,20 @@
                 <input id="nmNotas"
                        asp-for="@Model.Actual!.Notas" />
                 <br />
+                <label>
+                    Imagen
+                </label>
+                @if (Model.Actual!.Imagen != null)
+                {
+                    <img height="100"
+                         width="100"
+                         src="data:image;base64,
+                    @System.Convert.ToBase64String(
+                    Convert.FromBase64String(
+                    Model.Actual!.Imagen))" />
+                }
+                <input type="file"
+                       asp-for="FormFile" />
             </div>
         }
 
@@ -113,6 +127,8 @@
                         <th>Ingrediente</th>
                         <th>Cantidad Requerida</th>
                         <th>Notas</th>
+                        <th>Imagen</th>
+                        <th>Acción</th>
                     </tr>
                     @if (Model != null && Model.Lista != null)
                     {
@@ -123,7 +139,16 @@
                                 <td>@elemento.Ingrediente</td>
                                 <td>@elemento.CantiReque</td>
                                 <td>@elemento.Notas</td>
-
+                                <td>
+                                    @if (elemento.Imagen != null)
+                                    {
+                                        <img height="60"
+                                             width="60"
+                                             src="data:image;base64,
+                                        @System.Convert.ToBase64String(
+                                        Convert.FromBase64String(elemento.Imagen))" />
+                                    }
+                                    <td>
                                 <td>
                                     <input type="submit"
                                            value="Editar"
