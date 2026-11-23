@@ -15,5 +15,6 @@ namespace lib_aplicaciones.Interfaces
         Usuarios? IniciarSesion(Usuarios entidad);
         List<Usuarios> ConsultarPorRol(Usuarios entidad);
         List<string> ConsultarPermisos(Usuarios entidad);
+        List<string> ConsultarPermisosPorNombre(string nombre);
     }
 }

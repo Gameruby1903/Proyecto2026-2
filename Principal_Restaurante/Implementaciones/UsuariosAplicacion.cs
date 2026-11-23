@@ -170,7 +170,8 @@ namespace lib_aplicaciones.Implementaciones
                 .Where(x => x.Rol == entidad.Rol)
                 .ToList();
         }
-        public List<string> ConsultarPermisos(Usuarios entidad)
+      
+           public List<string> ConsultarPermisos(Usuarios entidad)
         {
             var consulta =
                 from u in this.IConexion.Usuarios!
@@ -182,6 +183,21 @@ namespace lib_aplicaciones.Implementaciones
                 select p.Codigo;
 
             return consulta.ToList()!;
+        
+        }
+        public List<string> ConsultarPermisosPorNombre(string nombre)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
+                return new List<string>();
+
+            var usuario = this.Consultar()
+                .FirstOrDefault(u => string.Equals(
+                    u.NombreUsuario, nombre, StringComparison.OrdinalIgnoreCase));
+
+            if (usuario == null)
+                return new List<string>();
+
+            return this.ConsultarPermisos(new Usuarios { Id = usuario.Id });
         }
 
         private bool Validar(Usuarios entidad)

@@ -44,9 +44,8 @@ namespace front_restaurante.Pages.Ventanas
         {
             try
             {
-                Filtro ??= new Empleados();
-
-                Lista = this.IEmpleadosPresentacion.Buscar(Filtro);
+                Filtro!.Nombre = Filtro!.Nombre ?? "";
+                Lista = this.IEmpleadosPresentacion.Buscar(Filtro!);
             }
             catch (Exception ex)
             {
