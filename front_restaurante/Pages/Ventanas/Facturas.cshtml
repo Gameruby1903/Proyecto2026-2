@@ -157,12 +157,12 @@
                         {
                             <tr>
                                 
-                                <td>@elemento.Pedido</td>
+                                <td>@elemento._Pedido!.Estado</td>
                                 <td>@elemento.FechaEmi</td>
                                 <td>@elemento.Subtotal</td>
                                 <td>@elemento.Impuesto</td>
                                 <td>@elemento.Total</td>
-                                <td>@elemento.MetodoPago</td>
+                                <td>@elemento._MetodoPago!.Tipo</td>
                                 <td>
                                     @if (elemento.Imagen != null)
                                     {

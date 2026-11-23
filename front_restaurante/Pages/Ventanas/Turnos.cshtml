@@ -135,7 +135,7 @@
                         foreach (var elemento in Model.Lista)
                         {
                             <tr>
-                                <td>@elemento.Empleado</td>
+                                <td>@elemento._Empleado!.Nombre</td>
                                 <td>@elemento.FechaInicio</td>
                                 <td>@elemento.FechaFin</td>
                                 <td>@elemento.Nombre</td>

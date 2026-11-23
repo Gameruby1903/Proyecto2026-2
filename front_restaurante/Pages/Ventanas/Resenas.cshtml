@@ -110,8 +110,8 @@
 
                     <h4>
                         ¿Quiere borrar la Reseña con información
-                        Cliente @Model.Actual!.Cliente,
-                        Producto @Model.Actual!.Producto,
+                         @Model.Actual!.Cliente,
+                          @Model.Actual!.Producto,
                         @Model.Actual!.Calificacion,
                         @Model.Actual!.Comentario?
                     </h4>
@@ -141,14 +141,15 @@
                         <th>Fecha</th>
                         <th>Imagen</th>
                         <th>Acción</th>
+                       
                     </tr>
                     @if (Model != null && Model.Lista != null)
                     {
                         foreach (var elemento in Model.Lista)
                         {
                             <tr>
-                                <td>@elemento.Cliente</td>
-                                <td>@elemento.Producto</td>
+                                <td>@elemento._Cliente!.Nombre</td>
+                                <td>@elemento._Producto!.Nombre</td>
                                 <td>@elemento.Calificacion</td>
                                 <td>@elemento.Comentario</td>
                                 <td>@elemento.Fecha</td>

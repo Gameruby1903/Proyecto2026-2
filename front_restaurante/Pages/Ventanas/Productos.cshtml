@@ -113,7 +113,8 @@
                         ¿Quiere borrar el Producto con información
                         @Model.Actual!.Nombre,
                         @Model.Actual!.Descripcion,
-                        @Model.Actual!.Precio?
+                        @Model.Actual!.Precio,
+                        @Model.Actual!.Categoria?
                     </h4>
                     <input type="submit"
                            value="Cancelar"
@@ -152,7 +153,7 @@
                                 <td>@elemento.Descripcion</td>
                                 <td>@(elemento.Disponible ? "Sí" : "No")</td>
                                 <td>@elemento.Precio</td>
-                                <td>@elemento.Categoria</td>
+                                <td>@elemento._Categoria!.Nombre</td>
 								<td>
 									@if (elemento.Imagen != null)
 									{

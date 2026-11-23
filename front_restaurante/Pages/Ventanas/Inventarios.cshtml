@@ -130,6 +130,7 @@
                         <th>Cantidad Disponible</th>
                         <th>Cantidad Minima</th>
                         <th>Ultima Actualización</th>
+                        <th>Ingredientes</th>
                         <th>Imagen</th>
                         <th>Acción</th>
                        
@@ -143,6 +144,8 @@
                                 <td>@elemento.CantDisponible</td>
                                 <td>@elemento.CantMinima</td>
                                 <td>@elemento.UltimaActu</td>
+                                <td>@elemento._Ingrediente!.Nombre</td>
+
                                 <td>
                                     @if (elemento.Imagen != null)
                                     {

@@ -1,4 +1,4 @@
-﻿@page
+﻿@* @page *@
 @model RecetaIngredientesModel
 @{
     ViewData["Title"] = "Receta Ingredientes";
@@ -135,8 +135,8 @@
                         foreach (var elemento in Model.Lista)
                         {
                             <tr>
-                                <td>@elemento.Producto</td>
-                                <td>@elemento.Ingrediente</td>
+                                <td>@elemento._Producto!.Nombre</td>
+                                <td>@elemento._Ingrediente!.Nombre</td>
                                 <td>@elemento.CantiReque</td>
                                 <td>@elemento.Notas</td>
                                 <td>

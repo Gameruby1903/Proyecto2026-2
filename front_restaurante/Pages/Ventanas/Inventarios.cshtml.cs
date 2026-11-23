@@ -70,6 +70,13 @@ namespace front_restaurante.Pages.Ventanas
         {
             try
             {
+                if (FormFile != null)
+                {
+                    var memoryStream = new MemoryStream();
+                    FormFile.CopyToAsync(memoryStream).Wait();
+                    Actual!.Imagen = Convert.ToBase64String(memoryStream.ToArray());
+                    memoryStream.Dispose();
+                }
 
                 if (this.Actual!.Id == 0)
                     this.Actual = this.IInventariosPresentacion.Insertar(this.Actual!);

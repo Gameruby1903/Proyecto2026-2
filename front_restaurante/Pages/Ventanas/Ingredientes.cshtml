@@ -84,8 +84,7 @@
                 }
                 <input type="file"
                        asp-for="FormFile" />
-=======
->>>>>>> Stashed changes
+             
             </div>
         }
 
@@ -103,6 +102,7 @@
                         @Model.Actual!.Nombre,
                         @Model.Actual!.UniMedida,
                         @Model.Actual!.CostoUni?
+                        @Model.Actual!.Proveedor?
 
 
                             
@@ -131,6 +131,7 @@
                         <th>Nombre</th>
                         <th>Unidad de Medida</th>
                         <th>Costo Unitario</th>
+                        <th>Proveedor</th>
                         <th>Imagen</th>
                         <th>Acción</th>
                        
@@ -144,6 +145,7 @@
                                 <td>@elemento.Nombre</td>
                                 <td>@elemento.UniMedida</td>
                                 <td>@elemento.CostoUni</td>
+                                <td>@elemento._Proveedor!.Nombre</td>
                                 <td>
                                     @if (elemento.Imagen != null)
                                     {
