@@ -1,51 +1,109 @@
- .../DesignTimeBuild/.dtbcache.v2                   | Bin [31m399737[m -> [32m399737[m bytes
- .../obj/Debug/net10.0/Principal.AssemblyInfo.cs    |   2 [32m+[m[31m-[m
- .../net10.0/Principal.AssemblyInfoInputs.cache     |   2 [32m+[m[31m-[m
- .../Debug/net10.0/lib_aplicaciones.AssemblyInfo.cs |   2 [32m+[m[31m-[m
- .../lib_aplicaciones.AssemblyInfoInputs.cache      |   2 [32m+[m[31m-[m
- front_restaurante/Pages/Ventanas/Auditorias.cshtml |   4 [32m++++[m
- .../Pages/Ventanas/Auditorias.cshtml.cs            |   8 [32m++++++++[m
- front_restaurante/Pages/Ventanas/Categorias.cshtml |   4 [32m++++[m
- .../Pages/Ventanas/Categorias.cshtml.cs            |   8 [32m++++++++[m
- front_restaurante/Pages/Ventanas/Clientes.cshtml   |   4 [32m++++[m
- .../Pages/Ventanas/Clientes.cshtml.cs              |   8 [32m++++++++[m
- front_restaurante/Pages/Ventanas/Compras.cshtml    |   4 [32m++++[m
- front_restaurante/Pages/Ventanas/Compras.cshtml.cs |   8 [32m++++++++[m
- .../Pages/Ventanas/DetalleCompras.cshtml           |   4 [32m++++[m
- .../Pages/Ventanas/DetalleCompras.cshtml.cs        |   8 [32m++++++++[m
- .../Pages/Ventanas/DetallePedidos.cshtml           |   4 [32m++++[m
- .../Pages/Ventanas/DetallePedidos.cshtml.cs        |   8 [32m++++++++[m
- front_restaurante/Pages/Ventanas/Empleados.cshtml  |   4 [32m++++[m
- .../Pages/Ventanas/Empleados.cshtml.cs             |   8 [32m++++++++[m
- front_restaurante/Pages/Ventanas/Facturas.cshtml   |   4 [32m++++[m
- .../Pages/Ventanas/Facturas.cshtml.cs              |   8 [32m++++++++[m
- .../Pages/Ventanas/Ingredientes.cshtml             |   4 [32m++++[m
- .../Pages/Ventanas/Ingredientes.cshtml.cs          |   8 [32m++++++++[m
- .../Pages/Ventanas/Inventarios.cshtml              |   4 [32m++++[m
- .../Pages/Ventanas/Inventarios.cshtml.cs           |   8 [32m++++++++[m
- front_restaurante/Pages/Ventanas/Mesas.cshtml      |   4 [32m++++[m
- front_restaurante/Pages/Ventanas/Mesas.cshtml.cs   |   8 [32m++++++++[m
- .../Pages/Ventanas/MetodoPagos.cshtml              |   4 [32m++++[m
- .../Pages/Ventanas/MetodoPagos.cshtml.cs           |   8 [32m++++++++[m
- front_restaurante/Pages/Ventanas/Pedidos.cshtml    |   4 [32m++++[m
- front_restaurante/Pages/Ventanas/Pedidos.cshtml.cs |   8 [32m++++++++[m
- front_restaurante/Pages/Ventanas/Productos.cshtml  |   4 [32m++++[m
- .../Pages/Ventanas/Productos.cshtml.cs             |   8 [32m++++++++[m
- .../Pages/Ventanas/Proveedores.cshtml              |   4 [32m++++[m
- .../Pages/Ventanas/Proveedores.cshtml.cs           |   8 [32m++++++++[m
- .../Pages/Ventanas/RecetaIngredientes.cshtml       |   4 [32m++++[m
- .../Pages/Ventanas/RecetaIngredientes.cshtml.cs    |   8 [32m++++++++[m
- front_restaurante/Pages/Ventanas/Resenas.cshtml    |   4 [32m++++[m
- front_restaurante/Pages/Ventanas/Resenas.cshtml.cs |   8 [32m++++++++[m
- front_restaurante/Pages/Ventanas/Reservas.cshtml   |   4 [32m++++[m
- .../Pages/Ventanas/Reservas.cshtml.cs              |   8 [32m++++++++[m
- front_restaurante/Pages/Ventanas/Sucursales.cshtml |   4 [32m++++[m
- .../Pages/Ventanas/Sucursales.cshtml.cs            |   8 [32m++++++++[m
- .../Pages/Ventanas/TipoEmpleados.cshtml            |   4 [32m++++[m
- .../Pages/Ventanas/TipoEmpleados.cshtml.cs         |   8 [32m++++++++[m
- front_restaurante/Pages/Ventanas/Turnos.cshtml     |   4 [32m++++[m
- front_restaurante/Pages/Ventanas/Turnos.cshtml.cs  |   8 [32m++++++++[m
- front_restaurante/front_restaurante.csproj         |   4 [32m++++[m
- .../net10.0/mst_pruebasunitarias.AssemblyInfo.cs   |   2 [32m+[m[31m-[m
- .../mst_pruebasunitarias.AssemblyInfoInputs.cache  |   2 [32m+[m[31m-[m
- 50 files changed, 262 insertions(+), 6 deletions(-)
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
+
+namespace front_restaurante.Nucleo
+{
+    public static class ReportePdf
+    {
+        // Columnas que nunca se imprimen
+        private static readonly HashSet<string> Excluidas = new() { "Imagen", "Clave" };
+
+        public static byte[] Generar<T>(string titulo, IEnumerable<T>? lista)
+        {
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            var datos = (lista ?? Enumerable.Empty<T>()).ToList();
+
+            // Solo columnas simples (texto, números, fechas, bool); se saltan objetos y listas
+            var columnas = typeof(T).GetProperties()
+                .Where(p => !Excluidas.Contains(p.Name) && EsSimple(p.PropertyType))
+                .ToList();
+
+            var tamano = columnas.Count > 9 ? 7 : 9;   // letra más pequeña si hay muchas columnas
+
+            return Document.Create(documento =>
+            {
+                documento.Page(pagina =>
+                {
+                    pagina.Size(PageSizes.A4.Landscape());
+                    pagina.Margin(30);
+                    pagina.DefaultTextStyle(x => x.FontSize(tamano));
+
+                    pagina.Header().Column(col =>
+                    {
+                        col.Item().Text($"Reporte de {titulo}").FontSize(18).Bold();
+                        col.Item().Text($"Generado: {DateTime.Now:dd/MM/yyyy HH:mm}");
+                        col.Item().Text($"Total de registros: {datos.Count}");
+                    });
+
+                    if (datos.Count == 0)
+                    {
+                        pagina.Content().PaddingVertical(10).Text("No hay registros para mostrar.");
+                    }
+                    else
+                    {
+                        pagina.Content().PaddingVertical(10).Table(tabla =>
+                        {
+                            tabla.ColumnsDefinition(c =>
+                            {
+                                foreach (var p in columnas)
+                                {
+                                    if (p.Name == "Id") c.ConstantColumn(30);
+                                    else c.RelativeColumn();
+                                }
+                            });
+
+                            tabla.Header(h =>
+                            {
+                                foreach (var p in columnas)
+                                    h.Cell().Element(Encabezado).Text(p.Name).Bold();
+                            });
+
+                            foreach (var item in datos)
+                            {
+                                foreach (var p in columnas)
+                                    tabla.Cell().Element(Celda).Text(Formato(p.GetValue(item)));
+                            }
+                        });
+                    }
+
+                    pagina.Footer().AlignCenter().Text(t =>
+                    {
+                        t.Span("Página ");
+                        t.CurrentPageNumber();
+                        t.Span(" de ");
+                        t.TotalPages();
+                    });
+                });
+            }).GeneratePdf();
+        }
+
+        private static bool EsSimple(Type tipo)
+        {
+            var t = Nullable.GetUnderlyingType(tipo) ?? tipo;
+            return t.IsPrimitive || t.IsEnum
+                || t == typeof(string) || t == typeof(decimal) || t == typeof(DateTime);
+        }
+
+        private static string Formato(object? valor)
+        {
+            return valor switch
+            {
+                null => "",
+                bool b => b ? "Sí" : "No",
+                DateTime f => f.TimeOfDay == TimeSpan.Zero
+                    ? f.ToString("dd/MM/yyyy")
+                    : f.ToString("dd/MM/yyyy HH:mm"),
+                decimal d => d.ToString("N2"),
+                _ => valor.ToString() ?? ""
+            };
+        }
+
+        private static IContainer Encabezado(IContainer c) =>
+            c.Background(Colors.Grey.Lighten2).Padding(4);
+
+        private static IContainer Celda(IContainer c) =>
+            c.BorderBottom(0.5f).BorderColor(Colors.Grey.Lighten1).Padding(4);
+    }
+}
