@@ -39,9 +39,12 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Resenas> Buscar(Resenas entidad)
         {
-
-            return this.IConexion.Resenas!.Include(x => x._Producto).Include(x => x._Cliente)
-                .Where(x => x.Calificacion == entidad.Calificacion).ToList();
+            return this.IConexion.Resenas!
+                .Include(x => x._Producto)
+                .Include(x => x._Cliente)
+                .Where(x => string.IsNullOrEmpty(entidad.Comentario) ||
+                            (x.Comentario != null && x.Comentario.Contains(entidad.Comentario)))
+                .ToList();
         }
 
         public List<Resenas> Consultar()

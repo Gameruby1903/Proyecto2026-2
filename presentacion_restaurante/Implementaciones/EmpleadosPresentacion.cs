@@ -21,7 +21,7 @@ namespace presentacion_restaurante.Implementaciones
                 throw new Exception("No se ha guardo");
 
             // Se lanza la excepción si la información no es válida.
-            if (!Validar(entidad))
+            if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Empleados>(
@@ -67,7 +67,7 @@ namespace presentacion_restaurante.Implementaciones
                 throw new Exception("Ya se guardo");
 
             // Se lanza la excepción si la información no es válida.
-            if (!Validar(entidad))
+            if (Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Empleados>(

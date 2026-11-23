@@ -21,7 +21,7 @@ namespace presentacion_restaurante.Implementaciones
             if (entidad.Id == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Resenas>(
@@ -69,7 +69,7 @@ namespace presentacion_restaurante.Implementaciones
             if (entidad.Fecha == DateTime.MinValue)
                 entidad.Fecha = DateTime.Now;
 
-            if (Validar(entidad))
+            if (!Validar(entidad))
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Resenas>(

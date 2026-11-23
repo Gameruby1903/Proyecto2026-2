@@ -40,8 +40,8 @@ namespace lib_aplicaciones.Implementaciones
         public List<Mesas> Buscar(Mesas entidad)
         {
             return this.IConexion.Mesas!
-
-                .Where(x => x.Numero == entidad.Numero).ToList();
+                .Where(x => entidad.Numero == 0 || x.Numero == entidad.Numero)
+                .ToList();
         }
 
         public List<Mesas> Consultar()

@@ -39,10 +39,11 @@ namespace lib_aplicaciones.Implementaciones
 
         public List<Reservas> Buscar(Reservas entidad)
         {
-
-            return this.IConexion.Reservas!.Include(x => x._Cliente).Include(x => x._Mesa)
-                .Where(x => x.NPersonas== entidad.NPersonas)
-
+            return this.IConexion.Reservas!
+                .Include(x => x._Cliente)
+                .Include(x => x._Mesa)
+                .Where(x => string.IsNullOrEmpty(entidad.Estado) ||
+                            (x.Estado != null && x.Estado.Contains(entidad.Estado)))
                 .ToList();
         }
 
